@@ -1,4 +1,4 @@
-- name: HOME
+- name: Home
   url: /
   icon: home
 - name: Collections
@@ -10,17 +10,17 @@
 - name: Design
   url: /design/
   icon: "&#xe53b;"
-- name: TAGS
+- name: Tags
   url: /tags/
   icon: "&#xe893;"
-- name: FRIENDS
+- name: Friends
   url: /friends/
   icon: "&#xe8a3;"
 - name: Resources
   url: /resources/
   icon: "&#xe8a3;"
-- name: Online EDITOR
-  url: /editor/
-  icon: "&#xe150;"
+# - name: Online EditoR
+#   url: /editor/
+#   icon: "&#xe150;"
 - name: navSearch
   switch: true
