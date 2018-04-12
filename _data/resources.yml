@@ -1,0 +1,14 @@
+- name: Github
+  image: https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png
+  url: https://www.github.com
+  describe:
+
+- name: MDUI
+  image: https://dummyimage.com/40x40/ffffff/000000&amp;text=MDUI
+  url: https://www.mdui.org/
+  describe: 一套用于开发 Material Design 网页的前端框架 A framework of blog that follows Material Design.
+
+- name: Wikipedia
+  image: https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg
+  url: https://wikipedia.org/
+  describe: For Fun

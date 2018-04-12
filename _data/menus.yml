@@ -1,0 +1,26 @@
+- name: HOME
+  url: /
+  icon: home
+- name: Collections
+  url: /category/
+  icon: "&#xe53b;"
+- name: Academic
+  url: /academic/
+  icon: "&#xe53b;"
+- name: Design
+  url: /design/
+  icon: "&#xe53b;"
+- name: TAGS
+  url: /tags/
+  icon: "&#xe893;"
+- name: FRIENDS
+  url: /friends/
+  icon: "&#xe8a3;"
+- name: Resources
+  url: /resources/
+  icon: "&#xe8a3;"
+- name: Online EDITOR
+  url: /editor/
+  icon: "&#xe150;"
+- name: navSearch
+  switch: true
