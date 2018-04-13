@@ -5,7 +5,7 @@
   url:
 
 - name: email
-  url: luxxxlucy@gmail.com
+  url: "mailto:luxxxlucy@gmail.com"
 
 - name: github
   url: https://github.com/LuxxxLucy
