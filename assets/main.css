@@ -7,6 +7,7 @@
 .right{position:relative}
 p{font-size:18px;color:#6b737b;line-height:28px;margin:20px 0}
 .h3{color:#383c43;font-weight:600}
+.h4{font-family:serif ;font-size:15px;color:#383c43;font-weight:600}
 .h6{font-size:12px;color:#6b737b;line-height:28px;margin:20px 0}
 
 #header{height:150px,display: inline-block;}
