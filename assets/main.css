@@ -1,9 +1,3 @@
-canvas{
-  margin: 0;
-  padding: 0;
-  position: fixed;
-  touch-action: none;
-}
 
 morphingBody {
     top: 100px;
