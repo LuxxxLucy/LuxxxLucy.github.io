@@ -1,3 +1,22 @@
+canvas{
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  touch-action: none;
+}
+
+morphingBody {
+    top: 100px;
+    left: 30px;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    background-color: #FFF;
+    touch-action: none;
+    place-content: center;
+    z-index: -1;
+}
+
 @import url(https://rsms.me/inter/inter-ui.css);*{box-sizing:border-box}body{margin:0;padding:0;box-sizing:border-box}body,input,label{font-family:'Inter UI',sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:14px}
 .logo{margin-bottom:25px}
 .main{min-width:250px;max-width:870px;margin:0 auto;padding:100px 28px 28px 28px}
