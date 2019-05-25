@@ -4,8 +4,8 @@ morphingBody::before
 {
   content: '';
   display: block;
-  width: 2000px;
-  height: 2000px;
+  width: 202px;
+  height: 202px;
 
   min-height: 40px;
   min-width: 40px;
@@ -24,18 +24,18 @@ morphingBody::before
   box-shadow: inset 0px -20px 100px rgba(255, 255, 255, 0.6);
   -webkit-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
-  -webkit-transform-style: preserve-3d;
+  /* -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-perspective: 1000px;
-          perspective: 1000px;
+          perspective: 1000px; */
   -webkit-animation:
-    transform 50s ease-in-out infinite both alternate,
-    movement 40s ease-in-out infinite both,
-    shade 60s linear infinite both;
-          animation:
-    transform 50s ease-in-out infinite both alternate,
-    movement 40s ease-in-out infinite both,
-    shade 60s linear infinite both;
+    transform 30s ease-in-out infinite both alternate,
+    /* movement 40s ease-in-out infinite both, */
+    shade 6s linear infinite both;
+    animation:
+    transform 30s ease-in-out infinite both alternate,
+    /* movement 40s ease-in-out infinite both, */
+    shade 6s linear infinite both;
 }
 
 
