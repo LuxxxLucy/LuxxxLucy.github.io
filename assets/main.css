@@ -12,7 +12,9 @@ morphingBody {
 
 
 @import url(https://rsms.me/inter/inter-ui.css);*{box-sizing:border-box}body{margin:0;padding:0;box-sizing:border-box}body,input,label{font-family:'Inter UI',sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:14px}
-.logo{margin-bottom:25px;top:-120px;left: 5px;position: relative;z-index: 1}
+/* .logo{margin-bottom:25px;top:-120px;left: 5px;position: relative;;z-index: 1} */
+.logo{margin-bottom:25px;top:80px;left: 5px;position: relative;;z-index: 1}
+
 .main{min-width:250px;max-width:870px;margin:0 auto;padding:100px 28px 28px 28px}
 .narrow{max-width:510px;margin:0 auto}
 .left,.right{flex:1;width:510px;flex-shrink:0;display:flex}
@@ -22,9 +24,8 @@ p{font-size:18px;color:#6b737b;line-height:28px;margin:20px 0}
 .h3{color:#383c43;font-weight:600}
 .h4{font-family:serif ;font-size:15px;color:#383c43;font-weight:600}
 
-
-.h2{font-size:12px;font-weight: bold;color:#6b737b;line-height:28px;margin:20px 0}
-.h6{font-size:12px;color:#6b737b;line-height:28px;margin:20px 0}
+.h2{font-size:16px;font-weight: bold;color:#6b737b;line-height:28px;margin:20px 0}
+.h6{font-size:12px;color:#6b737b;line-height:28px;margin:10px 0}
 
 
 #header {
@@ -32,7 +33,7 @@ p{font-size:18px;color:#6b737b;line-height:28px;margin:20px 0}
     display: inline-block;
 }
 #header:hover {
-    content: url('./assets/headers/lujialin_photo.jpeg');
+    content: url('./assets/headers/lujialin_photo_2017.jpg');
     height: 70px;
     width: 120px;
 }
