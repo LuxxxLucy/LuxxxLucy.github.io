@@ -4,8 +4,8 @@ morphingBody::before
 {
   content: '';
   display: block;
-  width: 202px;
-  height: 202px;
+  width: 212px;
+  height: 212px;
 
   min-height: 40px;
   min-width: 40px;
