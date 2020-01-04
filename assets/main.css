@@ -15,19 +15,25 @@ morphingBody {
 /* .logo{margin-bottom:25px;top:-120px;left: 5px;position: relative;;z-index: 1} */
 .logo{margin-bottom:25px;top:80px;left: 8px;position: relative;;z-index: 1}
 
+body {
+    font-family:
+    -apple-system
+    /* -apple-system-tall-body */
+    , BlinkMacSystemFont, sans-serif;
+}
+
 .main{min-width:250px;max-width:900px;margin:200 auto;padding:100px 28px 28px 28px}
 .narrow{max-width:570px;margin:0 auto}
 .left,.right{flex:1;width:510px;flex-shrink:0;display:flex}
 .left{justify-content:flex-end}
 .right{position:relative}
-p{font-size:18px;color:#6b737b;line-height:28px;margin:-4px 0}
+/* p{font-size:18px;color:#6b737b;line-height:28px;margin:-4px 0} */
+
+.h2{font-size:24px;font-weight: bold;color:#6b737b;line-height:28px;margin:20px 0}
 .h3{color:#383c43;font-weight:600}
-
-.h4{font-family:serif;font-size:14px;color:#383c43;font-weight:600}
-.h5{font-size:12px;color:#6b737b;margin:0}
-
-.h2{font-size:16px;font-weight: bold;color:#6b737b;line-height:28px;margin:20px 0}
-.h6{font-size:12px;color:#6b737b;line-height:28px;margin:-5px 0}
+.h4{font-size:14px;color:#383c43;font-weight:600;line-height:18px;}
+.h5{font-size:12px;color:#6b737b;margin:-15px 0}
+.h6{font-size:12px;color:#6b737b;margin:0px 0;line-height:16px}
 
 
 #header {
@@ -58,11 +64,11 @@ p{font-size:18px;color:#6b737b;line-height:28px;margin:-4px 0}
 .button{background:#fff;color:#24252a;border-radius:5px;display:block;font-size:16px;font-weight:600;text-align:center;padding:10px 0}
 .button.solo{border:1px rgba(0,0,0,.08) solid;box-shadow:0 4px 7px rgba(0,0,0,.2);display:block;margin:0 2em;text-align:center;text-decoration:none;user-select:none}
 .button.solo:hover{background-color:#383c43;border-color:#383c43;color:#fff}
-.card .title{font-size:26px;line-height:1.3;font-weight:600;flex:1;padding-top:12px;padding-left:12px;}.pin{display:inline-block;width:10px;height:12px;background-image:url(/303ed30636177095386c7aa89c41f6a5d6917e44/95ae5/images/pin.svg);margin-right:3px}
+.card .title{font-size:25px;line-height:1.3;font-weight:bold;flex:1;padding-top:12px;padding-left:12px;}.pin{display:inline-block;width:10px;height:12px;background-image:url(/303ed30636177095386c7aa89c41f6a5d6917e44/95ae5/images/pin.svg);margin-right:3px}
 
-.small_card .title{font-size:12px;line-height:1.3;font-weight:600;flex:1;padding-top:0px;}.pin{display:inline-block;width:10px;height:12px;background-image:url(/303ed30636177095386c7aa89c41f6a5d6917e44/95ae5/images/pin.svg);margin-right:3px}
+.small_card .title{font-size:12px;line-height:1.3;font-weight:bold;flex:1;padding-top:0px;}.pin{display:inline-block;width:10px;height:12px;background-image:url(/303ed30636177095386c7aa89c41f6a5d6917e44/95ae5/images/pin.svg);margin-right:3px}
 
-.tiny_card .title{font-size:12px;line-height:1;font-weight:600;flex:1;padding-top:2px}.pin{display:inline-block;width:10px;height:12px;background-image:url(/303ed30636177095386c7aa89c41f6a5d6917e44/95ae5/images/pin.svg);margin-right:3px}
+.tiny_card .title{font-size:12px;line-height:1;font-weight:bold;flex:1;padding-top:2px}.pin{display:inline-block;width:10px;height:12px;background-image:url(/303ed30636177095386c7aa89c41f6a5d6917e44/95ae5/images/pin.svg);margin-right:3px}
 
 
 .imprint,.imprint a{font-size:12px;color:#6b737b}
@@ -81,8 +87,8 @@ label{font-weight:700;display:block;font-size:18px;color:#383c43}
 .submit{background-color:#f0f0f0;border:1px solid #f0f0f0;padding:0 30px;margin-left:14px;font-size:14px;cursor:pointer}
 input{padding:10px 14px;font-size:14px;border:0;outline:0;margin:0;-webkit-appearance:none;transition:all .4s ease}
 input:focus{border-color:#2b96f1}@-webkit-keyframes alert{0%{opacity:0;transform:translateY(40px)}80%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:translateY(0)}}@keyframes alert{0%{opacity:0;transform:translateY(40px)}80%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:translateY(0)}}
-.social{text-decoration:none;font-size:14px;font-weight:600;color:#383c43;margin-right:30px}
-.social-icon{margin-right:-20px;transform:translateY(3px);width:15px;height:15px}
+.social{text-decoration:none;font-size:14px;font-weight:600;color:#383c43}
+.social-icon{margin-right:0px;transform:translateY(3px);width:15px;height:15px}
 @media(max-width:600px){.main{width:100%;padding-top:28px}.cookie_banner{position:static}}
 @media(max-width:750px){.newsletter{position:relative;display:block;right:0;bottom:0;width:80%;margin:50px auto;-moz-animation:none;-webkit-animation:none;animation:none}
 .newsletter .close{display:none}}
