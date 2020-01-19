@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Tangle document</title>
+
+    <!-- Tangle -->
+    <script type="text/javascript" src="../style_base/tangle_css_base/Tangle.js"></script>
+
+    <!-- TangleKit (optional) -->
+    <link rel="stylesheet" href="../style_base/tangle_css_base/TangleKit/TangleKit.css" type="text/css">
+    <script type="text/javascript" src="../style_base/tangle_css_base/TangleKit/mootools.js"></script>
+    <script type="text/javascript" src="../style_base/tangle_css_base/TangleKit/sprintf.js"></script>
+    <script type="text/javascript" src="../style_base/tangle_css_base/TangleKit/BVTouchable.js"></script>
+    <script type="text/javascript" src="../style_base/tangle_css_base/TangleKit/TangleKit.js"></script>
+
+    <!-- For computation -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.2.5/math.js"></script>
+
+
+    <!-- example -->
+    <script type="text/javascript">
+
+        function setUpTangle () {
+
+            var element = document.getElementById("figure_1");
+
+            var tangle = new Tangle(element, {
+                initialize: function () {
+                    this.num_intl_case = 3;
+                    this.num_intl_passenger = 3301;
+                    this.catchment_in_million = 19;
+                    this.detection_window = 10;
+                },
+                update: function () {
+                    catchment = this.catchment_in_million * 1000000;
+                    p = this.num_intl_passenger / catchment * this.detection_window;
+                    this.num_case = math.round(this.num_intl_case / p) ;
+                }
+            });
+        }
+
+    </script>
+</head>
+
+<body onload="setUpTangle();">
+
+    <p><em><strong>Drag on the numbers to change the value.</strong></em></p>
+
+    <p id="figure_1">
+        Suppose we have  <span data-var="num_intl_case" class="TKNumberField" data-min="0" data-max="1000">  confirmed cases abroad</span> <label  class="margin-toggle sidenote-number"></label><input type="checkbox" class="margin-toggle"><span class="sidenote"> Number of cases confirmed with severity (that need hospitalisation)</span>.
+
+        <br>
+        <br>
+        Let us further assume that everyday, <span data-var="num_intl_passenger" class="TKAdjustableNumber" data-min="1000" data-max="10000"> passengers go abroad</span> from the  Wuhan Airport.
+        <br>
+        The population of Wuhan City that live near by the Wuhan Airport is <span data-var="catchment_in_million" class="TKAdjustableNumber" data-min="1" data-max="1000"> million</span>
+        <label  class="margin-toggle sidenote-number"></label><input type="checkbox" class="margin-toggle"><span class="sidenote"> The catchment population of Wuhan Airport area</span>
+         and the duration window of 2019-nCoV is <em><span data-var="detection_window" class="TKAdjustableNumber" data-min="1" data-max="30"> days</span></em> (including incubation and the develop of symptoms until detection).
+
+
+        <br>
+        <br>
+        Then the estimated total number of cases in Wuhan is <b data-var="num_case"> </b>.
+
+        <br>
+        <br>
+
+        <br>
+        <br>
+
+        <br>
+        <br>
+    </p>
+
+</body>
+</html>

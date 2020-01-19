@@ -1,0 +1,1127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Edward Tufte forum: Book design: advice and examples</title>
+	<link rel="stylesheet" type="text/css" href="/tufte/tufte.css" media="all">
+	<link type="text/css" rel="stylesheet" href="https://fast.fonts.net/cssapi/2a165052-7063-42bb-b91f-d4f35d57f2ed.css"/>
+	<script src="/tufte/tufte.js" type="text/javascript"></script>
+
+<script src="/js-global/FancyZoom.js" type="text/javascript"></script>
+<script src="/js-global/FancyZoomHTML.js" type="text/javascript"></script>
+	
+
+
+
+<script language='JavaScript1.1' async src='//pixel.mathtag.com/event/js?mt_id=1229400&mt_adid=174769&mt_exem=&mt_excl=&v1=&v2=&v3=&s1=&s2=&s3='></script>
+
+<div id="ttdUniversalPixelTagfd6cb16e3ebd426fb3ed23f853a6f9e5" style="display:none">
+<script src="https://js.adsrvr.org/up_loader.1.1.0.js" type="text/javascript"></script>
+<script type="text/javascript">
+  (function(global) {
+    if (typeof TTDUniversalPixelApi === 'function') {
+			var universalPixelApi = new TTDUniversalPixelApi();
+			universalPixelApi.init("das0vmi", ["bamaobr"], "https://insight.adsrvr.org/track/up", "ttdUniversalPixelTagfd6cb16e3ebd426fb3ed23f853a6f9e5");
+    }
+  })(this);
+</script>
+</div>
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MSVHHJW');</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSVHHJW" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	
+</head>
+<body BGCOLOR="#FFFFF3" text="#000000" link="#FF0000" vlink="#660000" alink="#660000" onload="setupZoom()">
+
+
+<center>
+
+<div id="content"> 
+
+
+<div id='responsive_navbar'>
+	<div id='responsive_navbar_left'><a href='/tufte' class='link'>EDWARD TUFTE</a></div>
+	<div id='responsive_navbar_right'><a href='javascript:toggleNavbar()'><img src='/tufte/graphics/hamburger.png' height=30 width=30 border=0></a></div>
+</div>
+	
+<div id='navbar'>
+	<div id='links'>
+		<div class='box first_box'><a class="link" href="/tufte/">HOME</a></div>
+		<div class='box'><a class='link' href='/tufte/books_vdqi'>BOOKS</a></div>
+		<div class='box'><a class='link' href='/tufte/courses'>ONE-DAY COURSE</a></div>
+		<div class='box'><a class='link' href='/bboard/q-and-a?topic_id=1'>ET NOTEBOOKS</a></div>
+		<div class='box'><a class='link' href='/tufte/sculpture'>SCULPTURE</a></div>
+		<div class='box'><a class='link' href='/tufte/fineart'>PRINTS</a></div>
+		<div class='box'><a class='link' href='/tufte/posters'>POSTERS, GRAPH PAPER</a></div>
+		<div class='box'><a class='link' href='/bboard/q-and-a-fetch-msg?msg_id=0003mW'>ABOUT ET</a></div>
+		<div class='box'>
+		<a class='link' href='/ecommerce/shopping-cart'><img class="cart_link" src='/tufte/graphics/cart-off.png' border=0 width=19 height=16></a>
+		<a class='link' href='/ecommerce/shopping-cart'>CART</a>
+		</div>
+	
+		<div class='box social_links'> 
+
+		<table width=180 cellpadding=3 border=0>
+		<tr>
+		<td><a href=http://www.facebook.com/EdwardTufte><img src=/tufte/graphics/facebook-on.png border=0 width=13 height=13 onmouseover="this.src='/tufte/graphics/facebook-off.png';" onmouseout="this.src='/tufte/graphics/facebook-on.png';"></a></td>
+		<td><a href=http://twitter.com/EdwardTufte><img src=/tufte/graphics/twitter-on.png border=0 width=16 height=16 onmouseover="this.src='/tufte/graphics/twitter-off.png';" onmouseout="this.src='/tufte/graphics/twitter-on.png';"></a></td>
+		<td><a href=http://vimeo.com/et><img src=/tufte/graphics/vimeo-on.png border=0 width=13 height=13 onmouseover="this.src='/tufte/graphics/vimeo-off.png';" onmouseout="this.src='/tufte/graphics/vimeo-on.png';"></a></td>
+		<td><a href=http://www.youtube.com/EdwardTufte><img src=/tufte/graphics/youtube1-on.png border=0 width=36 height=13 onmouseover="this.src='/tufte/graphics/youtube1-off.png';" onmouseout="this.src='/tufte/graphics/youtube1-on.png';"></a></td>
+		<td><a href=http://itunes.apple.com/us/podcast/edward-tufte-art-and-science/id297775181><img src=/tufte/graphics/itunes-on.png border=0 width=50 height=11 onmouseover="this.src='/tufte/graphics/itunes-off.png';" onmouseout="this.src='/tufte/graphics/itunes-on.png';"></a></td>
+		<td><a href=/bboard/asket.xml><img src=/tufte/graphics/RSS-col.png border=0 width=35 height=11 onmouseover="this.src='/tufte/graphics/RSS-bw.png';" onmouseout="this.src='/tufte/graphics/RSS-col.png';"></a></td>
+		</tr>
+		</table>
+
+		</div>
+	</div>
+	
+	<div class='search_line'>
+		<form action="/tufte/search-results.adp" id="cse-search-box">
+		<input type="hidden" name="cx" value="011386659382870324220:lt4whxgknee" />
+		<input type="hidden" name="cof" value="FORID:10;NB:1" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="search_box" value="SITE SEARCH" onfocus="if(this.value=='SITE SEARCH')this.value='';">
+		</form>
+	</div>
+</div><div id='bboard_menubar_links'><a href=q-and-a-new-answers?topic_id=1>Current Topics</a> | <a href=q-and-a?topic_id=1>All Topics</a></div>
+
+
+<style>
+#navbar {padding-left: 0px;}
+
+#bboard_header_ad_table {
+	text-align: left;
+	margin-top: 30px;
+	margin-bottom: 35px;
+}
+
+#bboard_content {
+	display: inline-block;
+	width: 940px;
+	max-width: 100%;
+}
+
+#bboard_menubar_links {
+	margin-top: -20px; 
+	margin-bottom: 0px;
+}
+
+@media (max-width:700px) {
+	#bboard_header_ad_table {
+		display: none;
+	}
+
+	#bboard_menubar_links {
+		display: none;
+	}
+
+	#content {
+		margin: 5px;
+	}
+}
+
+.bboard_body {
+	text-align: left;
+}
+
+.bboard_title {
+	font-size: 1.35em;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#bboard_social_links {
+	float: right;
+}
+
+#bboard_social_links_inner .bboard-links {display: none}
+
+@media (max-width:700px) {
+	.bboard_body img {
+		display: block;
+		max-width: 100% !important;
+		height: auto !important;
+	}
+
+	#be_quotes br,
+	.bboard_body br {
+		display: none
+	}
+
+	#bboard_social_links {
+		float: none;
+		display: block;
+		text-align: right;
+		clear: both;
+		margin-bottom: 10px;
+	}
+
+	#bboard_social_links_inner {width: 100%}
+	#bboard_social_links_inner .bboard-links {display: table-cell; vertical-align: middle; width: 100%; text-align: left;}
+
+	#tag_table {
+		display: none;
+	}
+}
+
+.course-promote-double-wide {}
+
+@media (min-width:1310px) {
+	.course-promote-double-wide {margin: 0px -140px;}
+}
+
+</style>
+
+<script type="text/javascript">
+if (navigator.appName=="Netscape") {
+  width = document.body.offsetWidth - 50;
+} else {
+  width = document.body.offsetWidth - 85;
+}
+
+stylesheet = document.styleSheets[0];
+
+if (stylesheet.cssRules)
+	rules = stylesheet.cssRules
+else if (stylesheet.rules)
+	rules = stylesheet.rules;
+
+// Take the last element of the style sheet
+rules[0].style.width = width;
+</script>
+
+<div>
+<TABLE id="bboard_header_ad_table" border="0" CELLPADDING="0" CELLSPACING="0">
+
+<tr valign=top>
+	<td width=300 style="margin-right: 10px">
+
+<b>All 4 books by Edward Tufte now in</br>
+paperback editions, $100 for all 4</b>
+<em>
+<div style="padding-left:8pt;">Visual Display of Quantitative Information</div>
+<div style="padding-left:8pt;">Envisioning Information</div>
+<div style="padding-left:8pt;">Visual Explanations</div>
+<div style="padding-left:8pt;">Beautiful Evidence</div></em>
+Paper/printing = original clothbound books.
+<br>Only available through ET's Graphics Press: 
+<br><a href="http://www.edwardtufte.com/tufte/books_be">catalog + shopping cart</a>
+
+<div style="margin-top: 12px">All 4 clothbound books, autographed by the author $180
+<br><a href="http://www.edwardtufte.com/tufte/books_be">catalog + shopping cart</a>	
+	</td>
+	<td width=300 style="margin-right: 8px">
+
+<b>Edward Tufte e-books</b><br>
+Immediate download to any computer:</b>
+
+
+<em>
+<div style="padding-left:8pt;">Visual and Statistical Thinking <span style="font-size: 0.9em">$5</span></div>
+<div style="padding-left:8pt;">The Cognitive Style of Powerpoint <span style="font-size: 0.9em">$5</span></div>
+<div style="padding-left:8pt;">Seeing Around + Feynman Diagrams <span style="font-size: 0.9em">$5</span></div>
+<div style="padding-left:8pt;">Data Analysis for Politics and Policy <span style="font-size: 0.9em">$9</span></div></em>
+<a href="http://www.edwardtufte.com/tufte/ebooks">catalog + shopping cart</a>
+	
+	</td>
+	<td width=300>
+	
+<b>Edward Tufte one-day course,<br>
+Presenting Data and Information</b>
+
+<div style="padding-left:8pt;">Austin TX, January   27, 28</div>
+<div style="padding-left:8pt;">Houston TX, January   30, 31</div>
+<div style="padding-left:8pt;">Arlington VA, February  24, 25, 26</div>
+
+<div><a href="http://www.edwardtufte.com/tufte/courses">catalog + registration</a></div>
+	
+	</td>
+  </tr>
+</table>
+
+</div>
+
+<div class="course-promote-double-wide" style="text-align: center;">
+<div style="text-align: center; margin-bottom: 10px;"><a href="/tufte/courses">Click here</a> for more information about ET's course and to register.</div>
+<div style="text-align: center; margin-bottom: 25px; display: inline-block;"><a href="/tufte/courses"><img src="/tufte/graphics/course-promote-jan-2020.png" style="max-width: 100%; border: 1px solid rgb(180, 180, 180);"></a></div>
+<div style="text-align: center; margin-bottom: 25px; display: inline-block;"><a href="/tufte/courses"><img src="/tufte/graphics/course-promote-feb-2020.png" style="max-width: 100%; border: 1px solid rgb(180, 180, 180);"></a></div>
+</div>
+
+<div id="bboard_content">
+
+<div class="bboard_body"> 
+	<div id="bboard_social_links">
+		<div id="bboard_social_links_inner">
+			<div class="bboard-links"><a href=q-and-a-new-answers?topic_id=1>Current Topics</a> | <a href=q-and-a?topic_id=1>All Topics</a></div>
+			<div style="display: table-cell; vertical-align: middle; padding-right: 3px;">
+		<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+		<g:plusone count="false"></g:plusone>
+	</div>
+			<div style="display: table-cell; vertical-align: middle;"><a href="http://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script></div>
+		</div>
+	</div>
+
+	<div class="bboard_title">Book design: advice and examples</div>
+	<div style="clear: both;"><p>
+<p>I am in the process of developing a book on nuclear medicine imaging of the heart to accompany a course.  Is there a good reference on book design?  
+    <p>-- Fred Weiland (<a href=/tufte/email?msg_id=0000hB>email</a>)<br clear=all></div>
+	<hr align=left size=1 noshade color=#666666>
+</div>
+
+<a name=responses>
+
+
+		<div class='bboard_body'> 
+		<p><i>Response to book design</i>
+<p> <p>Find a few well-designed books in your field (that is, medicine and science) and follow those architectures. Even better find out who designed those books and turn the job over to a professional whose work you respect. 
+
+<p>Textbook design these days tends toward over-produced, self-conscious, content-unconscious arrangements. Maybe look at older classic textbooks. 
+
+<p>Ruari McLean has published several excellent books on book design and typography. Robert Bringhurst's <i>The Elements of Typographic Style</i> is superb.
+
+<p>To do the book yourself requires the use of a serious page-layout program, either Quark XPress or Adobe InDesign, backed up by PhotoShop and Illustrator. You can get help from nearly any student of graphic design, who will know XPress or InDesign. Book design at a high level requires a great deal of professional skill and hard work, and, I believe, close collaboration with the author. 
+
+<p>If you have colleagues in medical illustration and medical informatics, they might be able to suggest a designer.
+
+<p>One strategy to do this relatively inexpensively is to find a recent MFA in book design and typography, show them exactly what you want by means of exemplars, and work with them closely on the page layout to insure, among other things, that the images fall properly in relation to the text.
+
+<p>But the first and most important step is to identify good examples of what you want; just go through your library.  
+    <p>-- Edward Tufte<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Further references</i>
+<p> <p>I heartily agree with Dr Tufte on looking at Ruari McLean's work especially Ruari McLean's <i><a target="_blank" href="http://www.amazon.com/Thames-Hudson-Manual-Typography-Manuals/dp/0500680221">The Thames and Hudson Manual of Typography</a></i> and also at Robert Bringhurst's <i><a target="_blank" href="http://www.amazon.com/The-Elements-Typographic-Style-Anniversary/dp/0881792128">The elements of typographic style</a></i>. I would like to add Adrian Wilson's <i><a target="_blank" href="http://www.amazon.com/Design-Books-Adrian-Wilson/dp/081180304X">The design of books</a></i> and Hugh Williamson's <i><a target="_blank" href="http://www.amazon.com/Methods-Design-Edition-Practice-Industrial/dp/0300030355">Methods of book design</a></i>. Both are excellent guides to the design and production of a book. The latter offers an excellent if a little dated guide to the industrial process of producing a book.</p>
+
+<p>
+I'd also like to suggest an addition to the list of  software that can be used to produce a book. TeX and it's derivatives LateX and ConTeXt are often used to produce scientific publications especially those that have a lot of equations and they excel at producing structured documents such as textbooks (many Springer-Verlag and Cambridge University Press titles are produced from camera ready copy or PDFs provided by the author and generated using TeX). TeX's biggest drawback is that it is not a WYSIWYG application and that visual formatting is done iteratively. Nevertheless I have used TeX/LaTeX for papers, a great many handouts and several grants and found that I could follow the Tufte guidelines and place figures alongside relevant text rather easily. The quality of the typography is excellent and automated (e.g. fi is replaced by the appropriate ligature without hunting through the symbol tables). More information on TeX and free versions of the software are available at <a target="_blank" href="http://www.tug.org"> the TeX Users Group website</a>.  
+    <p>-- John Walker (<a href=/tufte/email?msg_id=0000hu>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Bringhurst to web design</i>
+<p> <p>There's an interesting new enterprise now under construction: Richard Rutter's <i><a target="_blank" href="http://webtypography.net/">The Elements of Typographic Style for the Web</a></i>. He's taking the central principles of Robert Bringhurst's essential text and applying them to web site design, with not only a discussion of aesthetic issues but with coding examples as well. The initial pages indicate this will be an important resource not only for web site design but for anything meant to be viewed on a computer screen.</p>
+
+<a target="_blank" href="http://webtypography.net/"><img src="https://s3.amazonaws.com/edwardtufte.com/typographic_style_web_intro.png" alt="Elements of Typographic Style for the Web" style="width:800ps;height:433.6px;"></a>
+
+<p>For example,</p>
+
+<a target="_blank" href="http://webtypography.net/2.1.1"><img src="https://s3.amazonaws.com/edwardtufte.com/typographic_style_web_example.png" alt="Elements of Typographic Style for the Web" style="width:800ps;height:501px;"></a>  
+    <p>-- Steve Sprague (<a href=/tufte/email?msg_id=00024y>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Textbook design</i>
+<p> <p>ET rightly recommends studying well-designed textbooks.  Perhaps in this thread we can collect our favorites.  So, what are yours?
+
+<p>A few of mine are:
+<ul>
+<li>The <i>Feynman Lectures</i>.
+<li>Mark Denny, <i>Air and Water</i>.
+<li>MacQuarrie, <i>Quantum Chemistry</i>.
+<li>Graham, Knuth, Patashnik, <i>Concrete Mathematics</i> (the same Knuth of <a target="_blank" href="http://www.tug.org">TeX</a> fame).
+</ul>
+
+<p>Perhaps because it is hard to do, none of these texts integrate figures with text, the topic of <a target="_blank" href="https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=00004p">this thread</a> and what I'll try for my textbook on the <i>Art of Approximation</i>.  One that does integrate them is Veltman's <i>Diagrammatica</i>, mentioned in this <a target="_blank" href="https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001TV&topic_id=1&topic=a"><i>Beautiful Evidence</i> chapter</a> on page 13.  The reproduced selections look very good, but I haven't seen the book itself so I haven't yet added it to my list.
+  
+    <p>-- Sanjoy Mahajan (<a href=/tufte/email?msg_id=0002Ht>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Good and bad examples</i>
+<p> I have <i>The Feyman Lectures</i> and also <i>Concrete Mathematics</i>; both are 
+beautifully designed.<p> It is also notable that the Feynman lectures (3 volumes) write 
+about 
+all of physics in 1800 pages, using only 2 levels of hierarchical headings: chapters and A-level heads 
+in the text. It also uses the methodology of <i>sentences</I> which then cumulate sequentially 
+into <i>paragraphs</i>, rather than the grunts of bullet points. Undergraduate Caltech physics is very complicated 
+material, but it didn't require an elaborate hierarchy to organize. A useful decision rule in 
+thinking and showing is "What would Feynman do?"
+<p>
+
+Ironically, Donald Norman's book <i>The Design of Everyday Things</i> has a famously 
+clunky design, with illustrations awkwardly placed distant from their relevant text, mediocre typography and layout, and muddy images. 
+<p>
+
+It would be helpful to provide a few spreads from the books mentioned in this thread. I'll 
+try 
+to do this in the next few days; other contributors should do the same.  
+    <p>-- Edward Tufte<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Book design examples (and posting images on this forum)</i>
+<p> <p>The <cite>Feynman Lectures</cite> come in several volumes, so I would count the project as using 2.5 levels of hierarchy.  But for 1800 pages on a difficult subject, what an achievement!  And what a contrast with current introductory physics textbooks, which are <a target="_blank" href="http://arxiv.org/abs/physics/0412107">exorbitant, overweight, and often incorrect</a> and have a fragmented, distracting, hyper-colored layout.  
+    <p>-- Sanjoy Mahajan (<a href=/tufte/email?msg_id=0002Hz>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Auction catalogs as content-oriented design</i>
+<p> Auction catalog and antiquarian book catalog design are often very good, indeed among the best book designs around. These page layouts below show off the objects at auction. The layouts are straightforward, workaday, routine, powerfully focused on content, and excellent. There's nothing like an auction to concentrate the mind on desirable objects. <p>The high-end auction houses use the same templates over and over in their catalogs; what varies among catalogs is the content, not the underlying design. These auction catalog layouts are also distinctly superior to today's fussy, hierarchical, and over-produced textbook designs. For several recent textbooks in art history and science, the designer bureaucracy has actively damaged the content. <p> Here then are 12 doublepage spreads from recent Christie's and Sotheby's auction catalogs for auctions in Paris, London, and New York. There are hundreds of other such page layouts from recent auction catalogs that are as good. <p>
+
+The first 4 doublepage spreads below from Christies's Paris, <i>Importants livres anciens, cartographie,  livres d'artistes et manuscripts,</i> 9 juin 2006, 8-9, 28-29, 92-93, 148-149:
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=433 width=650 src=/bboard/images/0002I7-2634.jpg ></td>
+      </tr>  
+    </table>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=423 width=650 src=/bboard/images/0002I7-2635.jpg ></td>
+      </tr>  
+    </table>
+<p>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=423 width=650 src=/bboard/images/0002I7-2632.jpg ></td>
+      </tr>  
+    </table>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=439 width=650 src=/bboard/images/0002I7-2633.jpg ></td>
+      </tr>  
+    </table>
+<br><p>
+
+The 2 doublepage spreads below are from Christie's London, <i>Natural history, Plate Books, and Cartography,</i> 7 June 2006, 18-19, 92-93. Immediately below, on the lefthand page, a letter by Charles Darwin is shown and described; on the righthand page, a Darwin manuscript at the top, and at the bottom, in a fine parallel, the printed text of the publication resulting from the manuscript above.
+
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=441 width=650 src=/bboard/images/0002I7-2643.jpg ></td>
+      </tr>  
+    </table>
+
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=427 width=650 src=/bboard/images/0002I7-2644.jpg ></td>
+      </tr>  
+    </table>
+<p>
+The 2 doublepage spreads below are from Sotheby's Paris, <i>Bibliotheque du Baron Alain de Rothschild,</i> 24 mai 2006, 114-115, 120-121:
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=430 width=650 src=/bboard/images/0002I7-2646.jpg ></td>
+      </tr>  
+    </table>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=431 width=650 src=/bboard/images/0002I7-2653.jpg ></td>
+      </tr>  
+    </table>
+<p>
+The doublespread below is from Christies's New York, <i>Indian and Southeast Asian Art,</i> 30 March 2006, 84-85:
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=434 width=650 src=/bboard/images/0002I7-2656.jpg ></td>
+      </tr>  
+    </table>
+<p>
+<p>
+The doublepage spread below is from Sotheby's New York, <i>The Edwin & Mary Triestman Collection of Important Glass,</i> 14 June 2006, 24-25:
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=432 width=650 src=/bboard/images/0002I7-2658.jpg ></td>
+      </tr>  
+    </table>
+<p>  
+    <p>-- Edward Tufte<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Book design examples</i>
+<p> <p>The auction catalogs are beautiful!  
+
+<p>A book that I just learnt of (thanks to Robin Benson of Southampton) and that perhaps rivals those catalogs is the <cite>Historical atlas of the United States</cite> by the National Geographic Society (Washington, DC, 1993).  You don't want the later edition, <cite>National Geographic Historical Atlas of the United States</cite> (2004), which hardly compares in grandeur or design.
+
+<p>The 1993 edition comes in two varieties, ISBN 0870449702 or 0870449710 (deluxe).  Now I'm not sure which one I saw at the university library, but it was giant.  The 12.5x18.8 inches given for the page size is about right, and I'm trying to figure out how to logistically and legally get it near a large-enough scanner, otherwise perhaps left and right pages separately and then joined.  In England, "fair use" (known as "fair dealing" here) is quite restricted especially for acts that you don't do personally (e.g. when you request a library to make a copy or scan of a non-circulating book).
+
+<p>Each spread in the atlas, which covers a theme and time, has maybe 20 figures, drawings, or maps with explanations -- and of all sizes and shapes and colors -- and also introductory text.  
+    <p>-- Sanjoy Mahajan (<a href=/tufte/email?msg_id=0002IB>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Beautiful Evidence, and LaTeX</i>
+<p> <p>Like all the others who have commented, I was delighted with my copy of <cite>Beautiful Evidence</cite> when I received it about three weeks ago. However, I didn't immediately say so here because I wanted to write some unbiased comments for Amazon first. It made no difference because, unbiassed or not, one can hardly avoid superlatives when writing about it.
+
+<p>Like, I imagine, most readers who read them with an open mind, I am thoroughly convinced by the arguments for embedding images in the text at exactly the places where they are relevant, but I am curious about the software used to achieve this in the book. For articles published in periodicals one is normally forced to follow the editorial practices of the periodical, no matter how stupid they may be, but for books one may have a little more control, even without going to the extreme of setting up one's own publishing house. (I'd love to be able to emulate Graphics Press and have complete control over everything, but that must involve a large investment of time, effort and money.) The references to Microsoft Word in <cite>Beautiful Evidence</cite> suggest that this was used at some stage, but surely not for the complete layout of the book? I'd be prepared to invest in a complete layout program if I could be sure if would let me do things the way I want and not insist on imposing the software designer's choices.
+
+<p>In this connection it is pertinent to mention L<sup>A</sup>T<sub>E</sub>X, which I have recently started to use for preparing scientific articles, because it illustrates very well both the advantages and  disadvantages of a page layout program. On the one hand the typographical choices that it makes are expert ones, and a huge improvement on many people's amateurish ideas of typography, but on the other hand it makes it difficult or impossible to do anything differently from what Donald Knuth decided.  
+    <p>-- Athel Cornish-Bowden (<a href=/tufte/email?msg_id=0002Me>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>LaTeX</i>
+<p> <p>The best bet for a single book on LaTeX would be Kopka and Daly's <i><a target="_blank" href="http://www.amazon.com/Guide-LaTeX-Edition-Helmut-Kopka/dp/0321173856">A Guide to LaTeX</a></i>. The LaTeX Companion Series (3 vols) by Mittelbach and others are great sources of information and the <a target="_blank" href="http://www.tug.org">TeX user group</a> has many good recommendations. 
+
+<p>Best of all is looking at the source code of a page you like and reusing the code -- this is one of the strengths of LaTeX over pure GUI applications.
+
+<p>As far as fonts go, I used a set I purchased from <a href="www.fontsite.com">fontsite.com</a> that have a set of LaTeX files available (I have no relationship with fontsite other than I have been a customer). But there are similar latex font files available at the TeX user group website for many commercially available fonts.  
+    <p>-- John Walker (<a href=/tufte/email?msg_id=0002MX>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Auction catalogs: clean unobtrusive design for showing beautiful objects</i>
+<p> <p>
+These straightforward designs celebrate and document the objects for sale.<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=585 width=650 src=/bboard/images/0002N9-2906.jpg ></td>
+      </tr>  
+    </table>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=606 width=650 src=/bboard/images/0002N9-2907.jpg ></td>
+      </tr>  
+    </table>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=597 width=650 src=/bboard/images/0002N9-2908.jpg ></td>
+      </tr>  
+    </table>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=582 width=650 src=/bboard/images/0002N9-2909.jpg ></td>
+      </tr>  
+    </table>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=598 width=650 src=/bboard/images/0002N9-2905.jpg ></td>
+      </tr>  
+    </table>
+<p>
+The above pages are from:
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=81 width=500 src=/bboard/images/0002N9-2912.gif ></td>
+      </tr>  
+    </table>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=456 width=500 src=/bboard/images/0002N9-2913.gif ></td>
+      </tr>  
+    </table>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=143 width=500 src=/bboard/images/0002N9-2914.gif ></td>
+      </tr>  
+    </table>
+<p>  
+    <p>-- Edward Tufte<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>LaTeX</i>
+<p> <p>
+I would very much recommend the <a target="_blank" href="https://www.ctan.org/tex-archive/macros/latex/contrib/memoir?lang=en">Memoir class</a>, and its <a target="_blank" href="http://tug.ctan.org/tex-archive/macros/latex/contrib/memoir/memman.pdf">excellent manual</a>.
+<p>
+Actually, I would recommend the first half of that manual as a good answer to the initial question on book design in general.  It takes an approach of spending about 40 pages discussing design in general, before delving into the subject of how to implement the ideas in LaTeX.
+<p>
+I should note, also, that the "hard to do anything different than the defaults" problem with LaTeX is due much more to Lamport and LaTeX rather than due to Knuth and TeX itself.  And it's a problem of the document classes, rather than the underlying system -- the standard document classes (article, book, etc.) really should be considered more as simple functional examples rather than the final word in doing things, and I believe that was Lamport's intention when he wrote them.  The Memoir class is a far more flexible document class, and should be much more what you're looking for.
+  
+    <p>-- Brooks Moses (<a href=/tufte/email?msg_id=0002SR>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>LaTeX</i>
+<p> <p>The <em>memoir</em> class is well worth knowing about, and the manual is indeed excellent.
+
+<p>When I read the suggestion I thought I was going to have to search for the package and install it, but it was a pleasant surprise to find that it was already installed and ready to use. This is one of the nicest things I've been learning about LaTeX: many of the packages I want to use turn out to be already present in a standard installation.
+
+  
+    <p>-- Athel Cornish-Bowden (<a href=/tufte/email?msg_id=0002Sa>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Henning Nelms</i>
+<p> <p>Henning Nelms wrote and illustrated several excellent books: <i>Thinking with a Pencil</i> (1981)<br> and the classic <i>Magic and Showmanship: A Handbook for Conjurers</i> (1969). A few of his illustrations<br> of magic appear in my <i>Visual Explanations</i>.<p> Below, from <i>Thinking with a Pencil</i>:  
+<P>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=842 width=500 src=/bboard/images/0002Sn-3354.gif ></td>
+      </tr>  
+    </table>
+<P>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=850 width=500 src=/bboard/images/0002Sn-3355.gif ></td>
+      </tr>  
+    </table>
+<P>
+  
+    <p>-- Edward Tufte<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Response to Book design</i>
+<p> <p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=518 width=719 src=/bboard/images/0002UF-3431.jpg ></td>
+      </tr>  
+    </table>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=1201 width=747 src=/bboard/images/0002UF-3432.jpg ></td>
+      </tr>  
+    </table>
+<br>
+Source: Catalog, September 2006, from Sokol Books Ltd., P.O. Box 2409, London, W1A 2SH, UK.
+<p>
+  
+    <p>-- Edward Tufte<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Auction catalogs</i>
+<p> <p>More from recent auction catalogues; visual statements about beautiful books at auction, not designer statements. <p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=789 width=600 src=/bboard/images/0002sk-4297.jpg ></td>
+      </tr>  
+    </table><br>
+Source: Christies's London, <i>Photobooks,</i> 31 May 2007, 67
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=725 width=600 src=/bboard/images/0002sk-4298.jpg ></td>
+      </tr>  
+    </table><br>
+Source: Christies's London,<i>Photobooks,</i> 31 May 2007, 76
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=783 width=600 src=/bboard/images/0002sk-4299.jpg ></td>
+      </tr>  
+    </table><br>
+Source: Christies's London, <i>Photobooks,</i> 31 May 2007, 94
+<p>  
+    <p>-- Edward Tufte<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>LaTeX</i>
+<p> <p>Regarding my "I've been meaning to package my `Tufte-report' LaTeX class and release it to CTAN" post above. Well, I've finally managed to get an open source project set up <a target="_blank" href="https://tufte-latex.github.io/tufte-latex/">on github</a>.  Contributors welcome.</p>
+
+<a target="_blank" href="http://people.ucsc.edu/~weissman/MathClubTalk2009.pdf"><img src="https://s3.amazonaws.com/edwardtufte.com/LaTeX_tufte.png" alt="Tufte in LaTeX" style="width:800px;height:924px;"></a>  
+    <p>-- Bil Kleb (<a href=/tufte/email?msg_id=00030k>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Paper Odor as a element of book design</i>
+<p>My wife introduced me to a book for the parents and caregivers of autistic children, not so much to read, but she was reading it (she's an occupational therapist), and I smelled the pages from across the room! It's brand new. We're debating what the smell might be. The clay, the coating, the glue? Oh, it stinks. Considering this is a book destined for the homes of autistic children, who are typically severely hostile to new sensory experiences, this seems to be a predictable problem.<p><p>Do publishers ask authors to preview the paper their books will be printed on before printing begins?   
+    <p>-- Niels Olson (<a href=/tufte/email?msg_id=00034J>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Book smell</i>
+<p>Several smell candidates: binding glue, a coating on the cover, or possibly the ink (if very recently printed). Try airing 
+the book out. Probably not the paper.<p><p>Or maybe it picked up a smell in transit.<p><p>For used books, the smell problem is mildew, especially for used bookstores in areas with humid summers. You'll never 
+get rid of it.  
+    <p>-- Edward Tufte<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>A little diagram</i>
+<p> <p>
+In 1963-1964 I took a course at Stanford University in stochastic processes with <br>Professor Emanuel Parzen. The textbook was his <i>Stochastic Processes</i> (1962). <br>In class he mentioned with pride how he had talked the publisher into putting <br><i>a diagram into the book's introduction</i> and suggested that perhaps this was <br>a first in textbook publishing:
+<br><p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=495 width=500 src=/bboard/images/0003K8-8324.gif ></td>
+      </tr>  
+    </table>
+<br><br>
+Although I studied the book carefully--here are some of my dutiful annotations on the <br>text--all I remember from the course is his book design remark (which has had 
+<br>great influence on me over the years) and that I was over my head when it came to <br>stochastic processes at the graduate level.<p>
+<p>
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=628 width=850 src=/bboard/images/0003K8-8325.gif ></td>
+      </tr>  
+    </table>
+<p>
+
+
+
+  
+    <p>-- Edward Tufte<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Weightless flight manuals aboard the shuttle</i>
+<p> <p><p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=530 width=396 src=/bboard/images/0003Ki-8456.jpg ></td>
+      </tr>  
+    </table>
+<p>
+Bill Readdy, the Commander of Atlantis STS-79 (Mir docking), gave me a copy of his flight manual as a most generous 
+souvenir during some recent work at NASA Headquarters. He noted that, under weightless conditions, the manual in a 
+3-ring binder floats and opens up 360 degrees as the pages fan out. At last, manuals have escaped flatland.
+<p>
+Since this flight of the shuttle docked with Mir, the manual was also written in Russian. In the Russian section, the 
+classic "This Page Intentionally Blank" (note the telltale first-letter caps of manualese) was in <I>English,</I> perhaps 
+because the phrase is universally cryptic, thus needing no translation.
+<p>
+"This Page Intentionally Left Blank" has some of the same deadpan obviousness of "This is not a pipe" (Magritte's 1926 
+painting <I>Ceci n'est pas une pipe</I>). For important documents, like shuttle manuals, checking of individual copies 
+will eliminate the possibility that the xerox machine or a printing press threw off a blank page. 
+<br>
+<br>
+<br>
+<br>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=545 width=413 src=/bboard/images/0003Ki-8457.jpg ></td>
+      </tr>  
+    </table>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=459 width=658 src=/bboard/images/0003Ki-8458.gif ></td>
+      </tr>  
+    </table>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=458 width=656 src=/bboard/images/0003Ki-8459.gif ></td>
+      </tr>  
+    </table>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=473 width=591 src=/bboard/images/0003Ki-8455.jpg ></td>
+      </tr>  
+    </table>
+<p>  
+    <p>-- Edward Tufte<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Blank pages in technical manuals</i>
+<p>It's obvious that you have never had to deal with a customer demanding another copy of a manual because, &quot;there's a 
+blank page, and I know there should be something printed on it.&quot;  
+    <p>-- Ed Mikula (<a href=/tufte/email?msg_id=0003Kj>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>EPA corporate pitch document: &quot;unintentionally left blank&quot;</i>
+<p> <p>Ah, but what to make of the second page of the EPA's "<a target="_blank" href="http://www3.epa.gov/ttn/oarpg/t1/memoranda/eipfin.pdf">Improving Air Quality With Economic Incentive Programs</a>"?  It reads: "This page unintentionally left blank." The fourth page then reads: "This page intentionally left blank."</p>
+
+<a target="_blank" href="http://www3.epa.gov/ttn/oarpg/t1/memoranda/eipfin.pdf"><img src="https://s3.amazonaws.com/edwardtufte.com/page_left_blank_unintentionally.png" alt="This page unintentionally left blank" style="width:696px;height:666px;"></a>
+
+<p></p>
+
+<a target="_blank" href="http://www3.epa.gov/ttn/oarpg/t1/memoranda/eipfin.pdf"><img src="https://s3.amazonaws.com/edwardtufte.com/page_left_blank_intentionally.png" alt="This page intentionally left blank" style="width:696px;height:666px;"></a>
+  
+    <p>-- Michael Boydston (<a href=/tufte/email?msg_id=0003Kk>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>End of blank page humor</i>
+<p>An engineer would probably state:
+This page left blank except for this sentence.  
+    <p>-- Bill Sharpe (<a href=/tufte/email?msg_id=0003Kp>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Beautiful Evidence</i>
+<p> <p>The <a target="_blank" href="https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?
+msg_id=000262&topic_id=1">thread</a> 
+on <i>Beautiful Evidence</i> chronicles my experiences with the book's production and design.  
+    <p>-- Edward Tufte<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>&quot;This Page Intentionally Left Blank&quot; had a purpose</i>
+<p>I worked in military intelligence for a while. I was told that censors sanitized classified documents (i.e., removed information from them so that they could be released at a lower classification level) by simply excising it, leading to situations in which white space tended to indicate that more information was available in the original document. In that situation, &quot;This Page Intentionally Left Blank&quot; indicated that the page contained no content. Sort of a bureaucratic &quot;Move along, folks, nothing to see here!&quot;  
+    <p>-- Jake Freivald (<a href=/tufte/email?msg_id=0003Ni>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Design reviews</i>
+<p> One great blog worthy to be checked: <a target="_blank" href="http://www.designersreviewofbooks.com/">The Designer's Review of Books</a>. For example, their <a target="_blank" href="http://www.designersreviewofbooks.com/2009/03/designing-design/">review</a> of a beautiful book, <i>Designing design</i> by Kenya Hara.
+  
+    <p>-- Javier (<a href=/tufte/email?msg_id=0003Pl>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>tufte-latex</i>
+<p> <a target="_blank" href="https://tufte-latex.github.io/tufte-latex/">Tufte-LaTeX</a> (also above) has good practical examples of layouts (of scientific and mathematical reports) modeled after my books. The layouts are 
+also similar to Richard Feynman's physics textbooks.  
+    <p>-- Edward Tufte<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Tschischold</i>
+<p> I have been reading up on <a target="_blank" href="https://en.wikipedia.org/wiki/Jan_Tschichold">Jan Tschichold</a> and in particular his "<a target="_blank" href="https://en.wikipedia.org/wiki/Penguin_Composition_Rules">Penguin Composition Rules</a>" which was a very short set of rules he articulated for the UK Penguin imprint in about 1947. 
+
+<p>I have had trouble finding them either physically or electronically. My intention was to typeset them in LateX using the rules themselves as a style guide, thereby showing by example the rules in action. Do you have any images of the original set of Penguin rules, or know where I could access them either as text or images?   
+    <p>-- Matt R (<a href=/tufte/email?msg_id=0003aZ>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>LaTeX for book design</i>
+<p> <a target="_blank" href="http://www.tug.org/twg/mactex/heathcote/heathcote_ConfPaper.pdf">Here</a> is a thoughtful essay by an Australian philosopher called Adrian Heathcote on how using free, robust and clever LaTeX typesetting programs can help small printers in the UK and Australia make better, more beautiful, books.
+
+<p>Heathcote makes the following point: 
+
+<blockquote>'There are, however, many other aspects of LaTeX that facilitate high quality typesetting. 
+For one, the lines are not justified individually, as they are in Pagemaker and Quark, but in entire paragraph blocks. This simulates the decision making of the master typesetters of old, who would set a page so as to get the greatest evenness of word spacing. LaTeX--or rather the underlying TeX hyphenation-justification algorithm--is able to produce that evenness automatically (see fig. 1). This has been so successful an implementation of this old technique that it has been borrowed now for Adobe's InDesign program, where it is called the multi-line composer.'</blockquote>
+
+<p>The image below is his fig.1 - showing a LaTeX produced page of his own with even text due to the LaTeX hyphenation algorithm. Also note margin kerning and ff ligatures. (Font: Adobe Garamond). <p><img src=/bboard/images/0003ab-9282.jpg width=709 height=1039><br clear=all>  
+    <p>-- Matt R (<a href=/tufte/email?msg_id=0003ab>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Response to LaTeX for book design</i>
+<p> <p>Having now spent the best part of 6 months hacking older electronic files of my book into LATEX and at the same time reading whatever I can on typography and book design I can now say that using LATEX to write an illustrated science textbook is not only possible but very enjoyable. I have about 250 pages done, some appendices and indexing to do then its off to the printers. For me the chance to combine my love of science and my love of graphic design has found a new outlet. I already have another volume of notes and case studies on the way and another book planned. 
+
+<p>The memoir LATEX class already mentioned gives an incredible flexibility and using default settings can easily give you great page design and typesetting. For example, the command \medievalpage will use the paper size you have selected and produce a medieval page layout based on classic proportions such as those of the 13th century French architect Villard de Honnecourt who devised an ingenious method of setting out optimum proportions for margins and text block on a book page. Other simple commands deliver Robert Bringhurst layouts. If necessary you can set up your own.   
+
+<p>Using a single command and default font installations one can use a nice implementation of Zapf's Linotype Palatino. This font family comes as default with modern Latex installations and is complete with Palatino maths fonts. 
+
+<p>Once the LATEX and memoir class syntax is learnt then page after page can be typeset easily - after a while specific manual commands can be learnt to tidy up small details. 
+
+<p>One of the most interesting things I have learned in my reading around book design and typography is the discipline required to avoid being what Beatrice Warde described as a 'stunt typographer' in her famous essay 'The Crystal Goblet' from 1937:
+
+<blockquote>"Printing demands a humility of mind, for the lack of which many of the fine arts are even now floundering in self-conscious and maudlin experiments. There is nothing simple or dull in achieving the transparent page. Vulgar ostentation is twice as easy as discipline. When you realise that ugly typography never effaces itself, you will be able to capture beauty as the wise men capture happiness by aiming at something else."</blockquote>
+
+<p>Here is a page of another piece of work I am doing alonside the book - set using the \medievalpage and Palatino settings I mentioned. Latex and Tex do the hardwork.
+
+<p>All of the software above is free, very robust and surprisingly user friendly. I use TexLive on Mac OS X and TexNic Center and MikTex on my laptop. Output is direct to PDF.<p><img src=/bboard/images/0003b5-9293.jpg width=463 height=654><br clear=all>  
+    <p>-- Matt R (<a href=/tufte/email?msg_id=0003b5>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p> Here is a book of photography and personal journals by Joel Peter Witkin published by <a target="_blank" href="http://katranpress.com/books-we-design/">Kat Ran Press</a>. It is part of a bigger gallery of two-page spreads of their typography and book design.<p><img src=/bboard/images/0003fQ-9405.jpg width=575 height=354><br clear=all><p><img src=/bboard/images/0003fQ-9406.jpg width=708 height=354><br clear=all>  
+    <p>-- Matt R (<a href=/tufte/email?msg_id=0003fQ>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p> <p>The <a target="_blank" href="http://www.museobodoni.beniculturali.it/">Museo Bodoniano</a> in Italy has preserved sets of punches for a type designed by Giambattista Bodoni (1740-1813) in 1798. A detailed account of one visit can be found <a target="_blank" href="https://designtraveler.wordpress.com/2010/11/26/bodonimuseum/">here</a>.
+
+<p>The image is a set of punches showing a centimetre scale bar (I assume). The full set of letters includes special glyphs (the long s between the s and t) and ligatures (such as ae, oe, fi, ffl, fl at the end of the alphabet). I have flipped the image of this so you see a mirror image of the punches. These punches are driven into metal to make matrices from which the lead type is cast.<p><img src=/bboard/images/0003g3-9412.jpg width=714 height=357><br clear=all>  
+    <p>-- Matt R (<a href=/tufte/email?msg_id=0003g3>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p> <p>I am working on a journal piece on Text and have tried to get my head around the idea of a book being a multidimensional mapping of black ink into a structured 3D space.
+
+<p>As part of this I wanted to try and show that if you break open a book and consider it as a 2D object then there is an extended dynamic range of lengthscales that have to be right for the book to work. It has to have a coherence and structure in the use of black ink in white space over a set of objects: Book - Page - TextBlock - Paragraph - Line - Word - Glyph.
+
+<p>I have chosen to measure the area of each of these 'objects' in millimetres squared and plotted these areas as a measure of the length scale of coherence of the text. The example is based on some pages of text from an article I wrote a few years ago about Ancient Geometry, Stereology and Modern Medics.</p>
+
+<a target="_blank" href="https://3.bp.blogspot.com/_JjoC7eqPOTQ/S8-DCFrNtuI/AAAAAAAAAJQ/LEBwz0D3I2A/s1600/multi-dim.jpg"><img src="https://3.bp.blogspot.com/_JjoC7eqPOTQ/S8-DCFrNtuI/AAAAAAAAAJQ/LEBwz0D3I2A/s1600/multi-dim.jpg" alt="book dimensions mapped" style="width:800px;height:392.5px;"></a>
+
+<p>The typesetting has been done with the memoir class in LaTeX and the free font Utopia that was designed by Robert Slimbach and released for 'free' use by Adobe.
+
+<p>In it I have 2 panels;
+
+<blockquote>
+
+<p>LEFT PANEL:
+
+<p>Book [Here represented by a two page spread - but a 296 page book is multiplied by 148 times]
+<p>Page [Here shown as a grey on white diagram.]
+<p>Textblock [Here is the actual textblock, individual words can now be seen and the structure of the paragraphs and headings etc. If you zoom in you can read it.]
+
+<p>RIGHT PANEL:
+
+<p>Paragraph [Words and their spacing, leading between lines, justification.]
+<p>Line [How words interact and word and letter white space, punctuation]
+<p>Word [how glyphs and whitespace interacts]
+<p>Glyph [the fi glyph looks close up]
+
+</blockquote>
+
+<p>In each case I have measured the area of the object (page or line or glyph etc) along with appropriate white space ("text" is all about interplay of the black and white space on the 2D flatland of paper) in squared millimetres and plotted these estimates in a graph on a logarithmic axis.
+
+<p>The structure of ink on white space has coherence across about 7 orders of magnitude in area terms.
+
+<p>Read the full post <a target="_blank" href="http://www.datadeluge.com/2010/04/many-dimensions-of-book-mapped-out.html">here</a>.
+
+  
+    <p>-- Matt R (<a href=/tufte/email?msg_id=0003g5>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p> <p>The first book that came to my mind since you said you are trying to design a medicine related books was Henry Gray's <i>Anatomy of the Human Body</i>. I love the illustrations in that book.</p>
+
+<a target="_blank" href="https://en.wikipedia.org/wiki/Gray%27s_Anatomy"><img src="https://s3.amazonaws.com/edwardtufte.com/grays_anatomy.jpg" alt="Gray's Anatomy" style="width:620px;height:360px;"></a>  
+    <p>-- Anand (<a href=/tufte/email?msg_id=0003g6>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p> A historic graph 1919 - Extracts from an Investigation into the Physical Properties of Books as They Are At Present Published. The Society of Calligraphers, Boston. This is a small pamphlet that was designed and authored by the graphic designer W.A. Dwiggins and his cousin L.B. Sigfried. It pilloried the format of books and his concern for the poor methods of printing trade books in the US at that time.
+<p> 
+The book was published by the imaginary Society of Calligraphers and the stinging investigation was a hoax cooked up by Dwiggins - nevertheless it did have an effect on publishing in the US following its wide distribution.
+<p>
+The graph by Dwiggins shows the reduction in book quality since 1910.
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=519 width=513 src=/bboard/images/0003im-9713.jpg ></td>
+      </tr>  
+    </table>
+<br><br>
+<b>Note added by ET, August 4, 2010: Back in 1982 the Dwiggins cartoon-graph inspired my redesign of a misleading graph by the National Science Foundation. The NSF original suggested that the United States had encountered a big downturn in Nobel Prizes. My corrected, updated design revealed in fact a US Nobel prize boom that broke right out of the grid, Dwiggin-like. From ET, <i>The Visual Display of Quantitative Information</i>, page 60:</b>
+<p>
+
+    <table border=0 align=center>
+      <tr>
+        <td><img border=0 height=902 width=700 src=/bboard/images/0003im-9715.jpg ></td>
+      </tr>  
+    </table>
+<p>
+
+
+  
+    <p>-- Matt R (<a href=/tufte/email?msg_id=0003im>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p>Here (<a target="_blank" href="http://www.rightreading.com/bamboo-baskets/masters-of-bamboo.htm">http://www.rightreading.com/bamboo-baskets/masters-of-bamboo.htm</a>) is an annotated case study from Thomas Christensen (director of publications at the Asian Art Museum of San Francisco) describing how he created the Art Book exhibition catalogue for Masters of Bamboo (<a target="_blank" href="http://www.asianart.org/bamboo.htm">http://www.asianart.org/bamboo.htm</a>) in 4 weeks.<p><p>Here is a collection of images from the study.<p><p>Matt<p><p>
+ <p><img src=/bboard/images/0003j9-9754.jpg width=500 height=2000><br clear=all>  
+    <p>-- Matt R (<a href=/tufte/email?msg_id=0003j9>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p>Dear ET,<p><p>I am in the process of researching, writing, designing and typesetting a book on 
+observational acuity in science and art which is provisionally called Intense Seeing.<p><p>The title was inspired by a sentence of yours from Beautiful Evidence (Science and art have 
+in common intense seeing, the wide-eyed observing that generates empirical information.)<p><p>I am typesetting the book using a modified version of the Latex Tufte class that has been 
+mentioned above. It is modified to use Robert Slimbach's Minion Pro and Myriad Pro fonts and 
+it is also modified for a trim size of 171 x 248mm (Pinched Crown Quarto). <p><p>My blog (<a target="_blank" href="http://www.datadeluge.com">http://www.datadeluge.com</a>) has posts on the progress of the book and early versions 
+of ideas and passages that I am working on. Recent posts include a draft cover image, the 
+current draft of the preface and a couple of typeset pages from a chapter on the inherent 
+dilemmas of magnification.<p><p>Best wishes<p><p>Matt R   
+    <p>-- Matt R (<a href=/tufte/email?msg_id=0003l0>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p>Dear ET,<p><p>Many years ago I taught myself how to program in the C programming language - after I had 
+played with BASIC and got fed up with FORTRAN. I  used a couple of books to learn about C 
+and a couple of compilers. The C Programming Language by Kernighan and Ritchie was by far 
+the best book, followed closely by The C Book by Mike Banahan.  <p><p>Learning C was a great lesson in logical thinking. Breaking down a problem into the 
+discrete logical steps required for a successful programme is both rigorously analytical 
+and curiously creative and liberating.  I would recommend it to anyone.<p><p>I went on to write quite a few programmes, some of them were deliberately tiny and others  
+quite complex and powerful. Much of the time I spent on my PhD was in writing C code to 
+implement the maths &amp; stats I wanted to apply to data. <p><p>The C Programming Language by Kernighan and Ritchie (or K&amp;R) had a refreshing and very 
+straightforward style. In the second edition, where they expanded on the material that had 
+been developed as part of the ANSI C standard they state that;<p><p>&quot;We have tried to retain the brevity of the first edition. C is not a big language, and it 
+is not well served by a big book. We have improved the exposition of critical features, 
+such as pointers, that are central to C programming. We have refined the original 
+examples, and have added new examples in several chapters. For instance, the treatment of 
+complicated declarations is augmented by programs that convert declarations into words and 
+vice versa. As before, all examples have been tested directly from the text, which is in 
+machine-readable form.&quot;<p><p>In many ways K&amp;R is a great example of technical writing and a well laid out and well 
+designed book - the material does not need a lot of figures it needs clear logical 
+progression, clean delineation of code blocks that a reader will want to copy into their 
+editor to compile and run and, as K&amp;R point out, C is not a big language, so it did not 
+and does not need a big book. <p><p>
+Perhaps the most famous of the programs described by K&amp;R is hello.c - which just prints 
+out the text &quot;hello, world&quot; to the terminal. It is the K&amp;R example of a minimal working C 
+program and is almost a haiku in its brevity. Almost all computer programming handbooks 
+use a similar program as an example of the minimal program. <p><p>The images show the first page and hello.c<p><p><p><p>
+<p><img src=/bboard/images/0003l6-9854.jpg width=484 height=613><br clear=all><p><img src=/bboard/images/0003l6-9855.jpg width=916 height=495><br clear=all>  
+    <p>-- Matt R (<a href=/tufte/email?msg_id=0003l6>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Google search of &quot;books&quot; yields amazing lucky result</i>
+<p> <p>The attached screenshot must be some sort of local aberration. <p.>
+
+
+<b>[Note added by ET on March 20, 2010: Oh my goodness! What a nice happenstance. Beats out <i>The New York Times Book Review.</i> Replicated result today (March 20, 2010 in NYC) on my desktop with Safari browser and on laptap with Chrome browser after browser resets. However it shows up about 20th with an iphone and an iPad google search, compared to 5 on desktop computer. Could still be local aberration as Google might know what you've been looking at earlier on your computer, but could they refine search results on the basis of that knowledge?]</b><ul><li><a href=/bboard/images/0003m9-9869.png>screenshot-20110302-174619.png</a></ul>  
+    <p>-- Niels Olson (<a href=/tufte/email?msg_id=0003m9>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p>Dear ET,<p><p>Here is a superb 700+ page treatise on the structure, function and evolution of the eye. 
+The book The Vertebrate Eye and its Adaptive Radiation was written by Gordon Walls and 
+published in 1942 (<a target="_blank" href="http://www.archive.org/details/vertebrateeyeits00wall">http://www.archive.org/details/vertebrateeyeits00wall</a>).<p><p>The book is beautifully designed and typeset and includes dozens of very clear and well 
+thought out illustrations. <p><p>
+A recent paper by Prof Ronald Fernald of Stanford (Eyes: Variety, Development and Evolution 
+Russell D. Fernald. Brain Behav Evol 2004; 64: pp141-147 DOI: 10.1159/000079743)   
+describing the evolution of eyes refers to the book as follows;<p><p>&quot;In his landmark book, Walls [1942] provided remarkable insights about all aspects of the 
+vertebrate eye. This 785-page classic has numerous illustrations, many drawn by Walls, that 
+provide details about the range and variety of evolutionary outcomes to be found in 
+vertebrate eyes. Indeed, the variety of eyes is astonishing, reflecting the staggering 
+range of adaptations produced by selective pressures for vision in different habitats.&quot;<p><p>Below is a two-page spread taken pretty much at random from the book.<p><p>Best wishes<p><p>Matt <p><p>
+<ul><li><a href=/bboard/images/0003mC-9870.jpg>Walls-eye.jpg</a></ul>  
+    <p>-- Matt R (<a href=/tufte/email?msg_id=0003mC>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p>Readers may be interested in the books of the architect Christoper Alexander.<p><p>For example, The Timeless Way of Building (see 
+<a target="_blank" href="http://en.wikipedia.org/wiki/The_Timeless_Way_of_Building">http://en.wikipedia.org/wiki/The_Timeless_Way_of_Building</a>).<p><p>The book is designed as follows;<p><p>It is written as a long series of italicized headlines followed by short sections providing 
+more detail. Christoper Alexander suggests in the foreword that the long (552 pages) book 
+can be read in an hour by only reading the headlines, which frame the book's argument.<p><p>Best wishes<p><p>Matt <p><p>  
+    <p>-- Matt R (<a href=/tufte/email?msg_id=0003or>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p><i>Scientific textbooks: figure integration</i>
+<p>I'm writing a scientific textbook in LaTeX using the memoir class. I have studied several books that are well known for 
+their design, including, of course, ET's. Personally, while it's hard to argue with the aesthetic excellence of ET's book 
+designs, I'm not sure how well the same layout will work for scientific applications in which equations have to be 
+displayed and there may be so many references on one page that it may not be possible to fit the relevant information 
+and sidenotes into the margin. (That's the main reason why I use memoir rather than tufte-latex, and because it seems 
+easier to customize.) <p><p>My questions concern the integration of figures and text, particularly within the context of scientific textbooks. The 
+custom seems to be to number each figure and add relatively detailed captions, i.e., the integration is not tight. 
+Perhaps it's simply because it's hard to do, but I suspect it's also because authors like to be able to refer back to 
+figures. After all, that's the main reason why equations are numbered, although we clearly don't refer back to figures as 
+often as to equations. I've adopted the custom of only numbering equations if I need to refer back to them. So I'm 
+wondering: Should the same be done for figures (and tables)?  <p><p>Furthermore, should figures only get captions if they are referred to later on in the book, their meaning is not obvious 
+or not explained where they appear?   <p><p>(This led me to wonder whether one can look at a book as a means of communication in which a continuum exists in 
+which only text and only figures are the two poles, so to speak. In between the poles, we use both text and figures to 
+get our point across as efficiently as possible. Pure text could be interpreted as a long caption without a figure. Such 
+extreme solutions are seldom efficient, of course, which perhaps is a non-rigorous argument for why a combination of 
+figures and text are a better solution.)  
+    <p>-- Andreas (<a href=/tufte/email?msg_id=0003qK>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+		<p>Hi ET,<p><p>I have been systematically mining the vaults of the Internet Archive for the past 12 months. On the basis of that I have been designing, researching and putting together a new book - tentatively titled &quot;Pictorial Knowledge&quot;. The book is a collection of 100 visual confections - two-page spreads that each comprise a visual gem from one of the books in the Internet Archive and a short reflection (&lt;600 words or so) inspired by the image or the subject of the book. <p><p>The layouts are as clear and crisp as I can make them and are modeled on the type of auction catalog you highlight above. More info and my introduction material here - <a target="_blank" href="http://www.datadeluge.com/2014/08/pictorial-knowledge-2014.html">http://www.datadeluge.com/2014/08/pictorial-knowledge-2014.html</a>. <p><p>Several two-page spreads below.<p><p>Best wishes<p><p>Matt <ul><li><a href=/bboard/images/0003zj-18619-pk_spread.jpg>pk-spread.jpg</a></ul>  
+    <p>-- Matt R (<a href=/tufte/email?msg_id=0003zj>email</a>)<br clear=all>
+		<p><hr align=left size=1 noshade color=#666666></p>
+		</div>
+
+		<div class='bboard_body'> 
+			<form action="q-and-a-post-reply-form">
+			<input type=hidden name=topic_id value=1>
+			<input type=hidden name=refers_to value=0000hB>
+			<div align=center><input type=submit value="Contribute"></div>
+			</form>
+		</div>
+		
+
+
+</div> 
+
+
+		<TABLE CELLPADDING="0" CELLSPACING="0">
+			<TR>
+			<TD><img src="/tufte/graphics/sidebar.jpg" width=25 height=1 border=0 alt=""></TD>
+			<TD style="width: 50em;"><FONT FACE="times new roman, times, serif" SIZE="3">
+			<hr width=1024 size=1>
+			<br>
+		
+		<table width=1024 border=0 cellpadding=0 cellspacing=0>
+		<tr><td colspan=2> Threads relevant to typography, book design, and publishing:</td></tr>
+		<tr valign=top><td width=500><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0000Bd>Archival methods for rare books and map</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0002AM>Artful Sentences: Syntax as Style by Virginia Tufte now published!</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=000262>Beautiful Evidence chronicles: writing, designing, publishing, consequences (cameo in first iPhone ad, awards, Richard Serra)</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0001uV>Complex trajectories in 3-space, or flying Asiatic snakes</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0000zM>Diacritical marks</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0000MB>Display of musical structure</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0000bm>ET software? ET Bembo?</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0001lB>Interesting logos </a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0000sl>Lineweights in drawings</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0002A9>Mass production of high-resolution digital prints--help needed</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0001Zi>Mathematical notation and typography</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0000Yp>Outstanding Magazine Layouts?</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=00007Q>Princeton University Acceptance Letter</a></div></td><td width=24><br></td><td width=500><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0002f1>Punctuation typography</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=000038>Self-publishing</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0000ld>Sidenotes or footnotes or what?</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0001Be>Software for typesetting a book</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=00011I>Source of Bell Centennial Font</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=00027I>The blank page, the empty space, the paradox of choice</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0000Vt>Tufte book fonts</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0001Au>Typefaces for official correspondence</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=00009r>What's your font?</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0000z0>Wonderful movies about typography: "Behind the Typeface" and "Etched in Stone"</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=0000IE>corporate design manuals</a></div><div class=taglink><a href=/bboard/q-and-a-fetch-msg?msg_id=000030>graphic reference symbols</a></div></td></tr>
+		</table><p><hr width=1024 size=1>
+			</td>
+			</tr>
+		</table>
+		
+
+<div style="padding-left: 26px; margin-top: 10px;"><a href="/tufte/privacy">Privacy Policy</a></div>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>
+
+

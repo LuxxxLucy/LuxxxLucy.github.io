@@ -1,0 +1,35 @@
+---
+title: "Reproduce"
+output: html_notebook
+---
+
+Reproduce the original estimation of Imai et al, 2020.
+
+The reported estimate is 
+
+> 1,723 cases of 2019-nCoV in Wuhan City (95% CI: 427 – 4,471)
+
+
+```{r}
+num_intl_case = 3
+# Exported number of confirmed cases
+num_intl_passenger = 3301
+# Daily international passengers travelling out of Wuhan International airport
+catchment_in_million = 19
+catchment = catchment_in_million * 10^6
+# (in million) Effective catchment population of Wuhan airport
+detection_window = 10
+# (in days) Detection window 
+
+
+p_intl_daily = num_intl_passenger / catchment
+# daily prob of international travel
+
+p = p_intl_daily * detection_window
+# the probability any one case will be detected overseas
+
+num_case = num_intl_case / p 
+#total number of cases
+print("the computed estimate is")
+print(num_case)
+```

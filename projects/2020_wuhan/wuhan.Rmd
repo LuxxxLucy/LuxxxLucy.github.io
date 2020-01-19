@@ -1,0 +1,80 @@
+---
+title: "On the estimation of Wuhan Coronavirus"
+author: "Jialin Lu"
+date: "`r Sys.Date()`"
+output:
+  tufte::tufte_html:
+    tufte_variant: "envisioned"
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+bibliography: skeleton.bib
+link-citations: yes
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+`r sans_serif(
+"I give a web tool to compute the estimated total number of cases, by allowing you to interactively adjust the predefined values.")
+`
+
+```{r, echo=FALSE}
+htmltools::includeHTML("figure_1.html")
+```
+
+
+# Introduction
+
+@Imperial2020, a research group from Imperial College London, made a simple estimation of the total number of the novel Coronavirus (*2019-nCoV*) cases stemmed recently in Wuhan City, China. The method of estimation is in general valid and sound^[I will say it is too naive and simple]. Yet it does have certain degree of concerns:
+
+1. This model is too simple (in other words too general) anyway, a lot of features like the information of sequential dynamics is not utilized or considered at all.
+1. as for most of epidemiological methods, this estimation requires many underlying asumptions and approximations, although most of which seem justified to me. 
+
+Here I provided an interactive estimation, where you can manipulate the values of assumptions and see how this will change the final result accordingly^[For example, if there are more abroad cases identified.]
+
+
+## How is it computed?
+
+Basically, the estimated total number is computed by *maximum likelihood* estimation(MLE). But since it is under a bionomial assumption, in fact it is just computed in a very straight forward manner.
+
+
+```{r}
+  num_intl_case = 3 # Exported number of confirmed cases
+  num_intl_passenger = 3301 # Daily international passengers travelling out of Wuhan International airport
+  catchment_in_million = 19 # (in million) Effective catchment population of Wuhan airport
+  catchment = catchment_in_million * 10^6 
+  detection_window = 10 # (in days) Detection window 
+  
+  p_intl_daily = num_intl_passenger / catchment # daily prob of international travel
+  p = p_intl_daily * detection_window # the probability any one case will be detected overseas
+  
+  num_case = num_intl_case / p # the final result, total number of cases,
+  print(num_case)
+  num_case = as.integer(num_case)
+  print(num_case)
+```
+
+## About the assumptions 
+
+There are, in fact, many other assumptions underlying the performed esimation.How would the number change, if the assumptions change?
+
+* The detection window is 10 days`r margin_note("The longer the detection window, the smaller the estimated total number of cases")`, including incubation and the time for developing symptions into final detection. The incubation period of 2019-nCov -- 10 days -- is not known and has been approximated withthe estimates obtained for MERS-CoV and SARS. 
+
+* the population of Human is also approximated. `r margin_note("The longer the detection window, the smaller the estimated total number of cases")`
+
+* Only counts the cases over of some degree of severity (requre hospitalisation)
+* There will not be a case that the symptoms are developed outside Wuhan City and detected after returning to Wuhan.
+* We ignore the time duration for international visitors is shorter and thus is less risky than the local citizens. But, if we count it, the total estimated number will be more
+* We assume that international travel is independent of the risk of exposure to 2019nCoV or of infection status.
+
+## Comment
+
+I will not think it is a decently advanced modelling, this entirety of thing to me is too 20-century basic. But I nonetheless understand the difficulty here, you just do not have the auxiliary information to go sophisticated: you only got these simple data, then you only got to do it simply.
