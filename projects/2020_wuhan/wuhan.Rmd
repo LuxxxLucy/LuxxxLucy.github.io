@@ -36,7 +36,7 @@ htmltools::includeHTML("figure_1.html")
 @Imperial2020, a research group from Imperial College London, made a simple estimation of the total number of the novel Coronavirus (*2019-nCoV*) cases stemmed recently in Wuhan City, China. The method of estimation is in general valid and sound^[I will say it is too naive and simple]. Yet it does have certain degree of concerns:
 
 1. This model is too simple (in other words too general) anyway, a lot of features like the information of sequential dynamics is not utilized or considered at all.
-1. as for most of epidemiological methods, this estimation requires many underlying asumptions and approximations, although most of which seem justified to me. 
+1. as for most of epidemiological methods, this estimation requires many underlying asumptions and approximations, although most of which seem justified to me.
 
 Here I provided an interactive estimation, where you can manipulate the values of assumptions and see how this will change the final result accordingly^[For example, if there are more abroad cases identified.]
 
@@ -50,23 +50,23 @@ Basically, the estimated total number is computed by *maximum likelihood* estima
   num_intl_case = 3 # Exported number of confirmed cases
   num_intl_passenger = 3301 # Daily international passengers travelling out of Wuhan International airport
   catchment_in_million = 19 # (in million) Effective catchment population of Wuhan airport
-  catchment = catchment_in_million * 10^6 
-  detection_window = 10 # (in days) Detection window 
-  
+  catchment = catchment_in_million * 10^6
+  detection_window = 10 # (in days) Detection window
+
   p_intl_daily = num_intl_passenger / catchment # daily prob of international travel
   p = p_intl_daily * detection_window # the probability any one case will be detected overseas
-  
+
   num_case = num_intl_case / p # the final result, total number of cases,
   print(num_case)
   num_case = as.integer(num_case)
   print(num_case)
 ```
 
-## About the assumptions 
+## About the assumptions
 
 There are, in fact, many other assumptions underlying the performed esimation.How would the number change, if the assumptions change?
 
-* The detection window is 10 days`r margin_note("The longer the detection window, the smaller the estimated total number of cases")`, including incubation and the time for developing symptions into final detection. The incubation period of 2019-nCov -- 10 days -- is not known and has been approximated withthe estimates obtained for MERS-CoV and SARS. 
+* The detection window is 10 days`r margin_note("The longer the detection window, the smaller the estimated total number of cases")`, including incubation and the time for developing symptions into final detection. The incubation period of 2019-nCov -- 10 days -- is not known and has been approximated withthe estimates obtained for MERS-CoV and SARS.
 
 * the population of Human is also approximated. `r margin_note("The longer the detection window, the smaller the estimated total number of cases")`
 
