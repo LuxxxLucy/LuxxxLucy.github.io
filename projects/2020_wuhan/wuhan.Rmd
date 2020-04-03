@@ -1,5 +1,5 @@
 ---
-title: "On the estimation of Wuhan Coronavirus"
+title: "On the estimation of COVID-19"
 author: "Jialin Lu"
 date: "`r Sys.Date()`"
 output:
