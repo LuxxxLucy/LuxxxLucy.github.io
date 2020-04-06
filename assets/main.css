@@ -64,7 +64,7 @@ body {
 .button{background:#fff;color:#24252a;border-radius:5px;display:block;font-size:16px;font-weight:600;text-align:center;padding:10px 0}
 .button.solo{border:1px rgba(0,0,0,.08) solid;box-shadow:0 4px 7px rgba(0,0,0,.2);display:block;margin:0 2em;text-align:center;text-decoration:none;user-select:none}
 .button.solo:hover{background-color:#383c43;border-color:#383c43;color:#fff}
-.card .title{font-size:25px;line-height:1.3;font-weight:bold;flex:1;padding-top:12px;padding-left:12px;}.pin{display:inline-block;width:10px;height:12px;background-image:url(/303ed30636177095386c7aa89c41f6a5d6917e44/95ae5/images/pin.svg);margin-right:3px}
+.card .title{font-size:25px;line-height:1;font-weight:bold;flex:1;padding-top:12px;padding-left:12px;}.pin{display:inline-block;width:10px;height:12px;background-image:url(/303ed30636177095386c7aa89c41f6a5d6917e44/95ae5/images/pin.svg);margin-right:3px}
 
 .small_card .title{font-size:12px;line-height:1.3;font-weight:bold;flex:1;padding-top:0px;}.pin{display:inline-block;width:10px;height:12px;background-image:url(/303ed30636177095386c7aa89c41f6a5d6917e44/95ae5/images/pin.svg);margin-right:3px}
 
