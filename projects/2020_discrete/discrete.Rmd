@@ -1,0 +1,247 @@
+---
+title: "On more interesting blocks with discrete parameters in deep learning"
+author: "Jialin Lu"
+date: "8th July 2020"
+output:
+  tufte::tufte_html:
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+bibliography: paper.bib
+link-citations: yes
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+`r sans_serif(
+"This is first given as a tutorial presentation at on the lab meeting of Martin Ester's group, at Simon Fraser University, 8th July 2020.
+")
+`
+
+* I will first introduce what I mean by **more interesting blocks** in deep learning. I believe it will potentially benefit, or at least widen perspectives and possibilities for some of my dear lab members.
+* We will restrict our attention to only a subset of **more interesting blocks**: blocks that have discrete parameters. This is because discretely-parameterized blocks already cover a lot of content and have received particular interests.
+As you may know, the technical problem is always about learning/optimization: conventional optimization methods like SGD and its variants are designed for continuous parameters.
+* I will then introduce optimization methods for two cases. (1) For general cases that is not necessarily differentiable, we can optimize the parameters by techniques like local search, reinforcement learning; (2) For special cases where the entire forward computation is differentiable, we can directly use gradient; it is just that we will need some techniques on how to use gradients to update discrete parameters.
+* At last, I will introduce a lot of possibilities on many more interesting and some even "strange-looking" blocks, that are not necessarily discretely-parameterized. The general theme here is that, in order to design customized blocks, we need to derive both the forward and backward computation. Usually deriving the forward computation is fun, but deriving the backward (i.e. calculating the gradient) is non-trivial and often requires efforts.
+
+# Introduction: why we need more interesting blocks?
+```{marginfigure}
+ ![](./assets/freedom.jpg)
+  <br>
+  Freely assemble customized blocks is part of the fun of deep learning, if not all. (Personal opinion only)
+```
+So why we need more interesting blocks and want to talk about it today?
+
+> _The short answer is, well, for fun._
+> `r quote_footer(" --- Jialin Lu")`
+
+
+The promise of methodological advantages of deep learning approaches and the reason of its success on many domain&applications, is about **freedom**.
+
+> _Freedom is, a little bit of ... flexibility._
+> `r quote_footer(" --- Jialin Lu, yeah it's me again.")`
+
+
+Within a tiny amount of freedom,
+we can design many innovative modules/blocks and assemble them freely such that we obtain a parameterized forward computation procecss.
+And by using gradients as learning signals, somehow we magically get some not-so-bad models^[I will use the term **model** and **forward computation** interchangeably, because in deep learning I think calling a model essentially means the executation of a forward computation process. If you do not get it, recall how you write code in PyTorch.].
+
+From my point of view, this motivates the core reason on why deep learning is getting so popular and useful:
+
+* you freely design a parameterized model.
+* you somehow have ways to efficiently optimize(learn) the parameters.
+
+These two points are both essential for the current popularity and usefulness of deep learning. If you do not have this little bit flexibility, the resulted model (the forward computation) is boring, you won't get published or ground to useful applications; but if you cannot efficiently optimize it, you are only making a delicate good-looking toy, but of no use.
+
+I know many people actually have many ideas and here I would like to introduce how to work with more interesting blocks, and some of the interesting block you wish to develop may involve some discrete parameters. This is about to introduce some ways to how to learn such discrete parameters.
+
+# Conventional Blocks
+```{marginfigure}
+ ![](./assets/pitts.png)
+  <br>
+  The origin of the deep learning story.
+  <br> At that time, $g$ is called aggregation (formulated as a weighted sum) and $f$ is called decision function (a non-linear function)
+```
+Normal deep net, is more or less based on the Pitts model (McCulloch-Pitts Neuron, proposed by the neuroscientist Warren MuCulloch and logician Walter Pitts in 1943.).
+
+Note that Pitts model is essentially first applying a linear transformation (weighted sum) and then applying a non-linear function. The original Pitts model assumes input $x$ and output $y$ to be Boolean  (0 or 1) and that the non-linear function is a binary step function (1 if >0 and 0 elsewise). Nowadays we generally say the input can take continuous values and use activation functions like ReLU as the non-linear function.
+
+$$ y = ReLU(Wx+b)$$
+(Note that the parameters $W$ and $b$ also takes continuous values.)
+
+There is nothing wrong with it. Pitts model is the first and so far still the most commonly-used model for the abstraction of the biological neuron and it is surprising that it actually is still being used in most of the deep neural network of this decade.
+
+I see Pitts model as boring because if we do not actually use a deep learning block as the model of the actual brain. We just need it to perform some computation (that is tailored for some specific application). From this perspective, we can do more than this boring weighted-sum-then-ReLU, thus the name **more interesting blocks**.
+
+Of course, weighted-sum (linear model) is well studied for quite a long time. We have a whole bunch of literature from convex optimization focusing on it.
+The theoretical foundation for it is strong.
+On the contrary,
+the interesting blocks we discussed here, all of them, do not have such a strong theoretical base. Please bear this in mind.
+```{marginfigure}
+To be frank, of course we care about theory: we care about bounds, guarantees, convergences, etc. Not today.
+
+Today we just choose to leave all of that behind.
+```
+
+# Interesting blocks
+
+Here view any variant blocks based on the weighted-sum-then-ReLU as conventional blocks, including fully-connected-layer, conventional layers and recurrent layers. They share the properties that
+
+* The form of computation is essentially linear transformation and then a non-linear activation function.
+* All parameters that need to be learned are continuous.
+
+
+In fact, there can be infinite possibilities of interesting blocks and it is only natural that most of those possibilities haven't been discovered. Here we only focus on a subset of ones that involves discrete parameters.
+
+![](./assets/blocks.png)
+
+To help to get some sense on what I mean by  **more interesting blocks**, I give two examples:
+
+* Neural Architecture Search (NAS): given some basic blocks, we try to find the best configuration on how to assemble them
+* Neural DNF: Instead of weighted-sum-then-ReLU, we use IF-THEN rules as the forward computation of a block  (@Lu:2020:NeuralDNF, under review)
+
+## NAS as a interesting block with discrete parameters
+
+In Neural Architecture Search (NAS), we are given some basic units and we are interested in finding a good assemble of them.
+
+We view the assembled computation graph as a new block. This block is, from my point of view, novel and interesting, because we do not know how to route among these basic blocks.
+
+![](./assets/NAS.png)
+
+
+The problem can be formulated as a discrete optimization problem.
+We can formulate the edges of the graph as a adjacency matrix $M$, where a entry $M_{ij}$ equals 1 means we connect the basic block $i$ to block $j$, while each edge represents a weighted-sum-then-ReLU computation.
+Now you can see what is the discrete parameters here. Learning the adjacency matrix is not easy, you cannot simply apply SGD.
+
+## Neural DNF as a interesting block with discrete parameters
+
+Rule-based models, unlike linear model, is defined as a logical operation. It looks something like this
+
+IF else rules figures.
+
+Here we talk about the basic form of rule-based models, Disjunctive Normal Form, a rule-based model that takes Boolean input and produce Boolean outputs.
+
+We take a similar procedure here to formulate in binary-value matrix.
+Represent as binary-value matrix
+
+Learning the binary-valued matrix is not easy.
+
+There will be more other possible blocks and I will briefly mention them at the end.
+
+
+# General Cases: blocks with discrete parameters
+
+In the general case, we do not assume the entire computation is differentiable. This means that the most powerful thing of deep learning toolbox,  the end-to-end backpropagated gradient, cannot be used here.
+
+Not differentiable, we will need to
+
+Give example, neural architecture search.
+
+* taking chances, a.k.a non-exhaustive random search
+* graduate student local search
+* some heuristic algorithms.
+* use some reinforcement learning techniques.
+
+by evolution @Real:2019:regularized
+
+by reinforcement learning @Zoph:2018:learning
+
+figure, explain more on using RL.
+
+Pendiv thesis @penkov:2019:learning, more examples
+
+
+# Special cases: differentiable
+
+However, you might already know that in the general case which is non differentiable, learing/optimization is not so efficient (in terms of the hours and cost of hardware),
+REINFORCE rule, high variances
+
+Give an example, NAS using DAFTS and SNAS.
+differentiable is better @xie:2018:SNAS , @liu:2018:DARTS
+
+The SNAS
+
+The general lesson learned is that being differentiable often boostrap the performance compared to using reinforment learning technique to optimize non-differentiable ones.
+
+Here we only talk about differentiable ones. If the original computation is not differentiable, sometimes we can find a differentiable replacement of it,  a relaxation of the original computation, so that it becomes differentiable.
+
+For DNF.
+The forward computation is a logical computation. It is not differentiable and thus cannot compute the backward gradient.
+
+For NAS, we can also find a differentiable replacement.
+
+We will not cover how to find such relaxation.
+
+Several alternatives.
+
+- surrogate using sigmoid/tanh
+- surrogate using sigmoid/tanh with a temperature.
+- the gumbel-softmax trick, a.k.a. concrete distribution.
+- STE
+- Bop
+- STE or Bop + noise
+
+## Surrogate
+
+We still use a continuous parameter, but apply a transformation function so that it will be close to discrete values, that is, a surrogate function.
+
+As you might guess, it is not guaranteed that in the end.
+
+we can also use temperature
+
+## gumbel-softmax trick
+
+## Straight-through estimator (STE)
+
+## Binary Optimizer (Bop)
+
+## A slight improvement. STE/Bop with noise.
+
+# opinion on general case and differentiable cases
+
+I favor the latter.
+
+time. efficiency
+
+# More interested function: DNF
+
+Neural DNF.
+
+# Beyond: in the sea of possibilities
+
+## side effects: loss function involves some discrete component
+
+regularizing l-0 norm.
+
+## More interesting blocks,
+integer-value networks (binary value networks). STE and Bop
+
+- General program
+    - the TerpreT problem
+- more traditional combinatorial optimization problems.
+
+Much more strange blocks. combinatorial solvers.
+
+# A simple guide-map
+* you design a block, is differentiable, the only problem is that you do not know how to optimize the discrete parameters.
+* you design have a block, is not differentiable:
+* you design a block, is not differentiable: but somehow you can find a differentiable version of it. Like Neural DNF
+* you design a block, is not differentiable and you cannot find a differentiable version. You can still do something. You still have a chance to directly derive the backward computation.
+
+We discussed two cases, the general case (solved by local search, reinforcement learning) and the differentiable case.
+What we learn is that, differentiable is good.
+
+
+But there is actually a more general case: given some block, we know the forward computation, the problem is that can we somehow derive how to compute the backward gradient even the forward function originally is not differentiable.
+
+The Neural DNF is different, we are lucky that we can find a differentiable replacement of the original funcition. So you do not really have to do much.
+
+But generally you are not that lucky that you can get so easy.
