@@ -20,7 +20,9 @@ knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
 options(htmltools.dir.version = FALSE)
 ```
 
-Jialin Lu^[[luxxxlucy.github.io](https://luxxxlucy.github.io/)],     July 8 2020
+Jialin Lu [luxxxlucy.github.io](https://luxxxlucy.github.io/)
+
+July 8 2020
 
 `r sans_serif(
 "This is first given as a tutorial presentation at on the lab meeting of Martin Ester's group, at Simon Fraser University, 8th July 2020.
