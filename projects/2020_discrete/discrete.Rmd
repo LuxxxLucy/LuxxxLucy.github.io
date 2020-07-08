@@ -1,7 +1,6 @@
 ---
 title: "On more interesting blocks with discrete parameters in deep learning"
-author: "Jialin Lu"
-date: "8th July 2020"
+
 output:
   tufte::tufte_html:
   tufte::tufte_handout:
@@ -21,12 +20,14 @@ knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
 options(htmltools.dir.version = FALSE)
 ```
 
+Jialin Lu^[[luxxxlucy.github.io](https://luxxxlucy.github.io/)],     July 8 2020
+
 `r sans_serif(
 "This is first given as a tutorial presentation at on the lab meeting of Martin Ester's group, at Simon Fraser University, 8th July 2020.
 ")
 `
 
-Slide can be found [here](./slide.pdf)
+Slide can be found [here](./slide.pdf).
 
 * I will first introduce what I mean by **more interesting blocks** in deep learning. I believe it will potentially benefit, or at least widen perspectives and possibilities for some of my dear lab members.
 * We will restrict our attention to only a subset of **more interesting blocks**: blocks that have discrete parameters. This is because discretely-parameterized blocks already cover a lot of content and have received particular interests.
