@@ -52,9 +52,11 @@ body {
 .cards{padding:0px 0;display:flex;flex-wrap:wrap;justify-content:center}
 .card{background-size:100%;width:250px;height:290px;color:#fff;border-radius:10px;box-shadow:0 4px 7px rgba(0,0,0,.2);text-decoration:none;padding:8px;margin:8px;box-sizing:border-box;display:flex;flex-direction:column;background-size:100%;transition:all .2s ease;filter:grayscale(30%)}
 .small_card{background-size:100%;width:200px;height:100px;color:#fff;border-radius:10px;box-shadow:0 4px 7px rgba(0,0,0,.2);text-decoration:none;padding:12px;margin:18px;box-sizing:border-box;display:flex;flex-direction:column;background-size:100%;transition:all .2s ease;filter:grayscale(80%)}
+.middle_card{background-size:100%;width:360px;height:180px;color:#fff;border-radius:10px;box-shadow:0 4px 7px rgba(0,0,0,.2);text-decoration:none;padding:12px;margin:18px;box-sizing:border-box;display:flex;flex-direction:column;background-size:100%;transition:all .2s ease;filter:grayscale(80%)}
 .tiny_card{background-size:100%;height:40px;color:#fff;border-radius:10px;box-shadow:0 4px 7px rgba(0,0,0,.2);text-decoration:none;padding:12px;margin:6px;box-sizing:border-box;display:flex;flex-direction:column;background-size:100%;transition:all .2s ease;filter:grayscale(80%)}
 .card:hover{box-shadow:0 10px 31px rgba(0,0,0,.15);transform:scale(1.05);filter:grayscale(0%)}
 .small_card:hover{box-shadow:0 10px 31px rgba(0,0,0,.15);transform:scale(1.05);filter:grayscale(0%)}
+.middle_card:hover{box-shadow:0 10px 31px rgba(0,0,0,.15);transform:scale(1.05);filter:grayscale(0%)}
 .tiny_card:hover{box-shadow:0 10px 31px rgba(0,0,0,.15);transform:scale(1.05);filter:grayscale(0%)}
 .card.frontend{background-image:url(/images/39a35dad66307c0f46f8f692c4327df97273344c/frontend.png)}
 .card.backend{background-image:url(/images/984db7ae5ecf983229d80330bef41c55bb0a3a1e/backend.png)}
@@ -67,6 +69,7 @@ body {
 .card .title{font-size:25px;line-height:1;font-weight:bold;flex:1;padding-top:12px;padding-left:12px;}.pin{display:inline-block;width:10px;height:12px;background-image:url(/303ed30636177095386c7aa89c41f6a5d6917e44/95ae5/images/pin.svg);margin-right:3px}
 
 .small_card .title{font-size:12px;line-height:1.3;font-weight:bold;flex:1;padding-top:0px;}.pin{display:inline-block;width:10px;height:12px;background-image:url(/303ed30636177095386c7aa89c41f6a5d6917e44/95ae5/images/pin.svg);margin-right:3px}
+.middle_card .title{font-size:16px;line-height:1.3;font-weight:bold;flex:1;padding-top:0px;}.pin{display:inline-block;width:10px;height:12px;background-image:url(/303ed30636177095386c7aa89c41f6a5d6917e44/95ae5/images/pin.svg);margin-right:3px}
 
 .tiny_card .title{font-size:12px;line-height:1;font-weight:bold;flex:1;padding-top:2px}.pin{display:inline-block;width:10px;height:12px;background-image:url(/303ed30636177095386c7aa89c41f6a5d6917e44/95ae5/images/pin.svg);margin-right:3px}
 
