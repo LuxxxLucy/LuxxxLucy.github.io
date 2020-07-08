@@ -31,10 +31,10 @@ July 8 2020
 
 Slide can be found [here](./slide.pdf).
 
-* I will first introduce what I mean by **more interesting blocks** in deep learning. I believe it will potentially benefit, or at least widen perspectives and possibilities for some of my dear lab members.
+* I will first introduce what I mean by **more interesting blocks** in deep learning. I believe it will potentially benefit, or at least widen perspectives and possibilities for some interested readers including my dear lab members.
 * We will restrict our attention to only a subset of **more interesting blocks**: blocks that have discrete parameters. This is because discretely-parameterized blocks already cover a lot of content and have received particular interests.
 I will introduce Neural Architecture Search (NAS) and Neural DNF^[Lu, Jialin, and Martin Ester. 2020. “Neural Disjunctive Normal Form: An Inherently Interpretable Deep Learning Classifier.” *Manuscript under Review*. We do not have a preprint version but you can download [PDF here](./neural_dnf.pdf)] as two example. But as you may know, the technical problem is always about learning/optimization: conventional optimization methods like SGD and its variants are designed for continuous parameters.
-* I will then introduce optimization methods for two cases. (1) For general cases that is not necessarily differentiable, we can optimize the parameters by techniques like local search, reinforcement learning; (2) For special cases where the entire forward computation is indeed differentiable or you can somehow come up with a differentiable version, we can then directly use gradient for learning which much more efficient; it is just that we will need some techniques on how to use gradients to update discrete parameters.
+* I will then introduce optimization methods for two cases. (1) For general cases that is not necessarily differentiable, we can optimize the parameters by techniques like local search; (2) For special cases where the entire forward computation is indeed differentiable or you can somehow come up with a differentiable version, we can then directly use gradient for learning which is much more efficient; it is just that we will need some techniques on how to use gradients to update discrete parameters.
 * At last, I will introduce a lot of possibilities on many more interesting blocks and then conclude.
 
 <script>
@@ -64,16 +64,16 @@ The promise of methodological advantages of deep learning approaches and the rea
 
 Within a tiny amount of freedom,
 we can design many innovative modules/blocks and assemble them freely such that we obtain a parameterized forward computation procecss.
-And by using gradients as learning signals, somehow we magically get some not-so-bad models^[I will use the term **model** and **forward computation** interchangeably, because in deep learning I think calling a model essentially means the executation of a forward computation process. If you do not get it, recall how you write code in PyTorch.].
+And by using gradients as learning signals, somehow we magically get some not-so-bad models^[I use the term **model** and **forward computation** interchangeably, because in deep learning I think calling a model essentially means the executation of a forward computation process. If you do not get it, recall how you write code in PyTorch.].
 
 From my point of view, this motivates the core reason on why deep learning is getting so popular and useful:
 
 * you freely design a parameterized model.
 * you somehow have ways to efficiently optimize(learn) the parameters.
 
-These two points are both essential for the current popularity and usefulness of deep learning. If you do not have this little bit flexibility, the resulted model (the forward computation) is boring, you won't get published or ground to useful applications; but if you cannot efficiently optimize it, you are only making a delicate good-looking toy, but of no use.
+These two points are both essential for the current popularity and usefulness of deep learning. If you do not have this little bit flexibility, the resulted model (the forward computation) is boring, you won't get published or ground to useful applications; but if you cannot efficiently optimize it, you are only making a delicate good-looking toy, yet of no use.
 
-I know many people actually have many ideas and here I would like to introduce how to work with more interesting blocks, and some of the interesting block you wish to develop may involve some discrete parameters. This is about to introduce some ways to how to learn such discrete parameters.
+I know many people actually have many ideas and here I would like to introduce how to work with more interesting blocks, and some of the interesting block you wish to develop may involve some discrete parameters. This post is about to introduce some ways to how to learn such discrete parameters.
 
 # Conventional Blocks
 ```{marginfigure}
@@ -91,7 +91,7 @@ $$ y = ReLU(Wx+b)$$
 
 There is nothing wrong with it. Pitts model is the first and so far still the most commonly-used model for the abstraction of the biological neuron and it is surprising that it actually is still being used in most of the deep neural network of this decade.
 
-I see Pitts model as boring because we are actually interested in using a deep learning block as the model of the actual brain. We are not neuroscientists, we are merely interested in computation. That means we just need it to perform some computation  tailored for some specific application. From this perspective, we can do more than this boring weighted-sum-then-ReLU, thus the name **more interesting blocks**.
+I see Pitts model as boring because we are not actually interested in using a deep learning block as the model of the actual brain. We are not neuroscientists, we are merely interested in computation. That means we just need it to perform some computation  tailored for some specific application. From this perspective, we can do more than this boring weighted-sum-then-ReLU, thus the name **more interesting blocks**.
 
 Of course, weighted-sum (linear model) is well studied for decades. We have a whole bunch of literature from convex optimization focusing on it.
 The theoretical foundation for it is strong.
