@@ -33,7 +33,7 @@ Slide can be found [here](./slide.pdf).
 
 * I will first introduce what I mean by **more interesting blocks** in deep learning. I believe it will potentially benefit, or at least widen perspectives and possibilities for some interested readers including my dear lab members.
 * We will restrict our attention to only a subset of **more interesting blocks**: blocks that have discrete parameters. This is because discretely-parameterized blocks already cover a lot of content and have received particular interests.
-I will introduce Neural Architecture Search (NAS) and Neural DNF^[Lu, Jialin, and Martin Ester. 2020. “Neural Disjunctive Normal Form: An Inherently Interpretable Deep Learning Classifier.” *Manuscript under Review*. We do not have a preprint version but you can download [PDF here](./neural_dnf.pdf)] as two example. But as you may know, the technical problem is always about learning/optimization: conventional optimization methods like SGD and its variants are designed for continuous parameters.
+I will introduce Neural Architecture Search (NAS) and Neural DNF^[Lu, Jialin, and Martin Ester. 2020. “Neural Disjunctive Normal Form: An Inherently Interpretable Deep Learning Classifier.” *Manuscript under Review*. We do not have a preprint version but you can download [PDF here](./neural_dnf.pdf)] as two examples. But as you may know, the technical problem is always about learning/optimization: conventional optimization methods like SGD and its variants are designed for continuous parameters.
 * I will then introduce optimization methods for two cases. (1) For general cases that is not necessarily differentiable, we can optimize the parameters by techniques like local search; (2) For special cases where the entire forward computation is indeed differentiable or you can somehow come up with a differentiable version, we can then directly use gradient for learning which is much more efficient; it is just that we will need some techniques on how to use gradients to update discrete parameters.
 * At last, I will introduce a lot of possibilities on many more interesting blocks and then conclude.
 
@@ -140,13 +140,13 @@ We view the assembled computation graph as a new block. This block is, from my p
 Formulating NAS as a block with discrete parameters: a binary matrix
 ```
 The problem can be formulated as a discrete optimization problem.
-We can formulate the edges of the graph as a adjacency matrix $M$, where a entry $M_{ij}$ equals 1 means we connect the basic block $i$ to block $j$, while each edge represents a weighted-sum-then-ReLU computation.
+We can formulate the edges of the graph as a adjacency matrix $M$, where a entry $M_{ij}$ equals 1 means we connect the basic block $i$ to block $j$, while each edge represents the input-output routing.
 
 Now you can see what is the discrete parameters here. learning the continuous parameters is relatively easy, you simply apply gradient based optimization methods like SGD; Learning the adjacency matrix is not easy, you cannot simply apply SGD.
 
 ## Neural DNF as a interesting block with discrete parameters
 
-Rule-based models, unlike linear model, is defined as a logical operation. Here is example model a rule set model for predicting whether a customer will accept a coupon for a nearby coffee house, where the coupon is presented by their car’s mobile recommendation device:
+Rule-based models, unlike linear model, is defined as a logical operation. Here is example model, a rule set model for predicting whether a customer will accept a coupon for a nearby coffee house, where the coupon is presented by their car’s mobile recommendation device:
 
 `r sans_serif(
 "
@@ -168,12 +168,12 @@ predict the customer will accept the coupon for a coffee house.
 ")
 `
 
-A rule set, or  a Disjunctive Normal Form, is considered to be the basic version of rule-based models.
-Formally, a rule set model consists of a set of rules, where each rule is a conjunction of condi- tions. Rule set models predict that an observation is in the positive class when at least one of the rules is satisfied. Otherwise, the observation is classified to be in the negative class.
-This the basic form of rule-based models, a rule-based model that takes Boolean input and produce Boolean outputs.
+A rule set, or a Disjunctive Normal Form, is considered to be the basic version of rule-based models.
+Formally, a rule set model consists of a set of rules, where each rule is a conjunction of conditions. Rule set models predict that an observation is in the positive class when at least one of the rules is satisfied. Otherwise, the observation is classified to be in the negative class.
+This the basic form of rule-based models, in propositional logic, a rule-based model that takes Boolean input and produce Boolean outputs.
 
 Usually we learn rule-based models by some discrete optimization algorithms (such as @Wang:2017:bayesian) and we do not use gradient to learn it.
-However, learning such a rule model by gradient is certainly possible. The even better news is that, if we can learn rules by gradient, then it is useful when the input is in fact a output from another neural network, we can train the neural network and the rules end-to-end. (Interested readers can take a look on about our work.)
+However, learning such a rule model by gradient is certainly possible. The even better news is that, if we can learn rules by gradient, then it is useful when the input is in fact a output from another neural network, we can train the neural network and the rules end-to-end. (Interested readers can take a look on our work.)
 
 I give NAS and Neural DNF as two examples of interesting discretely-parameterized blocks.
 There are more other possible blocks and I will briefly mention them at the end.
@@ -199,9 +199,9 @@ We can also try something even fancier, like reinforcement learning @Zoph:2018:l
 
 ![](./assets/nas-rl.png)
 
-Note that to train the controller network, we can use policy gradient, based on @Williams:1992:simple. Note that this does not require the entire process to be differentiable, the training process of a deep network until convergence is not easily differentiable. (Yes I know there is actually someway to have a differentiable version of it, but not very easy).
+Note that to train the controller network, we can use policy gradient, such as REINFORCE rule @Williams:1992:simple or more advanced variant algorithms. Note that using policy gradient does not require the entire process to be differentiable, the training process of a deep network until convergence is not easily differentiable. (Yes I know there is actually someway to have a differentiable version of it, but not very easy).
 
-One thing worth mention is that the reinforment learning technique applies to any problem setting as long as you can figure up in a act-reward setting.
+One thing worth mention is that the reinforcement learning technique applies to any problem setting as long as you can figure up in a act-reward setting.
 ![The RL setup](./assets/rl.png)
 For reference, I recommend a phd thesis on using it in robotic applications @penkov:2019:learning. It will definitely be an interesting read, even not super close to our topic today.
 
@@ -217,7 +217,7 @@ Why? Recall that in the previous methods for NAS, each step requires to you to t
 ```
 Here we are going to introduce a cheap solution, or a general theme underlying many advances of deep learning: we convert a model into a differentiable version, and then we can optimize by gradient, which is highly efficient and often leads to super-great model performance.
 
-This is also a general lesson we learned during the years, that being differentiable often bootstraps the performance compared to using reinforment learning technique to optimize non-differentiable ones.
+This is also a general lesson we learned during the years, that being differentiable often bootstraps the performance compared to using reinforcement learning technique to optimize non-differentiable ones.
 
 If we can convert into a differentiable computation, then both the discrete parameters and the continuous parameters can be trained jointly in an end-to-end manner. We do not have to train the discrete parameters and then continuous parameters in an alternating-manner anymore.
 
@@ -244,7 +244,7 @@ In this way, the entire computation now involves discrete parametes (the adjacen
 
 By using this differentiable version, we can use gradient to optimize the whole thing, both discrete and continuous parameters, **AT THE SAME TIME**!
 
-The differentiable version allows directly using gradient for learning, although we will need some techniques on how to optimize discrete parameters using gradient. But in terms of advantages for this differentiable version, it is much more efficient and give better performance, such as the works like the SNAS approach by @xie:2018:SNAS (using the Gumbel-softmax trick which will be later introduced) and the DARTS approach by @liu:2018:DARTS (using reinforment learning but different with the above mentioned one).
+The differentiable version allows directly using gradient for learning, although we will need some techniques on how to optimize discrete parameters using gradient. But in terms of advantages for this differentiable version, it is much more efficient and give better performance, such as the works like the SNAS approach by @xie:2018:SNAS (using the Gumbel-softmax trick which will be later introduced) and the DARTS approach by @liu:2018:DARTS (using reinforcement learning but different with the above mentioned one).
 
 `r sans_serif(
 "
