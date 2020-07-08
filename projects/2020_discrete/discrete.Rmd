@@ -26,9 +26,11 @@ options(htmltools.dir.version = FALSE)
 ")
 `
 
+Slide can be found [here](./slide.pdf)
+
 * I will first introduce what I mean by **more interesting blocks** in deep learning. I believe it will potentially benefit, or at least widen perspectives and possibilities for some of my dear lab members.
 * We will restrict our attention to only a subset of **more interesting blocks**: blocks that have discrete parameters. This is because discretely-parameterized blocks already cover a lot of content and have received particular interests.
-I will introduce Neural Architecture Search (NAS) and Neural DNF^[Lu, Jialin, and Martin Ester. 2020. “Neural Disjunctive Normal Form: An Inherently Interpretable Deep Learning Classifier.” *Manuscript, Under Review*] as two example. But as you may know, the technical problem is always about learning/optimization: conventional optimization methods like SGD and its variants are designed for continuous parameters.
+I will introduce Neural Architecture Search (NAS) and Neural DNF^[Lu, Jialin, and Martin Ester. 2020. “Neural Disjunctive Normal Form: An Inherently Interpretable Deep Learning Classifier.” *Manuscript under Review*. We do not have a preprint version but you can download [PDF here](./neural_dnf.pdf)] as two example. But as you may know, the technical problem is always about learning/optimization: conventional optimization methods like SGD and its variants are designed for continuous parameters.
 * I will then introduce optimization methods for two cases. (1) For general cases that is not necessarily differentiable, we can optimize the parameters by techniques like local search, reinforcement learning; (2) For special cases where the entire forward computation is indeed differentiable or you can somehow come up with a differentiable version, we can then directly use gradient for learning which much more efficient; it is just that we will need some techniques on how to use gradients to update discrete parameters.
 * At last, I will introduce a lot of possibilities on many more interesting blocks and then conclude.
 
@@ -299,9 +301,9 @@ From now on we assume the discrete parameters are in binary value in $\{0,1\}$.
 
 We still use a continuous parameter, but apply a transformation function so that it will be close to discrete values, that is, a surrogate function.
 
-Let us say the discrete parameters are binary valued in $\{0,1\}$, in the continuous surrogate, we maintains a continuous *latent* parameter $x$ and transform it into close-to-binary values, this can come by many alternatives such as sigmoid/softsign/tanh functions^[The choice of sigmoid/softsign/tanh does effect the performance much.].
+Let us say the discrete parameters are binary valued in $\{0,1\}$, in the continuous surrogate, we maintains a continuous *latent* parameter $w$ and transform it into close-to-binary values, this can come by many alternatives such as sigmoid/softsign/tanh functions^[The choice of sigmoid/softsign/tanh does not effect the performance much.].
 
-$$ \hat{w} = sigmoid(x) = \frac{e^w}{1+e^w}$$
+$$ \hat{w} = sigmoid(w) = \frac{e^w}{1+e^w}$$
 $$ \hat{w} =  \frac{w}{1+|w|} * \frac{1}{2} + \frac{1}{2}$$
 $$ \hat{w} = tanh(w) * \frac{1}{2} + \frac{1}{2}$$
 
@@ -452,7 +454,7 @@ and use a randomly-generated DNF as ground-truth.
 
 ```{marginfigure}
 LP and MLP are not DNF functions but only serve for comparison of convergence speed here.
-We do not show results for merely STE or Bop because learning always fails. Also, the convergence of Gumbel-softmax/temperature-augmented is determined by the temperature schedule, so we are not showing them as well.
+We do not show results for merely STE or Bop because learning always fails. Also, the convergence of Gumbel-softmax/temperature-augmented is determined by the temperature schedule, this means with clever tuning we can fake any curve as we like. So we are not showing them as well.
 ```
 We compared the convergence speed with the following baselines:
 
@@ -514,7 +516,7 @@ It has become a quite long post, so I will conclude in brief with key take-home 
 * when you come up with a block with discrete parameters, it is better to think of a differentiable version. Because this way we can get more efficient learning that we can jointly learn discrete and continuous parameters at the same time.
 * We introduced several alternative methods like continuous surrogate, gumbel-softmax, straight-through estimator (STE), Binary Optimizer (Bop), and a slight improvement STE/Bop with adaptive noise.
 
-> They say making a meme of your take-home message is more effective.
+> And they say making a meme of your take-home message is more effective.
 > `r quote_footer(" --- I just made it up.")`
 
 ::: {.fullwidth}
