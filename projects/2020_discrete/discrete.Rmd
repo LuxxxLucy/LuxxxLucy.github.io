@@ -269,7 +269,7 @@ In the Neural DNF paper, the formulation is in fact a little more sophisticated.
 $$
 r_j = \bigwedge_{W_{i,j}=1} x_i
 % \rightarrow
-\qquad\xrightarrow{\text{replaced by}}\qquad
+\xrightarrow{ \text{replaced by} }
 r_j
 = \prod_{i} F_{\text{conj}} (x_i, W_{i,j})
 \text{,  where }
@@ -278,7 +278,7 @@ $$
 $$
 \hat{y} = \bigvee_{S_{j}=1}^N r_j
 % \rightarrow
-\qquad\xrightarrow{\text{replaced by}}\qquad
+\xrightarrow{ \text{replaced by} }
 \hat{y} = 1 -  \prod_{j}^{N} (1 - F_{\text{disj}} (r_j, S_j ) )
 \text{,  where }
 F_{\text{disj}}(r,s) = r \cdot s
@@ -336,7 +336,7 @@ The Gumbel-softmax trick is proposed independently by @Jang:2016:categorical and
 
 Formally, let $w$ be a N-dimension one-hot coding categorical variable, then for the k-th dimension, it is given by
 
-$$ \hat{w}_k = \frac{\exp( (\log w_k) + g_k) / \lambda}{ \sum_i^N \exp( (\log w_i) + g_i) / \lambda  }$$
+$$ \hat{w}_k = \frac{\exp( (\log w_k) + g_k) / \lambda) }{ \sum_i^N \exp( (\log w_i) + g_i) / \lambda)  }$$
 where $g$ is a randomly-drawn noise from the Gumbel distribution^[that is why there is a **Gumbel** in the name]:
 $$ g_i =  - \log ( - \log (u)) \text{ where }u \sim Uniform(0,1) $$
 
@@ -406,7 +406,7 @@ where $\gamma$ is the exponential decay rate and $\nabla$ is the gradient comput
 
 This STE/Bop with adaptive noise solution is developed during our work on learning Neural DNF.
 
-We tried STE and Bop and find it does not work. Because of the DNF function is non-concex, optimization is very sensitive to initialization and hyperparameters and can be stuck in local minima very easily.
+We tried STE and Bop and find it does not work. Because of the DNF function is non-convex, optimization is very sensitive to initialization and hyperparameters and can be stuck in local minima very easily.
 When stuck in local minima, the gradients w.r.t $w$ effectively become zero, and thus any further updates for $w$ are disabled, because gradient is all zero!
 We suspect the reason is that even the DNF function (the differentiable version) is well defined on $[0,1]$, since the choice of values of the binary parameters $w$ can only take $\{0,1\}$, then the loss surface is non-smooth and thus the optimization becomes hard.
 
