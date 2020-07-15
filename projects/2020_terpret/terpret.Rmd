@@ -25,7 +25,7 @@ options(htmltools.dir.version = FALSE)
  [luxxxlucy.github.io](https://luxxxlucy.github.io/)
 
 
-This post is about tackling the *TerpreT* problem (well, in particular, the the parity chain problem) and offers a simple solution.
+This post is about tackling the *TerpreT* problem (well, in particular, the parity chain problem) and offers a simple solution.
 In short the TerpreT problem refers to experimental observations that using gradient for program synthesis/induction is not effective and even fails almost constantly in cases which are considered quite simple for more traditional solvers.
 This is also summaized in [Daniel Selsam's blog](https://dselsam.github.io/the-terpret-problem/)^[The "Terpret Problem" and the limits of SGD, https://dselsam.github.io/the-terpret-problem/] as the limitations of SGD.
 I will explain the context more in the main text but what I do is that I test several alternative methods for learning TerpreT with gradient, and find that one method in particular, the Binary Optimizer (Bop, Helwegen et al. 2019), seems to work quite well. The code for experiment can be found in github^[ [the_terpret_problem_pytorch](https://github.com/LuxxxLucy/the_terpret_problem_pytorch) reposity on github].
@@ -67,7 +67,7 @@ In this partiy chain problem, if we set the input-output pair as $x_0=0$ and all
 
 The main reason for advocating such differentiable programming languages is that, the differentiability allows for gradient-based parameter learning. And the result of the parity chain problem should be somewhat pessimistic to see. From my point of view, we can expect gradient-based learning to be slower since it requires iteractive mini-batchs, but it cannot be the case that it fails to learn in very simple problems.
 
-As in the parity chain problem, it fails because some parameters happen to be 50% for zero and 50% for one, and being 50% makes it receive no more gradient as the computed gradient becomes zero. So a natural solution is, let avoid the case of being 50%, meaning each boolean variable must have an asymmetric distribution for being zero and one; if the 50% situation is avoided, then we get rid of the zero-gradient situation, and then we perhaps can learn successfully!
+As in the parity chain problem, it fails because some parameters happen to be 50% for zero and 50% for one, and being 50% makes it receive no more gradient as the computed gradient becomes zero. So a natural solution is, let us avoid the case of being 50%: each boolean variable must have an asymmetric distribution for being zero and one; if the 50% situation is avoided, then we get rid of the zero-gradient situation, and then we perhaps can learn successfully!
 
 I tried with several alternative methods and I append a short description of experimental observation for each.
 
@@ -82,16 +82,15 @@ For Bop, I did not test with larger $k$ but I think for larger $k$, Bop will wor
 
 **Gumbel-softmax trick**
 
-The Gumbel-softmax trick or known as the concrete distribution is proposed independently by @Jang:2016:categorical, @Maddison:2016:concrete. Basically it uses an extra temperature parameter that is manually decreased per epoch. When the temperature is small, the distribution will be close to very clean and sharp discrete value; but when the temperature is high, the distribution might be like 50%/50%.
+The Gumbel-softmax trick or known as the concrete distribution is proposed independently by @Jang:2016:categorical, @Maddison:2016:concrete. Basically it uses an extra temperature parameter that is manually decreased per epoch. When the temperature is small, the distribution will be close to very clean and sharp discrete value; but when the temperature is high, the distribution might be more ambiguous, like 50%/50%.
 
-Gumbel-softmax is widely applied in a lot of applications, but unfortunately in the parity chain problem, it fails to work. It seems that the temperature is not really helpling and the same 50%/50% is obtained in the end.
+Gumbel-softmax is widely applied in a lot of applications, but unfortunately in the parity chain problem, it also fails to work. It seems that the temperature is not really helpling and the same 50%/50% is obtained in the end.
 
-Because of the failuer of Gumbel-softmax, I start to think a more aggressive perspective, like in binary neural networks where the weight only have to values, can we also say that the Boolean variables also have either a 1 or 0.
+Because of the failure of Gumbel-softmax, I start to think a more aggressive perspective, like in binary neural networks where the weight only have to values, can we also say that we let the Boolean variables have either a value of 1 or 0?
 
 **Straight-through Estimator (STE)**
-Straight-through Estimator (STE) is now the dominant technique for binary neural networks. It was designed for parameters of value $\{-1,1\}$.
-Straight-through estimator (STE) is first proposed in Hinton's course lecture, and later more formally analyzed and evaluated by @Bengio:2013:estimating.
-
+Straight-through Estimator (STE) is now the dominant technique for binary neural networks.
+Straight-through estimator (STE) is first proposed in Hinton's course lecture, and later more formally analyzed and evaluated by @Bengio:2013:estimating. It was designed for parameters of value $\{-1,1\}$, but now we wil consider the case of $\{0,1\}$.
 STE maintains a continuous parameter, but only threshold into binary values in the forward computation. Note that a thresholed parameter $\hat{w}$ is used for computing the objective function in the forward pass, but in the backward pass, the gradient is updated to $w$. Since what is actually being optimized is still a continuous one, usual continuous optimization methods like SGD/Adam still apply.
 
 In the forward pass, we binaried $w$ into
@@ -103,7 +102,7 @@ $$ \hat{w} =
 $$
 and in the backward pass, the gradient is upated to the continuous parameterer $w$.
 
-In practice, we test STE and find that it does can learn the parity problem successfully. Use the refered github reposity and run "python run.py --type=2 --k=128 --v=128", you can see the STE converges to the right solution in about 2000 epochs.
+In practice, we test STE and find that it can learn the parity problem successfully. Use the github reposity and run "python run.py --type=2 --k=128 --v=128", you can see the STE converges to the right solution in about 2000 epochs.
 ![STE is not so stable](./assets/ste.png)
 This is the screenshot taken by runing this command in terminal. Each line represent the states of the parameres, while a full block represents 100% being zero, and a empty block represents 0% being zero.
 For $k=128$, STE converges in about 2000 epochs but you can see in the above figure that for epochs before the convergence, some of the parameters seems to accasionally flip its value of zero and one. This is just the way STE is. It does not have a mechanism like Bop which will be introduced below, to prevent the nosiy flips of zero-one values, so it might be a little bit not so stable compared to Bop.
@@ -113,7 +112,7 @@ The Binary Optimizer (Bop) by @Helwegen:2019:rethinking provides a new perspecti
 The answer is yes and that is Binary Optimizer (Bop).
 
 ```{marginfigure}
-The Bop is originally developed for binary neural network with parameter value in $\{-1,1\}$. To be consistent, we will suit into the case of $\{0,1\}$
+The Bop is originally developed for binary neural network with parameter value in $\{-1,1\}$. We will suit into the case of $\{0,1\}$
 ```
 Bop uses gradient as the learning signal and flips the value of $w \in \{0,1\}$ only if the gradient signal $m$ exceeds a predefined **accepting threshold** $\tau$:
 $$
@@ -132,7 +131,7 @@ m = \gamma m + (1-\gamma) \nabla
 $$
 where $\gamma$ is the exponential decay rate and $\nabla$ is the gradient computed for a mini-batch.
 
-In the parity problem, we set  $\gamma=1-10^{-5}$ and $\tau=10^{-1}$. A smaller $\tau$ will takes longer to converge to the right solution. It should also be mentioned that the accepting threshold $\tau$ is the main advantage of Bop over STE, because a non-zero $\tau$ helps avoid rapid back-and-forth update by noisy gradient, and is thus more stable.
+In the parity problem, we set  $\gamma=1-10^{-5}$ and $\tau=10^{-1}$. A smaller $\tau$ will takes longer to converge to the right solution. It should also be mentioned that the accepting threshold $\tau$ is the main advantage of Bop over STE, because a non-zero $\tau$ helps avoid rapid back-and-forth update by noisy gradient, and is thus more stable than STE.
 
 Use the refered github reposity and run "python run.py --type=3 --k=128 --v=128", you can see the Bop converges to the right solution in about 100 epochs. For $k=1024$, Bop converge to the right solution in about 900 epoch.
 
@@ -150,5 +149,4 @@ But anyway, STE/Bop with adaptive noise is proposed for the Neural Disjunctive N
 # Last words
 
 1. Solving parity chain is not the end for all the problems of TerpreT. But at least it shuold be a start.
-
 2. Using STE/Bop, we might be able to re-benchmark the empirical results in the original TerpreT paper.
