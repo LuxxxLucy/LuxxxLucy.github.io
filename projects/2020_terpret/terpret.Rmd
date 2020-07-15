@@ -37,7 +37,7 @@ Besides, just as reference for more interested readers, I also wrote a recent po
 # Introduction
 
 In this section I will explain what *TerpreT* is and what is wrong with it.
-Readers can also refer to [Daniel Selsam's blog](https://dselsam.github.io/the-terpret-problem/) for a more accessible version because I will talk about only very briefly. People who are well aware of this problem can skip to next section.
+Readers can also refer to [Daniel Selsam's blog](https://dselsam.github.io/the-terpret-problem/) for a more accessible version because I will talk about only very briefly. People who are well aware of this problem can skip to next section. But anyway I really recommend to read [Daniel Selsam's blog](https://dselsam.github.io/the-terpret-problem/) first, to get an overall overview of what's going on.
 
 TerpreT @Gaunt:2016:terpret is a probabilistic programming language for inductive program synthesis. The task is to obtain the right program given the input-output pairs. More specifically, the distinguishing feature of TerpreT is that it separates the problem setting with the actual learning algorithm, so synthesis problem with the same setting can be applied with different learning algorithms, such as gradient descent, linear program relaxations, discrete satisfiability solving and the *SKETCH* program synthesis system.
 
