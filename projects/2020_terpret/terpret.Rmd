@@ -91,7 +91,7 @@ Because of the failure of Gumbel-softmax, I start to think a more aggressive per
 **Straight-through Estimator (STE)**
 Straight-through Estimator (STE) is now the dominant technique for binary neural networks.
 Straight-through estimator (STE) is first proposed in Hinton's course lecture, and later more formally analyzed and evaluated by @Bengio:2013:estimating. It was designed for parameters of value $\{-1,1\}$, but now we wil consider the case of $\{0,1\}$.
-STE maintains a continuous parameter, but only threshold into binary values in the forward computation. Note that a thresholed parameter $\hat{w}$ is used for computing the objective function in the forward pass, but in the backward pass, the gradient is updated to $w$. Since what is actually being optimized is still a continuous one, usual continuous optimization methods like SGD/Adam still apply.
+STE maintains a continuous parameter, but only threshold into binary values in the forward computation. Note that a thresholded parameter $\hat{w}$ is used for computing the objective function in the forward pass, but in the backward pass, the gradient is updated to $w$. Since what is actually being optimized is still a continuous one, usual continuous optimization methods like SGD/Adam still apply.
 
 In the forward pass, we binaried $w$ into
 $$ \hat{w} =
