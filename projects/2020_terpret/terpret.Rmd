@@ -86,14 +86,14 @@ The Gumbel-softmax trick or known as the concrete distribution is proposed indep
 
 Gumbel-softmax is widely applied in a lot of applications, but unfortunately in the parity chain problem, it also fails to work. It seems that the temperature is not really helpling and the same 50%/50% is obtained in the end.
 
-Because of the failure of Gumbel-softmax, I start to think a more aggressive perspective, like in binary neural networks where the weight only have to values, can we also say that we let the Boolean variables have either a value of 1 or 0?
+Because of the failure of Gumbel-softmax, I start to think a more aggressive perspective, like in binary neural networks where the weight only have two discrete values, can we also say that we let the Boolean variables have either a value of 1 or 0? instead using the previous "soft" solution.
 
 **Straight-through Estimator (STE)**
 Straight-through Estimator (STE) is now the dominant technique for binary neural networks.
 Straight-through estimator (STE) is first proposed in Hinton's course lecture, and later more formally analyzed and evaluated by @Bengio:2013:estimating. It was designed for parameters of value $\{-1,1\}$, but now we wil consider the case of $\{0,1\}$.
 STE maintains a continuous parameter, but only threshold into binary values in the forward computation. Note that a thresholded parameter $\hat{w}$ is used for computing the objective function in the forward pass, but in the backward pass, the gradient is updated to $w$. Since what is actually being optimized is still a continuous one, usual continuous optimization methods like SGD/Adam still apply.
 
-In the forward pass, we binaried $w$ into
+In the forward pass, we binarize $w$ into
 $$ \hat{w} =
      \begin{cases}
          1, & \text{if  } w > 0.5 \\
@@ -143,8 +143,14 @@ One thing to mention, with a smaller accepting threshold, Bop can takes longer t
 But of course, when introduce a new hyperparameter (the accepting threshold), we will need to spend extra efforts to tune it.
 
 # More sophisticated functions than parity chain.
-There are, a slight variation of STE/Bop called STE/Bop with adaptive noise, which is designed to a more sophisticated case (the Neural Disjunctive Normal Form) where gradient can be zero even if all parameters are 1 or 0. You can see [my other blog](https://luxxxlucy.github.io/projects/2020_discrete/discrete.html) for more information, but in short, the parity chain problem of TerpreT happens because gradient becomes zero when we have a 50%/50% situation for some certain parameters. So avoid the 50%/50% situation and use directly 1- or 0-valued parameters can solve this problem; but STE/Bop with adaptive noise is introduced for even more complex function than the parity chain. So we do not need the new version 'STE/Bop with adaptive noise', since STE/Bop is already working very well.
-But anyway, STE/Bop with adaptive noise is proposed for the Neural Disjunctive Normal Form^[Lu, Jialin, and Martin Ester. 2020. “Neural Disjunctive Normal Form: An Inherently Interpretable Deep Learning Classifier.” *Manuscript under Review*. We do not have a preprint version but you can download [PDF here](../2020_discrete/neural_dnf.pdf)] model which can learn IF-THEN rules for classifications and learned by gradients, this is novel as most of traditional methods for rule learning are combinatorial discrete optimization algorithms and we can also integrate other neural network with the IF-THEN rules.
+There are, a slight variation of STE/Bop called **STE/Bop with adaptive noise**, which is designed to a more sophisticated case (the Neural Disjunctive Normal Form) where gradient can be zero even if all parameters are 1 or 0. You can see [my other blog](https://luxxxlucy.github.io/projects/2020_discrete/discrete.html) for more information.
+
+But in short,
+
+* the parity chain problem of TerpreT happens because gradient becomes zero when we have a 50%/50% situation for some certain parameters. So avoid the 50%/50% situation and use directly 1- or 0-valued parameters can solve this problem.
+* STE/Bop with adaptive noise is introduced for even more complex function than the parity chain that the gradient can be zero even if all the parameters are 1 or 0. STE/Bop with adaptive noise is proposed for the Neural Disjunctive Normal Form^[Lu, Jialin, and Martin Ester. 2020. “Neural Disjunctive Normal Form: An Inherently Interpretable Deep Learning Classifier.” *Manuscript under Review*. We do not have a preprint version but you can download [PDF here](../2020_discrete/neural_dnf.pdf)] model which can learn IF-THEN rules for classifications and optimized by gradients, this is novel as most of traditional methods for rule learning are combinatorial discrete optimization algorithms and we can also integrate other neural network with the IF-THEN rules.
+
+But anyway for the parity problem. we do not need the new version 'STE/Bop with adaptive noise', since STE/Bop (in particular, Bop) is already working very well.
 
 # Last words
 
