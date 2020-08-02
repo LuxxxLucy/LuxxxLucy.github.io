@@ -154,5 +154,5 @@ But anyway for the parity problem. we do not need the new version 'STE/Bop with 
 
 # Last words
 
-1. Solving parity chain is not the end for all the problems of TerpreT. But at least it shuold be a start.
+1. Solving parity chain is not the end for all the problems of TerpreT. But at least it should be a start.
 2. Using STE/Bop, we might be able to re-benchmark the empirical results in the original TerpreT paper.

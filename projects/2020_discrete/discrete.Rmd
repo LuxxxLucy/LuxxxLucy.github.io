@@ -312,7 +312,7 @@ $$ \hat{w} = tanh(w) * \frac{1}{2} + \frac{1}{2}$$
 
 This is almost the simplest solution. We use the surrogate transformation to approximate binary value and we can use standard continuous optimization algorithm to for learning the continuous latent $w$.
 
-In practice, we find DNF-Real to be optimization-friendly just like any other real-valued DNNs but it is not guaranteed to result in binary-valued parameters.
+In practice, we find the continuous surrogate to be optimization-friendly just like any other real-valued DNNs but it is not guaranteed to result in binary-valued parameters.
 
 As you might guess, it is not guaranteed that binary values will be obtained in the end.
 So after training, some hard thresholding need to be applied to actually convert $x$ into binary values. By doing this, to say the least, the performance drop can occur.
@@ -344,7 +344,7 @@ It also has a temperature parameter $\lambda \in (0,\infty)$, when $\lambda \lim
 
 ![](./assets/gumbel-softmax.png)
 
-Bad news: since we have the temperature parameter, we will need to do some hyper-parameter tuning: initialize $\lambda$ and then gradually decrease it. And this tuning is not quite easy. More than that, Gumbel-softmax has more serious issue, the major shortcoming caused by the introduce temperature hyper-parameter:
+Bad news: since we have the temperature parameter, we will need to do some hyper-parameter tuning: initialize $\lambda$ and then gradually decrease it. And this tuning is not quite easy. More than that, Gumbel-softmax has more serious issue, the major shortcoming caused by the introduced temperature hyper-parameter:
 ```{marginfigure}
 There are many other issues like vanishing gradient and high variance estimate, etc, but we will stop here.
 ```
@@ -441,7 +441,7 @@ In order to force $\sigma_w$ lies in range $[0,0.5]$, we clip $\sigma_w$ by $\si
 Note that $\sigma_w$ is not globally shared: we have a $\sigma_w$ for every $w$.
 
 We call it **ADAPTIVE** noise because we make $\sigma_w$ also a learnable parameter. We simply initialize $\sigma_w$ = $\sigma_0$ and optimize $\sigma_w$ by SGD/Adam as well. The choice of initial value $\sigma_0$ requires heuristic: $\sigma_0$ cannot be too large as optimization will be slower,
-and $\sigma$ cannot be too small as in the extreme case, with zero noise the optimization will constantly fail (at least for the Neural DNF case). We find values between $0.1$ and $0.3$ all work fine and we use $\sigma_0=0.2$ as the default initial value.
+and $\sigma_0$ cannot be too small as in the extreme case, with zero noise the optimization will constantly fail (at least for the Neural DNF case). We find values between $0.1$ and $0.3$ all work fine and we use $\sigma_0=0.2$ as the default initial value.
 
 `r sans_serif('This is good news!')`  In this way, we do not have to do the tedious job of temperature scheduling! The noise temperature can be optimized by SGD/Adam! It does not get stuck in local minima and gives you directly discrete parameters!
 

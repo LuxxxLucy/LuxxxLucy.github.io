@@ -96,3 +96,8 @@ input:focus{border-color:#2b96f1}@-webkit-keyframes alert{0%{opacity:0;transform
 @media(max-width:750px){.newsletter{position:relative;display:block;right:0;bottom:0;width:80%;margin:50px auto;-moz-animation:none;-webkit-animation:none;animation:none}
 .newsletter .close{display:none}}
 #presentation-link{margin-bottom:2em}
+
+a:hover {
+	font-weight: 650;
+	text-decoration: underline;
+}
