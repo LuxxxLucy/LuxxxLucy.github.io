@@ -511,6 +511,22 @@ I believe that this direction is fundamentally important, even by now it is not 
 This approach of integrating symbolic programs and neural networks is what I saw as future.
 I personally hold strong faith that this direction will be practically useful and fruitful in the long run.
 
+Also, while the neuro-symbolic integration is surely an interesting direction and offers a large volume of research works, I think there is a closely-related subfield called program synthesis or program induction working on this. I do not know it very well. But what I feel is that most of work is on developing techniques to learn very complex (powerful language) programs. Maybe an even more precise term about the idea of combining program with neural networks should be *differentiable* program synthesis.
+
+BTW, while the general idea of neuro-symbolic integration is a interesting direction, my own interest is more on how to combine program (for reasoning) and networks (for perception), especially how to combine this two in a principled way and study the interaction of these two. This direction can also be called **Vertical** Neuro-symbolic integration, as categorized in the recent survey paper by @Garcez:2019:Neural. In this survey, neuro-symbolic integration can be divided into two main categories: **Horizontal** and **Vertical**. Horizontal essentially means to let neural models deal with sensory input and come up with some high level representations, and let a more principled symbolic/logical/sub-logical program to perform reasoning on it. How these two parts interactively influence each other is to me a very interesting and fundamentally important problem: the language of reasoning should have impact on what kind of representation we can get from sensory data, and in return, the kind of representation should also have impact on the reasoning language.
+
+
+## More other possibilities of the optimization methods.
+
+Now, let us take a step back about all the techniques introduced in this paper, one might argue that all the techniques introduced are more or less based on approximate boolean variables. And yes, all these techniques are not guaranteed to work on more sophisticated functions. In fact, I propose the STE/Bop + adaptive noise simply because applying STE/Bop does not optimize the DNF function well. Even if this adaptive noise works for DNF, we do not know about more complicated functions.
+
+If we wish to work further, there are, from what I read, some other techniques that are more different than the techniques introduced here.
+
+- One direction, is to use special treatment of optimizing discrete variables and integrate it in the whole optimization process, for example, the REAS (@Jeevana:2018:REAS) which uses a SAT solver to deal with the discrete parameters.
+- One other direction, is to use a different representation of program, and then optimize in that new space, for example, the DeepProbLog (@Manhaeve:2018:DeepProbLog). Though I'd like to admit that I do not yet fully  understand this paper..
+
+I think both these two direction should be more appealing and comfortable to people who are more interesting on programs rather than deep learning.
+
 # Conclusion
 
 It has become a quite long post, so I will conclude in brief with key take-home messages:
