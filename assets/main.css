@@ -24,6 +24,7 @@ body {
 
 .main{min-width:250px;max-width:900px;margin:200 auto;padding:100px 28px 28px 28px}
 .narrow{max-width:570px;margin:0 auto}
+.extranarrow{max-width:450px;margin:0 auto}
 .left,.right{flex:1;width:510px;flex-shrink:0;display:flex}
 .left{justify-content:flex-end}
 .right{position:relative}
