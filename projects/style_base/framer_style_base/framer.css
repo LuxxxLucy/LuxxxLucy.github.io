@@ -81,7 +81,7 @@ body,
 	padding-left: 12.5%;
 
 	color: #111;
-	max-width: 1400px;
+	max-width: 1800px;
 	counter-reset: sidenote-counter;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizelegibility;
@@ -758,4 +758,71 @@ p.mathjax-block,
 .auto-suggest-container .autoComplt-hint.active {
 	background: #2b2b2b;
 	color: #fff;
+}
+
+.playbutton {
+  background-color: rgb(148, 196, 146);
+  border-width: 0;
+  /*background-color: rgba(255, 130, 0);*/
+  border-radius: 4px;
+  color: white;
+  padding: 5px 8px;
+  /*width: 60px;*/
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  /*display: block;*/
+  /*margin-left: auto;*/
+  margin: 8px 0px;
+  margin-right: auto;
+  min-width:60px;
+}
+
+.playbutton:hover, .playbutton:active {
+  background-color: rgb(128, 176, 126);
+}
+
+#linkbutton:link, #linkbutton:visited {
+  background-color: rgb(180,180,180);
+  border-radius: 4px;
+  color: white;
+  padding: 6px 0px;
+  width: 180px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin: 8px;
+}
+
+#linkbutton:hover, #linkbutton:active {
+  background-color: rgba(160,160,160);
+}
+
+
+.imgright { float: right; margin-left: 10px; }
+.imgcap img {
+  border: 1px solid #999;
+  max-width: 100%;
+}
+.imgcap {
+  color: #666;
+  font-size: 14.5px;
+  text-align: center;
+}
+
+.imgcap_noborder img {
+  max-width: 100%;
+}
+.imgcap_noborder {
+  color: #666;
+  font-size: 14.5px;
+  text-align: center;
+}
+
+.svgdiv {
+  width: 100%;
+  text-align: center;
 }
