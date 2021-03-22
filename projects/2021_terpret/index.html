@@ -1,0 +1,21 @@
+<!DOCTYPE html><script src="https://cdn.jsdelivr.net/npm/texme"></script><textarea>
+
+
+# Mitigating The Failures Of Gradient-Based Program Induction
+
+## working in progress
+
+In particular, the problem comes from the failures of gradient program induction of the TerpreT.
+> **TERPRET**: A Probabilistic Programming Language for Program Induction, *Gaunt et al, 2016*
+
+I study the problem of gradient-based program induction, i.e., optimizing the parameters of a program given input-output pairs, using gradient-based optimization algorithm. Recent works on this direction choose a straightforward ‘relax- ation’ approach: the discrete space of programs is relaxed into a continuous space so that search over programs can be performed using gradient-based optimization in the continuous space. However, this approach is outperformed by the conventional discrete search algorithms, by a large margin.
+
+We investigate the diagnosize the problem of the straightforward way of gradient descent of relaxed programs and come to the observations that the relaxation creates the new *type 2* local minima that causes all the problem.
+
+<p align="center" width="100%">
+    <img width="50%" src="./assets/illustration.png">
+</p>
+
+
+In this paper, we argue that the continuous relaxation is not the only way to perform gradient-based optimization, and instead we can perform gradient-based optimization directly in the discrete space.
+With the lessons we learned from existing approaches, and guided by the ideal properties we wish to see, we proposed a new algorithm K-flip.
