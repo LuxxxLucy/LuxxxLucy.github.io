@@ -1,9 +1,29 @@
-<!DOCTYPE html><script src="https://cdn.jsdelivr.net/npm/texme"></script><textarea>
+<!DOCTYPE html>
+<script>window.texme = { style: 'plain' }</script>
+<script src="https://cdn.jsdelivr.net/npm/texme"></script>
+<style>
+    body {
+        background: lightcyan;
+        margin-left: -5%;
+        margin-right: 40%;
+    }
+
+    main {
+        max-width: 20em;
+        padding: 1em;
+        
+        /* border: medium double gray; */
+        /* margin: 2em auto; */
+        /* background: lightyellow; */
+    }
+</style>
+<textarea>
+
 
 
 # Mitigating The Failures Of Gradient-Based Program Induction
 
-> working in progress: A preliminary manuscript can be found <a href="./draft.pdf">here</a>.
+> This is working in progress: A preliminary manuscript can be found <a href="./draft.pdf">here</a>.
 
 
 ## Motivation and a simple example
@@ -74,10 +94,17 @@ In this paper, we argue that the continuous relaxation is not the only way to pe
 With the lessons we learned from existing approaches, and guided by the ideal properties we wish to see, we proposed a new algorithm GradSearch.
 
 <p align="center" width="100%">
-        <img width="90%"  src="./assets/parity_chain.gif" style="background-color:black">
+        <img width="120%"  src="./assets/parity_chain.gif" style="background-color:black">
         <!-- <source src="./assets/output.mp4" type="video/mp4"> -->
         <p>The optimization process of the proposed algorithm, there seem to be a kind of propagation effect.</p>
 </p>
 
 We show that we can effectively solve the synthesis of parity chain, while relaxation based methods all fail by stucking at the soft local minima.
 I also tested with a wider range of other methods but they do not work. The only notable exception here is the Bop ([Helwegen et al 2019](https://arxiv.org/abs/1906.02107)) algorithm. But it works more like an abnormaly here as it is highly sensitive to hyperparameters. Meanwhile, Bop can only handle binary parameters, our proposed algorithm can also be generalized to categorical variables and others. And we also show that Straight-through estimator (STE, [Bengio et al 2013](https://arxiv.org/abs/1308.3432)) and Bop are special cases of our GradSearch algorithm.
+
+
+<p align="center" width="100%">
+    <img width="120%" src="./assets/parity_chain_table.png" style="background-color:black">
+    <!-- <source src="./assets/output.mp4" type="video/mp4"> -->
+</p>
+
