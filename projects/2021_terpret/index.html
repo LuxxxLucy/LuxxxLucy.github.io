@@ -108,3 +108,14 @@ I also tested with a wider range of other methods but they do not work. The only
     <!-- <source src="./assets/output.mp4" type="video/mp4"> -->
 </p>
 
+However, when we tried to extend this method to more challenging program synthesis tasks, the resuls are not so good. It turns out that there remain two problem:
+
+First, as GradSearch is essentially a local search, it is then vulnerable to the problem of local minima. One easy way out is of course to employ certain tricks to escape from local search. But this in turn becomes a highly tedious job.
+
+Second, the gradient w.r.t the parameters is not always there, becauses of many structures like conditional ("IF-ELSE") and loops, there is a lot of place where there is no informative gradient to use as learning signal.
+
+Several possible way out:
+1. Finding clever use of the continous relaxation and GradSearch. One hypothesis is that we can use the continuous relaxation as a warm-starting, and then let GradSearch to search efficiently (till a local minima). This way we alternative from two ways of optimization. But this is also not working.
+2. Investigate different ways of converting to differentiable program. However this is like a no-end trial-and-error process. A first starting point perhaps is to investigate the triangular norms for logic operators first.
+3. The major problem is that we are moving from parity chain to circuits, a multi-layered structure. There is possibel ways to better understand the credit assignment. For example, we can start with a simplest scenario of a If-Else conditional program first, and then move to multi-layered structured programs. For this, perhaps we can take a look at multi-armed bandits.
+2. Abandon the idea of gradient-based optimization for discrete parameters. What we want is essentially a algorithm that optimize continuous parameters (like neural networks) and discrete parameters together. There can be other possiblities other than gradient descent.
