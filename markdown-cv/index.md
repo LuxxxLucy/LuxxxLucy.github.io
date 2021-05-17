@@ -90,7 +90,7 @@ __Research Assitant__
 - Have developed in past: C++, Java
 - Sufficient Familarities: Web front end, iOS/Android.
 
-## Blog/Writing
+## Blog/Writing/Misc
 
 `2021`
 - __[Gradient-based program induction](https://luxxxlucy.github.io/projects/2021_terpret/index.html)__
@@ -100,6 +100,10 @@ __Research Assitant__
 
 `2020`
 - __[Solving the TerpreT problem](https://luxxxlucy.github.io/projects/2020_terpret/terpret.html)__
+
+`2020`
+- __[Mirror-Integration and Functional-Regularisation for better control of Deep Nets ](https://luxxxlucy.github.io/projects/2020_functional/slide.pdf)__
+
 
 `2020`
 - __[On Bayesian Deep Learning, an outsider's view](https://www.notion.so/luxxxlucy/On-Bayesian-Deep-Learning-an-outsider-s-view-057a4fdac44746bcb89e79f497c0fc6e)__
