@@ -1,0 +1,205 @@
+---
+title: "Research"
+author: Jialin Lu
+output:
+  tufte::tufte_html:
+    tufte_variant: envisioned
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
+  slidy_presentation: null
+  beamer_presentation: default
+bibliography: paper.bib
+link-citations: yes
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+<style>
+    #frame {
+        width: 300px; 
+        height: 100px;
+    }
+
+    #wrapper {
+        position: relative;
+        width: 50%;
+        left: 54%;
+        transform: translate(-50%, 0);
+    }
+    
+    .container {
+      position: relative;
+      top-margin: 50px;
+      bottom-margin: 50px;
+      overflow: hidden;
+      width: 1024px;
+      height: 728px;
+
+    }
+
+    /* Then style the iframe to fit in the container div with full height and width */
+    .responsive-iframe {
+
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+</style>
+
+<script>
+  // Move TOC to the Table of Contents heading (with id "table-of-contents")
+  $(function() {
+    $( "#TOC" ).insertAfter( $( "#table-of-contents" ) );
+  });
+</script>
+
+
+So here I am going to write  about what I've done and what I am working on. Each comes with a description, or several slides.
+
+# Undergraduate
+
+<br>
+<details>
+<summary> Click to expand </summary>
+
+When I was taking my undergraudate in Zhejiang University, I was working on disentanglement^[ [Disentanglement of Hetergeneous Components: A Slightly Obsolete Attempt](https://luxxxlucy.github.io/projects/2019_disentangle/index.html)   ] ) and also briefly on generative modelling^[[A Review of Failure - Deep Generative Model for Chinese Fonts](https://www.notion.so/luxxxlucy/A-Review-of-Failure-Deep-Generative-Model-for-Chinese-Fonts-e63b4e3c235a49d6b7ef80b9ee9f13d2)]. 
+
+
+
+</details>
+
+# Master
+
+<br>
+<details>
+<summary> Click to expand </summary>
+
+I then came to study with Martin Ester, and I have mainly worked on the topic of interpretability.
+
+## An active learning approach for model interpretation 
+
+@jialin:2019:ADS
+
+<details>
+<summary>Click to expand (The slide can be controlled by ← and → on keyboard )</summary>
+
+<div class="container">
+<iframe class="responsive-iframe" src="../projects/2019_ADS/intro_slide.html"></iframe>
+</div>
+
+
+
+</details>
+
+
+
+
+## Revisiting and debugging the recurrent attention model 
+
+@jialin:2019:RAM
+
+
+
+<details>
+<summary>Click to expand (The slide can be controlled by ← and → on keyboard )</summary>
+
+<div class="container">
+<iframe class="responsive-iframe" src="../projects/2019_RAM/intro_slide.html"></iframe>
+</div>
+
+</details>
+
+## Discovering modular groups of neurons to interpret DNN
+
+@jialin:2019:biclustering
+
+<details>
+<summary>Click to expand (The slide can be controlled by ← and → on keyboard )</summary>
+
+<div class="container">
+<iframe class="responsive-iframe" src="../projects/2019_bicluster/intro_slide.html"></iframe>
+</div>
+
+</details>
+
+
+## Domain knowledge-guided architecture for drug-response prediction
+
+@Snow:2021:BDKANN
+
+<details>
+<summary>Click to expand</summary>
+We utilize the hierarchical information on how proteins form complexes and act together in pathways, in order to form a specific architecture. 
+
+</details>
+
+## Neural Disjunctive Normal Form.
+
+master thesis.
+
+<details>
+<summary>Click to expand (The slide can be controlled by ← and → on keyboard )</summary>
+
+<div class="container">
+<iframe class="responsive-iframe" src="../projects/2020_neural_dnf/intro_slide.html"></iframe>
+</div>
+
+The key technical challenge here is how to devise algorithms to optimize discrete parameters by gradients. Here I made an introduction and survey on how we can do this^[ [On more interesting blocks with discrete parameters in deep learning
+](https://luxxxlucy.github.io/projects/2020_discrete/discrete.html) ].
+
+</details>
+
+</details>
+
+# Current
+
+<br>
+<details>
+<summary> Click to expand </summary>
+
+After working on the Neural Disjunctive form however, I now have two further directions stemmed from it.
+
+## Direction 1: more flexible design. 
+<br>
+<details>
+<summary> Click to expand </summary>
+
+<div class="container">
+<iframe class="responsive-iframe" src="../projects/2021_current/intro_slide.html"></iframe>
+</div>
+
+</details>
+
+## Direction 2: Symbolic grounding problem
+<br>
+<details>
+<summary> Click to expand </summary>
+
+In the framework of vertical integration, learning of neurally-extracted symbols that has human-aligned meaning is actually very hard.
+
+SAT-Net (-@Wang:2019:satnet, ICML best paper) utilizes a symbolic SAT solver layer on top of a convolutional neural network (CNN) for solving a satisfiability-based task of visual Sudoku
+The original work claims that the CNN can learn to detect MNIST digits and the SAT-layer can solve this sudoku problem.
+However, a recent NeurIPS paper -@Chang:2020:assessing re-assess this work and find out that in this case, the learned neurally-extracted concepts are not really meaningful as it should be. That these concepts are not really corresponding to digits.
+
+This phenomenon is also confirmed by a lot of relevant approaches/papers in this hybrid integration framework.
+
+I currently have an idea and am working on analyse this problem from a noise-to-signal perspective.
+
+</details>
+
+</details>

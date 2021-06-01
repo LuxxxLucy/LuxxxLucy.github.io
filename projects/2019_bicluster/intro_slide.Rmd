@@ -1,0 +1,51 @@
+---
+title: "Discovering modular groups of neurons to interpret DNN"
+output:
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
+  slidy_presentation: null
+  beamer_presentation: default
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+
+
+## 
+
+Given a pre-trained DNN, we can discover several modules of task-correlated neurons, meaning,
+some hidden neurons in the same group are functionally related for predicting a set of similar data samples, i.e. samples with similar feature patterns. We do this by applying network attribution and biclustering methods. 
+
+![raw matrix of attribution score and neurons.](./assets/raw_matrix.png)
+
+![*after the biclustering of related neurons*, there appears to be a checkboard pattern](./assets/matrix.png)
+
+## 
+
+We find that, unsurprisingly, the neurons are highly sparsely related, i.e., only a small subset of neurons are important for predicting a small subset of data samples
+
+while we do not use any label supervision, samples corresponding to the same group (bicluster) show surprisingly coherent feature patterns.
+
+<center>
+<img src="./assets/percentages_all_conv.png" alt="drawing" width="500"/>
+<center/>
+
+*Some neuron group are highly class-specific*, i.e., some neurons as a group are responsible to classifying a certain class
+
+## 
+
+We can also use our method to discover novel data patterns, for example, gene motifs.
+
+<center>
+<img src="./assets/gata.png" alt="drawing" width="500"/>
+<br> <p>Discoverd motif in gene sequence<p/>
+<center/>
+
+
+

@@ -10,5 +10,6 @@ package-lock.json
 .vscode
 *.icloud
 
+*.Rhistory
 
 /projects/2021_explantory

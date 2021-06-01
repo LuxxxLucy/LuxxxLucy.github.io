@@ -1,0 +1,51 @@
+---
+title: "flexible design and inference"
+output:
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
+    incremental: true
+    css: ../style_base/slidestyles2.css
+  slidy_presentation: null
+  beamer_presentation: default
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+# flexible
+
+The promise of hybrid neural symbolic model (vertically integration model) can enable traditional methods that usually only work on tabular/atomic data to work on natural data like images.
+
+Neural DNF chooses propositional logic, there are many other works chooses other forms, such as a MaxSAT ([SATNet](https://arxiv.org/abs/1905.12149)) or [planning](https://arxiv.org/abs/2009.07476) or general algorithms ( [Veličković et al](https://arxiv.org/abs/2105.02761)) and combinatorial solvers ([Vlastelica et al](https://arxiv.org/abs/1912.02175)).
+
+We should be more general!
+- free way of defining model in a language. Not constrained to this vertical way of integration but rather many ways.
+
+## imagine a better, more principled approach, 
+
+- one should be able to flexibly define some domain-specific language and a model specification. 
+- then the inference/optimization can be done by a general-purpose procedure instead of a customized bespoke optimization procedure.
+
+Usually such model should contain both continuous and discrete variables.
+
+And I think there are many ways to do it:
+
+- backprop and gradient-based optimization
+  - initial results, like
+    - [Solving the TerpreT Parity chain problem](https://luxxxlucy.github.io/projects/2020_terpret/terpret.html), which is quite interesting and difficult
+    - Ongoing project  and [Mitigating The Failures Of Gradient-Based Program Induction](https://luxxxlucy.github.io/projects/2021_terpret/index.html)]
+- probabilistic programming: blackbox variational inference, MCMC, etc
+- reduce to MaxSAT or mixed integer programming
+
+## 
+
+Introduce the gradient-based optimization.
+
+
+So that brings me to the current project on program induction
+.
