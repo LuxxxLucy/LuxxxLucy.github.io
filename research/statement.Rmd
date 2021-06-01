@@ -3,7 +3,7 @@ title: "Research"
 author: Jialin Lu
 output:
   tufte::tufte_html:
-    tufte_variant: envisioned
+
   tufte::tufte_handout:
     citation_package: natbib
     latex_engine: xelatex

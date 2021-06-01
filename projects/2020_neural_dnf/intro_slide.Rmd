@@ -1,9 +1,10 @@
 ---
-title: "Neural Disjunctive Normal Form"
+title: "Neural disjunctive normal form"
 output:
   ioslides_presentation:
     widescreen: true
     smaller: true
+    incremental: true
     css: ../style_base/slidestyles2.css
   slidy_presentation: null
   beamer_presentation: default
@@ -15,6 +16,14 @@ library(tufte)
 knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
 options(htmltools.dir.version = FALSE)
 ```
+
+## Neural disjunctive normal form
+
+Basically it is about 
+
+- Neuro-Symbolic model, which has mixed discrete-continuous parameters.
+- how to optimize the mixed discrete-continuous parameters.
+- the general design principle here is to design an algorithm that is simple and general. Thus following the [bitter lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) and ultimately be more useful.
 
 ## A two-stage formulation that integrates “vertically”
 
@@ -38,13 +47,8 @@ options(htmltools.dir.version = FALSE)
   </div>
 </div>
 
-## Hybrid v.s. pure symbolic/deep model
 
-<div class="centered">
-<img src="./assets/comparison.png" alt="drawing" width="1000px"/>
-</div>
-
-## Neural DNF
+## For classiciation in propositional logic:  Neural DNF
 
 <div class="centered">
 <img src="./assets/neural_dnf.png" alt="drawing" width="1000px"/>
@@ -52,14 +56,13 @@ options(htmltools.dir.version = FALSE)
 
 
 
-## Approach: two optimizers
-
-<div class="centered">
-<img src="./assets/optimizer.png" alt="drawing" width="1000px"/>
-</div>
+## Approach:
 
 - **Step 1**: Make the model end-to-end differentiable
 - **Step 2**: Use two optimizers for the continuous and discrete parameters. Use a SGD optimizer for the first stage neural network, develop a new optimizer for the discrete parameters of the symbolic part. 
+- <img src="./assets/optimizer.png" alt="drawing" width="1000px"/>
+- the design principle here is to maximally retain the deep learning flavour (the end-to-end approach)
+
 
 ## Example: MNIST-sums-to-odd
 
@@ -67,10 +70,10 @@ options(htmltools.dir.version = FALSE)
 <img src="./assets/mnist_sums_to_odd.png" alt="drawing" width="1000px"/>
 </div>
 
-**How would a human solve this problem?**
-
-Two digit sum up to odd if one of the two digits is an even number and the other is an odd number,
-and otherwise it will sum to an even number.
+- **How would a human solve this problem?**
+- perhaps a two stage computation.
+  - determine for each of the two digits, whether it is odd or even.
+  - make decision: two digit sum up to odd if one of the two digits is an even number and the other is an odd number, and otherwise it will sum to an even number.
 
 ## Applying Neural DNF
 
@@ -82,4 +85,10 @@ and otherwise it will sum to an even number.
 
 <div class="centered">
 <img src="./assets/bird.png" alt="drawing" width="1000px"/>
+</div>
+
+## Hybrid v.s. pure symbolic/deep model
+
+<div class="centered">
+<img src="./assets/comparison.png" alt="drawing" width="1000px"/>
 </div>
