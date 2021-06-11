@@ -3,7 +3,7 @@ title: "Research"
 author: Jialin Lu
 output:
   tufte::tufte_html:
-
+    css: "../projects/style_base/framer_style_base/framer.css"
   tufte::tufte_handout:
     citation_package: natbib
     latex_engine: xelatex
@@ -70,6 +70,18 @@ options(htmltools.dir.version = FALSE)
 
 
 So here I am going to write  about what I've done and what I am working on. Each comes with a description, or several slides.
+
+
+# Overview
+<details>
+<summary> Click to expand </summary>
+
+<div class="container">
+<iframe class="responsive-iframe" src="../projects/2021_current/intro_slide.html"></iframe>
+</div>
+
+</details>
+
 
 # Undergraduate
 
@@ -174,14 +186,14 @@ The key technical challenge here is how to devise algorithms to optimize discret
 
 After working on the Neural Disjunctive form however, I now have two further directions stemmed from it.
 
-## Direction 1: more flexible design. 
+## Direction 1: general inference algorithm 
 <br>
 <details>
 <summary> Click to expand </summary>
 
-<div class="container">
-<iframe class="responsive-iframe" src="../projects/2021_current/intro_slide.html"></iframe>
-</div>
+Given a domain specific language, find out a good general purpose inference algorithm.
+
+It can be but not limited to gradient-based optimization. Maybe mixed integer programming, blackbox variational inference, etc.
 
 </details>
 

@@ -1,11 +1,11 @@
 ---
-title: "flexible design of model&general-purpose inference"
+title: "Jialin Lu"
 output:
   ioslides_presentation:
     widescreen: true
     smaller: true
     incremental: true
-    css: ../style_base/slidestyles2.css
+    css: ../style_base/framer_style_base/framer.css
   slidy_presentation: null
   beamer_presentation: default
 ---
@@ -17,55 +17,195 @@ knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
 options(htmltools.dir.version = FALSE)
 ```
 
-## flexible design of model
+<style>
+div.footnotes {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+  width: 80%;
+  font-size: 0.6em;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('slide:not(.backdrop):not(.title-slide)').append('<div class=\"footnotes\">');
+
+    $('footnote').each(function(index) {
+      var text  = $(this).html();
+      var fnNum = (index+1).toString().sup();
+      $(this).html(text + fnNum);
+
+      var footnote   = fnNum + ': ' + $(this).attr('content') + '<br/>';
+      var oldContent = $(this).parents('slide').children('div.footnotes').html();
+      var newContent = oldContent + footnote;
+      $(this).parents('slide').children('div.footnotes').html(newContent);
+    });
+  });
+</script>
+
+## Background 
+
+(before I think programs and discrete parameters are important)
+
+When I was taking my undergraudate in Zhejiang University, I was working on [unsupervised disentanglement learning](https://luxxxlucy.github.io/projects/2019_disentangle/index.html). I think it is such a fundamentally important topic but I underestimate its difficulty. Not long after there was a google paper proves and empirically shows that unsupervised disentanglement is not possible.
+
+I then came to Vancouver to study with Martin Ester. The first year I was working on interpretability, made some projects and papers. 
+
+## Why I start to think programs and discrete parameters are important
+
+- But after I did something and get familiar with ML interpretability, I became to doubt what is truly interpretable after all.
+
+- After some long peirod of reading and thinking, I reached my conclusion
+
+- **Code written by a programmer is interpretable to the programmer, as well as the colleague and other people if they can be taught to read and analyse the code**
+  - And it is not just interpretable, but also generalize well and managebale, maintainable. This should be the ultimate form of ML, turning it more like normal software development.
+  
+- letting machine to code, or program synthesis is a old and well-studied task. But I am interested in more non-conventional programs.
+  - for example, hybrid network-program models
+
+- Unfortunately this brings many new challenges, such as designing a general purpose learning algorithm. The basic question is that it will involve binary and categorical parameters to infer.
+
+## My first try on program-network hybrid models.
+
 <div class="columns-2">
 <img src="./assets/two_stage.png" alt="drawing" width="300px"/>
 
+I start with a basic two-stage model for such hybrid model.
 
-Neural DNF is not quite flexible!
-
-- In Neural DNF, we integrate a disjunctive normal form with a network. But there are many other forms of model.
-  - We should extend from just propositional logic to a wider range of models, such as  MaxSAT ([SATNet](https://arxiv.org/abs/1905.12149)) or [planning](https://arxiv.org/abs/2009.07476) or general algorithms ( [Veličković, et al](https://arxiv.org/abs/2105.02761)) and combinatorial solvers ([Vlastelica, et al](https://arxiv.org/abs/1912.02175)).
-- The Neural DNF is a two-stage *vertical* integration, can we be more free?
-- more generally, can we do this at the same time?
+- the purpose is that with the neural network, we can leverage a symbolic program to work on sensory data like images.
+- I start with by defining the symbolic program to be of propositional logic, and design a learning algorithm to learn end-to-end.
 </div>
 
-## Simple! Design a language!
 
-Design a (domain-specific) language where you can
+## Neural Disjunctive normal form
 
-- flexibly define a model specification. 
-- do not worry about developing a bespoke customized algorithm for a particular model. 
-  - But rather separate the inference/optimization from model definition. Use a **general-purpose** optimization procedure!
-<br><br><br>
-- One example can be seen as by PyTorch etc for deep learning.
-  - you define some customized model (in the langauge of deep learning blocks).
-  - leave everything to a general purpose inference engine (Autodiff and SGD)
+An example task:
+<div class="centered" style="margin-top:-140px">
+<img src="../2020_neural_dnf/assets/mnist_sums_to_odd.png" alt="drawing" width="1000px"/>
+</div>
 
-## Possible approaches
-
-* The domain-specific language can vary depending on the task.
-
-* But usually such model should contain both continuous and discrete variables. So we can look at the inference/optimization engine first.
-
-* I think there are many ways to do it:
-  - backprop and gradient-based optimization
-    - backprop and SGD works well for continuous models, so in this approach we should focus on make gradient-based optimization work on discrete parameters.
-    - initial results:
-      - [Solving the TerpreT Parity chain problem](https://luxxxlucy.github.io/projects/2020_terpret/terpret.html), which is a quite difficult task for gradient-based optimization. 
-      - Ongoing project [Mitigating The Failures Of Gradient-Based Program Induction](https://luxxxlucy.github.io/projects/2021_terpret/index.html)
-  - probabilistic programming: blackbox variational inference, MCMC, etc
-  - reduce to SAT, MaxSAT 
-  - reduce to general optimization solvers, mixed integer programming, ...
-
-## To summarize
-
-This approach of (1) designing a domain-specific modelling language for a class of models, and (2) use a general purpose inference/optimization engine is from my opinion a very important direction. Because it is aligned with the [bitter lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html)
-
-- There are many good exampels or demonstration.
-  - a lot of industrial level verification problem can be encoded and solved by SAT sovlers.
-  - a lof of industrial inference task can be solved by probilisitic programming softwares, STAN, Infer.Net, etc.
-  - a lot of **___________** should be able to be solved by optimization solvers. We just need a good interface of language, a good translation compilation, and a good general purpose optimization solver.
+- **How would a human solve this problem?**
+- perhaps a two stage computation.
+  - determine for each of the two digits, whether it is odd or even.
+  - make decision: two digit sum up to odd if one of the two digits is an even number and the other is an odd number, and otherwise it will sum to an even number.
   
-- And that is why I am applying for the job on optimization solver at Huawei.
+- **Result of my learning algorithm**
+  - the first stage network actually produces an output that corresponds to being even/odd with over 99% accuracy. (this is good as we do not use any direct label)
+  - the learned rules (in propositional logic) matches exactly like human intuition.
+
+## General purpose learning algorithm
+
+The one I used in Neural DNF is a two optimizer approach. 
+- One optimizer for the continuous parameters
+- another for discrete parameters. 
+- Each take gradient and update parameter in a mini-batch setting
+
+- simple design, no theoretical soundness, just try to be like normal deep learning. Hoping this can be ultimately the most efficient way of learning (the bitter lesson)
+
+## But this end-to-end gradient-based algorithm is not good as expected
+
+- problems 1: **symbolic grounding**
+- problems 2: the general-purpose algorithm, which leads me to look at TerpreT.
+
+## TerpreT.
+
+the usual parity chain, FMGD.
+
+## Soft local minima
+<div class="centered" style="margin-top:-140px">
+<img  src="../2021_terpret/assets/illustration.png" alt="drawing" width="600px"/>
+</div>
+
+- a method different than FMGD would be to use discrete parameters, accompanied with a new update rule for the discrete parameters.
+  - it avoids the soft local minima.
+  - but of course have porblems. (not so optimization friendly)
+
+## Discrete parameters
+<div style="margin-top:-140px">
+I wrote a blog on [optimizing interesting discrete blocks](https://luxxxlucy.github.io/projects/2020_discrete/discrete.html).
+
+- straight-through estimator and binary optimizer
+$$
+w =
+\begin{cases}
+   1-w , & \text{if } |m| > \tau \text{ and } ( w=1 \text{ and } m>0 \text{ or } w= 0 \text{ and } m<0  )  \\
+   w, & \text{otherwise}.
+\end{cases}
+$$
+$w$ is either $0$ or $1$. $m$ represents the gradient, and $\tau >= 0$ is a hyperparameter, a threshold.
+- straight through estimator is $\tau=0$.
+
+- we can also write Bop/STE as follows
+$$
+w =
+\begin{cases}
+   1-w , & \text{if } (2w-1) m > \tau  \\
+   w, & \text{otherwise}.
+\end{cases}
+$$
+- STE/Bop in this way only works for binary parameter. But we can see this condition is actually a taylor series approximation. $$L_{w fliped}-L_{w} \approx (2w-1)m$$
+- so we can actually genealize to categorical parameter.
+</div>
+
+## New algorithm
+
+- finding a threshold is painful. so I get rid of it.
+- previously every bit can be flipped if exceeds a threshold.
+- now we only flip one bit, which has the maximal value.
+
+## Running average -> parity chain
+
+It seems it resembles unit propagation.
+
+<div class="centered" style="margin-top:0px">
+<img  src="../2021_terpret/assets/parity_chain_table.png" alt="drawing" width="1000px"/>
+</div>
+
+## A simple graphics program
+<div class="columns-2">
+```
+def a_drawing_program():
+    int K;
+    if K == 0:
+        draw_a_circle(x_0,y_0,radius,color_0)
+    else if K == 1:
+        draw_a_rect(x_1,y_1,width,height,color_1)
+    else if K == 2:
+        draw_a_close_curve(points,color)
+    return the_output_drawing
+```
+<br>
+
+<p align="center" width="100%">
+        <img width="40%"  src="../2021_terpret/assets/circle_target.png" style="background-color:black">
+        <img width="40%" src="../2021_terpret/assets/output.gif" style="background-color:black">
+</p>
+<p align="center" width="100%">
+    <b>Left</b>: target image. <b>Right</b>: the optimization process
+</p>
+</div>
+
+## Results on some TerpreT circuits tasks
+
+Tons of problems. And perhaps gradient-based end-to-end learning is not so good after all.
+
+<div class="centered" style="margin-top:0px">
+<img  src="../2021_terpret/assets/circuits_table.png" alt="drawing" width="1000px"/>
+</div>
+
+## Last
+
+My supervisor Martin Ester is an expert on data mining. I spent sometime to convince him to let me work on hybrid programs (neuro-symbolic). But to now I think I am having a difficult time, as I am mostly doing the research on my own.
+
+* **possible directions forward**
+* further study on the unit propagation like behaviour with running average (momentum)
+
+* the end-to-end gradient based optimization is not the only machine learning approach! 
+
+* regarding the design of domain-specific language and how to integrate programs with networks. There are other ways.
+
+* better investigation of the symbolic grounding problem.
 
