@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <script>window.texme = { style: 'plain' }</script>
 <script src="https://cdn.jsdelivr.net/npm/texme"></script>
+<link rel="stylesheet" href="../style_base/framer_style_base/framer.css">
 <style>
     body {
         background: lightcyan;
-        margin-left: -5%;
+        margin-left: -20%;
         margin-right: 40%;
     }
 
     main {
-        max-width: 20em;
+        max-width: 30em;
         padding: 1em;
         
         /* border: medium double gray; */
@@ -23,7 +24,7 @@
 
 # Mitigating The Failures Of Gradient-Based Program Induction
 
-> This is working in progress: A preliminary manuscript can be found <a href="./draft.pdf">here</a>.
+> This is working in partial form: A preliminary manuscript can be found <a href="./draft.pdf">here</a>.
 
 
 ## Motivation and a simple example
@@ -80,7 +81,7 @@ Turns out that there is already some previous work, showing that gradient-based 
 In particular, the problem comes from the failures of gradient program induction of the TerpreT.
 > **TERPRET**: A Probabilistic Programming Language for Program Induction, *Gaunt et al, 2016*
 
-Recent works on this direction choose a straightforward ‘relaxation’ approach: the discrete space of programs is relaxed into a continuous space so that search over programs can be performed using gradient-based optimization in the continuous space. However, this approach is outperformed by the conventional discrete search algorithms, by a large margin.
+Recent works on this direction choose a straightforward relaxation approach: the discrete space of programs is relaxed into a continuous space so that search over programs can be performed using gradient-based optimization in the continuous space. However, this approach is outperformed by the conventional discrete search algorithms, by a large margin.
 
 We investigate the diagnosize the problem of the straightforward way of gradient descent of relaxed programs and come to the observations that the relaxation creates the new **soft** local minima that causes all the problem.
 
