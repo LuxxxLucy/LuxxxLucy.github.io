@@ -1,0 +1,98 @@
+---
+title: "Learning Algorithm for program induction with a loss function"
+
+output:
+  tufte::tufte_html:
+    css: "/Users/lucy/Desktop/repos/LuxxxLucy.github.io/projects/style_base/framer_style_base/framer.css"
+    toc: true 
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+bibliography: paper.bib
+link-citations: yes
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+
+<script>
+  // Move TOC to the Table of Contents heading (with id "table-of-contents")
+  $(function() {
+    $( "#TOC" ).insertAfter( $( "#table-of-contents" ) );
+  });
+</script>
+
+## Motivation
+
+**general motivation**: 
+
+- DNN's great. It has a very efficient general-purpose learning algorithm: SGD. (the bitter lesson)
+- But we want to use more flexible design such as neuro-symbolic model. 
+- For it we need an efficient general purpose learning algorithm. This should be able to handle mixed discrete continuous params and also very complicated architectures.
+
+I also emphasize that the key point here is that we want to do this in a optimization framework, with the loss function as the learning signal.
+
+Usual program induction approach does not use optimization, nor a loss function.
+
+## The previous algorithm
+
+We take a two optimizer approach. Treat discrete and continuous parameters differently.
+
+In order to test this algorithm, we start with the Parity Chain task.
+
+- TerpreT Parity chain problem: soft relaxation approach always fail^[proves that treating discrete params in the same way as continuous params does not work.].
+- TerpreT parity chain: GradSearch, a discrete gradient-based approach works^[ This actually proves that it is correct to treat discrete and continuous params differently.].
+- However, for other tasks such as Boolean Circuits, it is not working.
+- We then tested on a simple task with mixed discrete and conitnuous params. But this is just a proof-of-concept, and I do not think it can work if the model becomes very complex.
+
+The lesson learned here is that, perhaps we need to look at the problems more carefully.
+
+## Diagnosis of reason. 
+
+Question: Why the parity chain can be solved by GradSearch but not the Boolean Circuits?
+
+Answer: Boolean circuits tasks are more structured! Parity chain can be viewed as a simple one-layer computation; but the boolean circuits are a hierachical, DAG.
+
+Now let us review our approach.
+
+1. When with mixed discrete and continuous params, we need to treat the discrete and continuous params differently.
+2. Even with pure discrete params, we should also treat different subsets of the discrete params differently, because these discrete params can have different groups and of different nature.
+
+An detailed explanation on what it means:
+
+- Note that in deep learning, different groups of params are upadted separately. For example, if we have two fully-connected layers, then we first upadte the first layer and then the second layer, (or in any order, does not matter)
+- In the current implementation of GradSearch, this is essentially the same. 
+- The parity chain task only has one group of params, it is a 128*2 parameter (128 binary variable), each step we flip one of them.
+- For the Boolean circuits, this is different. For example, we can have the first group of 5 3-class categorical variable, and then 10 binary variable. And the current implementation is that we flip one in the 5 3-class categorical variables, and then flip one of the 10 binary variables.
+
+This perhaps is the reason on why we can work on parity chain, but not on the Boolean Circuits, because we need to update the variables more carefully. Some of these variables are correlated, some have hierachical structure. So we should think of more careful ways of doing optimization.
+
+## So reframe the problem setting once again
+
+Given a set of input-output pairs, we require a loss function and we require it to be differentiable.
+
+(we will need gradient for the optimization of continuous parameters, but the discrete part may or maye not use gradient)
+
+What we want is an algorithm that:
+
+1. consists of different optimization sub-algorithms for different part of parameters.
+2. takes the loss function.
+3. Each part of parameters should be handled by different algorithm. We should also use the dependency exposed by the DAG to decide which part should be updated together, and which part should be updated separately.
+4. update iteratively by many steps. Perhaps using a simulated annealing framework.
+
+
+
+
+## My plan and possible places for reference.
+
+inference algorithm from probabilistic programming. Reason: Essentially the program induction can be seen as learning a DAG, so I think there must be places to find relevant work.
+
+
