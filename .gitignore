@@ -10,6 +10,9 @@ package-lock.json
 .vscode
 *.icloud
 
+*.dep
+*.zo
+
 *.Rhistory
 
 /projects/2021_explantory
