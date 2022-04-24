@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>failure</title>
+
+
+<style type="text/css">
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+
+<style type="text/css">
+/*
+ Solarized Color Schemes originally by Ethan Schoonover
+ http://ethanschoonover.com/solarized
+
+ Ported for PrismJS by Hector Matos
+ Website: https://krakendev.io
+ Twitter Handle: https://twitter.com/allonsykraken)
+*/
+
+/*
+SOLARIZED HEX
+--------- -------
+base03    #002b36
+base02    #073642
+base01    #586e75
+base00    #657b83
+base0     #839496
+base1     #93a1a1
+base2     #eee8d5
+base3     #fdf6e3
+yellow    #b58900
+orange    #cb4b16
+red       #dc322f
+magenta   #d33682
+violet    #6c71c4
+blue      #268bd2
+cyan      #2aa198
+green     #859900
+*/
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #657b83; /* base00 */
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	background: #073642; /* base02 */
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	background: #073642; /* base02 */
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background-color: #fdf6e3; /* base3 */
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #93a1a1; /* base1 */
+}
+
+.token.punctuation {
+	color: #586e75; /* base01 */
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #268bd2; /* blue */
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.url,
+.token.inserted {
+	color: #2aa198; /* cyan */
+}
+
+.token.entity {
+	color: #657b83; /* base00 */
+	background: #eee8d5; /* base2 */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #859900; /* green */
+}
+
+.token.function {
+	color: #b58900; /* yellow */
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #cb4b16; /* orange */
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+<style type="text/css">
+pre.line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+	position: relative;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 1px solid #999;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+	.line-numbers-rows > span {
+		pointer-events: none;
+		display: block;
+		counter-increment: linenumber;
+	}
+
+		.line-numbers-rows > span:before {
+			content: counter(linenumber);
+			color: #999;
+			display: block;
+			padding-right: 0.8em;
+			text-align: right;
+		}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">A Review of Failure - Deep Generative Model for Chinese Fonts</h1>
+
+<p>Created: November 29, 2019 2:44 PM</p>
+
+<p><aside><br>
+👉 Written by *<a href="https://luxxxlucy.github.io/">Lucy* Jialin Lu</a>, Nov 30th 2019. This is a review of a failed project.</p>
+
+<p></aside></p>
+
+<p>I started this project, namely deep learning for the generative modeling of Chinese Fonttype, two years ago when I interned as a research assistant at the University of Hong Kong working with Prof. Li-yi Wei. The essence of this project is to learn a generative model for Chinese Fonts with a hope of the flexibility and premise of deep learning. I spent a lot of time, tried a lot, even a long time after the internship but this project unfortunately failed. Frankly, it failed out of three reasons:</p>
+
+<ol>
+<li>The first reason is that I tried a lot of methods but didn&rsquo;t result well.</li>
+<li>The second reason is simply a personal matter: I am now doing my master&rsquo;s in Canada on a different topic so I do not have extra time on this. So I have to pause to work on this anymore.</li>
+<li>The last reason is that Li-yi also gradually lost interest in this project, partly because of his new job, partly because of the limited-or-next-to-zero research output from me.</li>
+</ol>
+
+<p>So you can see that in fact, it is entirely my fault. All this happens because I failed to produce a reasonable POSITIVE research output. </p>
+
+<p>But from the failures, I also began to understand the real obstacles to this problem. The painful and bitter lesson is: if we really wish to tackle this hard problem of learning a generative model for Chinese fonts, there are <strong>three key challenges</strong> that we inevitably need to conquer. Thus here in this post, I will summarize the three key challenges I found, during my failed quest for the generative modeling of Chinese fonts. </p>
+
+<p>This post is more or less intended for interested researchers and the future me, because soon or later I will come back to it (at least I hope so). I always have a mania on Chinese fonts. My father is a calligrapher specialized in Wei-Bei (魏碑, roughly the calligraphy works of the northern dynasties between AD 420–589) and makes a living for our family by it. I myself studied calligraphy, specializing in <a href="https://en.wikipedia.org/wiki/Zhao_Mengfu">Zhao Mengfu</a> and <a href="https://en.wikipedia.org/wiki/Chu_Suiliang">Chu Suiliang</a>, and I&rsquo;ve twice made it to the national prize exhibition of young calligraphers, although due to many reasons I&rsquo;ve been away from my brush pen for a long time since the beginning of college. Anyway, I still think it is highly likely that I will resume this failed project.</p>
+
+<p>A glimpse of contents:</p>
+
+<h2 id="toc_1">Three Key Challenges</h2>
+
+<hr>
+
+<p>The three key challenges I found, of the generative modelling of Chinese fonts are:</p>
+
+<ol>
+<li><p>Key challenge #1: <strong>A font consists of glyphs (for each character) which are represented as vector images</strong>, instead of the more comfortable pixel images. In particular, we say each glyph is parametrized in Bezier curves.</p>
+
+<p>However, current methods almost only work properly for pixels (raster images). How to handle the unordered, not-fixed-size, irregular representation of data is still an <a href="https://www.sets.parts/">open challenge</a> for deep learning. Pre-training in pixel image and then transferring to vector image seems to be currently the best practice. But this is far from satisfactory.</p></li>
+<li><p>Key challenge #2: <strong>The Chinese language has an extremely large alphabet</strong>. Any working font for commercial use will need a collection of at least 6000~7000 glyphs (the complete alphabet will be more than 40,000). This does not even count some other critical issues, such as </p>
+
+<ul>
+<li>A tricky phenomenon called <a href="https://en.wikipedia.org/wiki/Variant_Chinese_character">Variant Chinese character</a> (异体字) which are different glyphs for the same character such as 飃&amp;飄, 嶋&amp;島,  回&amp;囘&amp;囬. They are technically the same thing, but just in different appearances</li>
+<li>Different glyphs for the same character for traditional Chinese and simplified Chinese, or even Japanese <a href="https://en.wikipedia.org/wiki/Kanji">Kanji</a>. It means the alphabet needs to be at least 1.5 times bigger (roughly).</li>
+</ul>
+
+<p>Current methods struggle to work for a fixed small size of glyphs, such as the Latin alphabet. Scaling up to 6000 glyphs seems to be computationally infeasible.</p></li>
+<li><p>Key challenge #3: <strong>The compositional nature of glyphs</strong>: The reason why the Chinese font has a large alphabet is that Chinese font is compositional. One glyph might consist of many <q>parts</q> and any parts can be re-used to form different glyphs. Parts are composed into a glyph following some aesthetic principles. This is also what happens in the design studios of Chinese font designers. Designers would first come up with </p>
+
+<ul>
+<li>a collection of basis <q>parts</q> and</li>
+<li>a collection of important glyphs that give the aesthetic principles on how to compose <q>parts</q> into a glyph.</li>
+</ul>
+
+<p>Chinese glyphs are, by a large margin, more complex than Latin characters. My opinion is that explicit consideration of compositionality will be essential. It seems that we need a more <q>model-based</q> network rather than a <q>model-free</q> network (like the notion of model-based RL methods and model-free ones). A proper new architecture with inductive biases that can handle compositionality is desired.</p></li>
+</ol>
+
+<p>Note that the first challenge of vectorized representation is not only for Chinese fonts but rather for general fonts including other languages such as any Latin-based alphabet. The latter two challenges are specific properties of Chinese characters.</p>
+
+<h2 id="toc_2">Challenge#1 The vector representation of glyphs</h2>
+
+<hr>
+
+<p>The vector representation of font glyphs is a real obstacle where current architectures do not give a good-enough performance.</p>
+
+<p>TL,DR:</p>
+
+<ul>
+<li>Too many works claim to solve font, but in fact only deal with raster images, which is not useful and not cool at all.</li>
+<li>For those works which treat fonts as vector images, the deep learning architectures they used do not work very well. Most of them are variants of RNNs in order to handle the non-fixed-sized, very flexible representation of bezier curves. Hard to train, poor and unstable performance.</li>
+<li>But since we are relatively more comfortable with raster images anyway (thanks to CNN), a two-stage approach, which first pre-trains in raster images and then somehow transfers to output vector images, seems to be the currently best solution.</li>
+</ul>
+
+<h3 id="toc_3">One should consider vector images for fonts, not rasterized ones.</h3>
+
+<p>Fonttype is not normal regular images. We have reasons for using vector representations as font designers and the industry think it has nice properties: it is clean and concise with no noise, it does not consume large storage (up to a few MBs), it can be rendered at different scales.  Of course, certain designs will look less beautiful at certain scales (for example, not so good-looking when scaled too large, or not recognizable when scaled too small) and rendering glyph is also a hard job but that is the job of designers and engineers.</p>
+
+<p>As long as a good font is designed put into commercial use, the vector representation makes it really useful and is clearly superior to raster ones.</p>
+
+<p><aside><br>
+👉 Of course, to treat font glyphs as a set of strokes was also once a popular idea. But now I have a feeling that most of stroke-based methods are not popular anymore. They certainly make sense for hand-written characters, but not the real fonts which are DESIGNED. I hold firmly the idea that the bezier parameterization is the one and only choice.</p>
+
+<p></aside></p>
+
+<p>When we consider generative modeling of font, we must use the vector representation (the bezier parameterization) instead of the rasterized image. I found too many works tried to do something on fonts but only dealing with the pixel representation (usually the rasterization is done by pre-processing or even sampling at multiple scales as pixels) and then claim to solve the generative modeling of fonts. Most of the time, the popular GAN is the choice of the generative model, some examples:</p>
+
+<p><a href="https://bair.berkeley.edu/blog/2018/03/13/mcgan/">Transfer Your Font Style with GANs</a></p>
+
+<p><a href="https://arxiv.org/abs/1905.12502">GlyphGAN: Style-Consistent Font Generation Based on Generative Adversarial Networks</a></p>
+
+<p><a href="https://arxiv.org/abs/1910.12604">FontGAN: A Unified Generative Framework for Chinese Character Stylization and De-stylization</a></p>
+
+<p>All these seem to be solid works, but I do not see anything interesting, or whatever is unique for fonts rather than general images.</p>
+
+<h3 id="toc_4">Current generative modelling methods are not good.</h3>
+
+<p>Speaking of the choice of generative modeling, GAN and VAE are the two ubiquitous choices. But first I  would like to talk about the actual output part for vector images, which most of the time is a mixture density network as the output layer, </p>
+
+<p><a href="https://www.semanticscholar.org/paper/Mixture-density-networks-Bishop/4cf3569e045993dfe090749f26a55a768684ab86">Mixture density networks | Semantic Scholar</a></p>
+
+<p>the main purpose of which is to output the parameterized distribution: a subset of neural network output for mixture weights of components, and another subset of network output for an individual component. I am not sure who made this idea really work in the real-world applications in the first place, but based on my knowledge, I think mixture density output became a hit thing in deep learning research — being famous and widely acknowledged and recognized, and widely cited — in Alex Grave&rsquo;s famous paper on generative modeling with an RNN, to be precise, an LSTM. </p>
+
+<p><a href="https://arxiv.org/abs/1308.0850">Generating Sequences With Recurrent Neural Networks</a></p>
+
+<p>This should form the basis on how to treat irregular output (output that is other than pixel values) for vector images. I do not have any opinion on mixtue density output layer. It is just as it is. The good and bad thing of it is that it has some randomness in it, which is totally okay for hand-written characters. But for fonts? I don&rsquo;t know.</p>
+
+<p>But anyway let us get back to the main track of problem, the non-fixed-sized flexible representation of font glyphs </p>
+
+<ul>
+<li>a glyph consists of a single part like <q>一</q> or multiple parts like &ldquo;二“</li>
+<li>a part can be a contour, for example, the Latin character <q>C</q> and Chinese character <q>一</q>, which is just a single contour</li>
+<li>a part can be a nested collection of multiple contours. It can have one outside contour such as <q>A</q> and <q>口</q>, and multiple inside contours such as <q>B</q> and <q>日</q>. I call it the <strong>one-outside-contour many-inside-contour phenomenon.</strong></li>
+</ul>
+
+<p>To handle this representation, the straightforward way could treat it as a sequence, using an LSTM, or other RNN-variant. For example, a bi-directional LSTM </p>
+
+<p><a href="https://arxiv.org/abs/1704.03477">A Neural Representation of Sketch Drawings</a></p>
+
+<p>(Note that this paper does not work on font glyphs, but rather just vector image with no notion of contour.)</p>
+
+<p>Why use bi-directional LSTM? I guess it is simply because gives better results than just a single-directional LSTM. However, is any RNN-variant a good solution? I would probably say no, because RNN is only a simple way to handle non-fixed-size input and the font glyph does not even exhibit a temporal structure! The spatial relationship of different parts of the glyphs, of course, can be regarded as some sort of temporal relation, but this is so lossy and unelegant a solution!</p>
+
+<ol>
+<li>All RNN-variant method would have long term dependency issues, thus some aesthetic constraints on the output may be very difficult to achieve, for example, in the character <q>三</q>, we wish the vertical interval space of the upper two strokes and that of the lower two strokes to be roughly equal. This can be very hard to ensure in the RNN framework as the inevitable gradual forgetness of long term dependency. </li>
+<li>The notion of the contour is difficult in RNN. A contour is a circular list. It indeed has some order but it has no <q>start point</q> or <q>endpoint</q>. Any node in a circular list can be a start and endpoint. Bi-directional RNN can be an easy solution but by no means a good one. </li>
+<li>We do not even mention the <strong>one-outside-contour many-inside-contour</strong> phenomenon. The bi-directional RNN techniques can be used in other data, such as circular RNA where its use makes more sense. But really, I do not think it really is interesting applying it to fonts.</li>
+</ol>
+
+<p><aside><br>
+💡 A natural guess — and perhaps an educated one — is that many attention models are better suited in this case than RNN-variants. But will a blind force application of transformer in Chinese fonts really give a dramatic performance upgrade? No. At least from my experiment, I say no. And from my reading, I haven&rsquo;t seen any compelling and convincing, robust observations for switching to attention.</p>
+
+<p></aside></p>
+
+<h3 id="toc_5">Better architectures: A possible future</h3>
+
+<p>The clear lesson I learned is that we need a better-suited architecture which can handle non-fixed-size data (vector images), and also make sense on the property of font glyphs. One possible and interesting paper I know is the recursive cortical networks.</p>
+
+<p><a href="https://science.sciencemag.org/content/358/6368/eaag2612">A generative vision model that trains with high data efficiency and breaks text-based CAPTCHAs</a></p>
+
+<p><a href="https://www.vicarious.com/2017/10/26/common-sense-cortex-and-captcha/">Common Sense, Cortex, and CAPTCHA</a></p>
+
+<p>It proposes to explicitly perceive the contour and the surface content separately and use a neuroscience-inspired way to construct multi-level hierarchical architecture. </p>
+
+<p><aside><br>
+💡 The focus of this RCN paper is on data-efficiency. Further careful investigations on glyphs can be exploited.</p>
+
+<p></aside></p>
+
+<p>The deep learning community is advancing so rapidly these days. New architectures come up every day. It is possible that that specific architecture we want has already be in the sea of papers and it is just we do not realize the importance of it. Highly likely. Or maybe, that architecture will be re-invented in the future, as what had happened many times. But in general, I am optimistic that in the future we will witness the development of better new architecture. </p>
+
+<p>At that time, the task of generative modeling of Chinese fonts can be an easy cake and I will for certain come back for it.</p>
+
+<h3 id="toc_6">The currently best solution: pixels as extra information.</h3>
+
+<p>But now let us forget about the optimism of future, and talk about the currently best <q>greedy</q> solution. Let us look at the current situation:</p>
+
+<ul>
+<li>Since we are after a generative model, we want vector image as the output.</li>
+<li>Current architectures works well for pixels, but not vector images.</li>
+</ul>
+
+<p>Then there are mainly two options:</p>
+
+<ol>
+<li><p>use the pixel image as extra information to learn a generative model.</p>
+
+<p>This is what I did once, but not so thrilling result .</p></li>
+<li><p>learn a generative model that works on pixels, and then transfer to vector images.</p>
+
+<p>I found Lopes et al 2019 to be doing this, will explain later.</p></li>
+</ol>
+
+<p><strong>Use the pixel image as extra information to learn a generative model:</strong></p>
+
+<p>I did this as the last attempt for this project. Namely, use the pixel image and the vectorized representation together.</p>
+
+<p>I use a VAE with U-net connections. The input is augmented, I use multiple pixel images of a glyph (sampled at multiple scales) and plus the vector image. CNN is used for the pixels and an RNN (bi-directional LSTM) for the vector part. I will say it works under mild conditions, around 50 characters of less than 100 fonts but becomes difficult to assess for more characters. (<q>Hard to assess</q> refers to the last finding below.)</p>
+
+<p>Findings:</p>
+
+<ul>
+<li>We have CNN for the pixel image part and it dramatically improves the performance. And the training becomes more stable and reproducible.</li>
+<li>The choice of RNN becomes strange. Using larger and deeper RNN does not improve the performance so much. One can naturally doubt if RNN really learns in an efficient way and clearly the RNN is not trained to the maximum capacity of its expression power.</li>
+<li>The choice of characters also matters. I handpicked characters which are easier to learn but still cannot do well for more characters. Since I train the VAE in a progressive manner (gradually increase the number of characters), When it reaches more than 50 characters,  the visual result start to degrade, heavily.</li>
+<li>The style of different fonts does not preserve consistently. Some special-styles (outlier fonts) only have terrible looking reconstrunction.</li>
+<li>But the most major and frustrating problem is not that the reconstruction does not look well visually. But that the reconstructed sequence does not even work as a valid bezier parameterization! There are many times that the resulted sequence cannot be rendered at all. In this case, the reconstruction completely failed.</li>
+</ul>
+
+<p><aside><br>
+💡 The <q>performance</q> mentioned is literally my visual examination of the reconstructed result of the font glyph.</p>
+
+<p></aside></p>
+
+<p>And not to mention that, reconstruction in VAE framework is only the first step, I did not even touch the style-content transfer thing.</p>
+
+<p>L<strong>earn a generative model that works on pixels, and then transfer to vector images.</strong></p>
+
+<p>The other approach is to first train in pixels and then somehow transfer to vector images. This is what happened in the following paper. It trains a character-conditional VAE on pixels and then, freezing the weight of encoder, and train a new decoder outputting sequences which represent the vector image.</p>
+
+<p><a href="https://arxiv.org/abs/1904.02632">A Learned Representation for Scalable Vector Graphics</a></p>
+
+<p>I would say the general result is great and I can only imagine the time and effort. But besides that I also have some rather vicious guesses:</p>
+
+<ul>
+<li>I guess the authors must have tried to model the vector image directly, but somehow failed or not giving satisfactory results.</li>
+<li>I guess the author must have tried to train the model end-to-end instead of separately. But I guess such a non-separate training scheme is not really stable, or cannot be easily reproduced.</li>
+</ul>
+
+<p><aside><br>
+💡  Just personal opinion, no offense</p>
+
+<p></aside></p>
+
+<p>But to be honest about it, even it is a fairly ad-hoc approach, I think this is the best solution we can have now until someone comes up with a freshly simple and efficient Newtonian-like architecture.</p>
+
+<h2 id="toc_7">Challenge#2 The large alphabet</h2>
+
+<hr>
+
+<p>As I&rsquo;ve experiment myself and also what I conclude from existing studies, how to ensure a generative model that work around for less-than-100 characters and less-than-100 fonts to still work for an extremely large collection of characters is a very difficult problem. At least now it is still too early for such massive scale evaluation.</p>
+
+<p>But still, some proposed work make a special consideration on the characters, for example, the character is used as input to train a character-conditional VAE or GAN, or the different characters are stacked together as input (for example, in the very first reference of MC-GAN from Berkeley, every character is explicitly used as a channel of the input image). One can see that following these design</p>
+
+<ul>
+<li>The network would grow at least linearly to the size of the alphabet.</li>
+<li>Once trained, the alphabet becomes fixed. When new characters come in, there is not a simple way to handle but to modify network architecture and ask for fine-tuning.</li>
+</ul>
+
+<p>As I&rsquo;ve mentioned above, 6000 characters are the minimum requirement for a commercial font. And of course, as we are ML researchers rather than real designers we&rsquo;re not expected to accomplish such a grand goal anyway. But still, one cannot ignore the true obstacle here: the extremely large alphabet makes any research claims or statements sound like a plain joke.</p>
+
+<h2 id="toc_8">Challenge#3 The compositional nature of glyphs</h2>
+
+<hr>
+
+<p>The third challenge, compositionality, touches the nature of Chinese fonts. We have a large alphabet of the Chinese language for a reason because we compose new characters following certain rules. Sometimes based on the composed parts, the meaning of a character can be even guessed almost correctly by any educated adult. </p>
+
+<p>Now let&rsquo;s first ignore all the asethetic principles on how to compose Chinese characters, now I just describe the basic rules</p>
+
+<ul>
+<li>Parts are the basis units for composing a glyph (character).</li>
+<li><p>The composition of parts into a character glyph includes the re-location of different parts into their proper location.</p>
+
+<p><img src="./assets/collection.png" alt="A collection of commonly-used characters, one can see that excluding characters that is itself a part, most glyphs consit of multiple parts and  all these parts will need to re-locate themselves to form a &quot;greater&quot; glyph." width="700px" class="center"></p>
+
+<p>A collection of commonly-used characters, one can see that excluding characters that is itself a part, most glyphs consit of multiple parts and  all these parts will need to re-locate themselves to form a <q>greater</q> glyoh.</p></li>
+<li><p>The composition of parts into a character glyph also includes the slight adjustment of the parts. Most of the time the adjustment is slight and small.</p></li>
+</ul>
+
+<p><img src="./assets/lin.png" alt="The character 林 (meaning forest) consists of two 木 (meaning tree). Note that not only a re-location is made to put two 木 at left and right, there are also small adjustments, especially for the left part" width="700px" class="center"></p>
+
+<div><pre class="line-numbers"><code class="language-none">The character &quot;林&#39; (meaning &quot;forest&quot;) consists of two &quot;木&quot; (meaning &quot;tree&quot;). Note that not only a re-location is made to put two &quot;木&quot; at left and right, there are also small adjustments, especially for the left part.</code></pre></div>
+
+<p>The nature of compositionality is a curse but also a blessing. Solving compositionality or at least explicitly think about this property will always helps us in the quest of the large Chinese alphabet.</p>
+
+<p>I consider this a clear message. To handle the large alphabet, why not try to model the compositionality? I believe such a clever modeling of this composition is essential and necessary! However, it is not to do or not to do it that is the important problem here. It is how to do it. Right now, even the simpler task of only do the re-location of parts remains difficult, not even considering the slight modification of parts.</p>
+
+<h2 id="toc_9">A practitioner&rsquo;s advice: Shall we consider a restricted real-world task?</h2>
+
+<hr>
+
+<p>Generative modeling of fonts has been a fundamental problem, but itself is not a real-world problem. We will need to align to some concrete applications anyway and that&rsquo;s where the difference of methods starts to show and be perceived by people. Thus a piece of practical advice is to look for </p>
+
+<ol>
+<li><p>Option 1: Solve a sub-task</p>
+
+<ul>
+<li>Try to solve only the problem of Variant Chinese characters. This is especially important when the variant character is used in someone&rsquo;s name.</li>
+<li>Consider a limited version of content-style transfer on fonts.</li>
+<li>Rather, focus on the mechanism from the human-computer interaction side.</li>
+<li>Solve the automatic kerning for main-title used scenarios. (This is unconventional for Chinese font to kern, but for the main-title-used glyph, or as long as is not used for long-text, an automatic kerning seems to make sense.</li>
+</ul></li>
+<li><p>Option 2: Consider for aiding the work of real font designer</p></li>
+</ol>
+
+<ul>
+<li>Given a small collection of maybe 100 characters, extract certain parts, figure out the essential composition principles, and automatically generate the rest glyphs.</li>
+<li>Growing an acyclic graph for actual font designers. By doing so, one can follow this graph to design glyphs one by one, but in a more guided way.</li>
+<li>Consider the revision-phase of font design: whenever the designer makes a certain modification on a glyph, the same modification should apply to other similar glyphs. In other words, automate the tedious work.</li>
+</ul>
+
+<h2 id="toc_10">Concluding Mark</h2>
+
+<hr>
+
+<p>Fonts are hard. Chinese Fonts are even harder. Through this little-bit-long post, I mainly summarized the three key challenges and also give a lot of personal opinions. I hope that I can resume this project someday.</p>
+
+<h2 id="toc_11">Appendix: A survey of literature I made two years ago, on ML for vector images (not just for Chinese Fonts)</h2>
+
+<hr>
+
+<p>Please kindly ignore that this draft starts like a normal paper that it proposes something and make it work. There is no such thing in this draft. But I guess the related work part is still interesting.</p>
+
+<p><a href="./assets/final.pdf">./assets/final.pdf</a></p>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+!function(){"undefined"!=typeof self&&self.Prism&&self.document&&Prism.hooks.add("complete",function(e){if(e.code){var t=e.element.parentNode,s=/\s*\bline-numbers\b\s*/;if(t&&/pre/i.test(t.nodeName)&&(s.test(t.className)||s.test(e.element.className))&&!e.element.querySelector(".line-numbers-rows")){s.test(e.element.className)&&(e.element.className=e.element.className.replace(s,"")),s.test(t.className)||(t.className+=" line-numbers");var n,a=e.code.match(/\n(?!$)/g),l=a?a.length+1:1,m=new Array(l+1);m=m.join("<span></span>"),n=document.createElement("span"),n.className="line-numbers-rows",n.innerHTML=m,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(n)}}})}();
+</script>
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+
+</html>
