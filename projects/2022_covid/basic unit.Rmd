@@ -1,0 +1,439 @@
+---
+title: "Some random thoughts on Shanghai's recent response on Covid"
+
+output:
+  tufte::tufte_html:
+    css: "../projects/style_base/framer_style_base/framer.css"
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+bibliography: paper.bib
+link-citations: yes
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+Jialin Lu [luxxxlucy.github.io](https://luxxxlucy.github.io/)
+
+`r sans_serif(
+" This is an on-going project. And symbolic grounding in general is a very hard problem, perhaps even so in a philosophical sense.
+")
+`
+
+
+<script>
+  // Move TOC to the Table of Contents heading (with id "table-of-contents")
+  $(function() {
+    $( "#TOC" ).insertAfter( $( "#table-of-contents" ) );
+  });
+</script>
+
+This is a blog not about computer science, but about city.
+I was wirting this because, clearly the mainstream media outside China do not have the capability to show what is really going on in China (as they always do).
+Too much barriers avoid people from understanding, and in China's case, the momentum started building up ever since the founding of people's republic, too much conflict has only one casuality, understanding. 
+The context of the system, the detail on how it works, and why the system continue to exist 
+
+Disclaimer:
+I am a strong advocate of the zero-covid policy, so I am biased to some extent.
+This post is more about why the implementation of zero-covid policy in Shanghai, constrast to other Chinese cities' implementation of zero-covid policy. Yes zero-covid policy is destructive and extreme, but it is effective, yet a half-way zero-policy like Shanghai is the worst, it just causes more suffering.
+
+Disclaimer #2:
+I am a firm believer in Marxism; but as you might not know, there are very different and diverse schools of Marxism though (especially so in China because we simply has a large population of Marxists). And I, as a political animal, am very left compared to the mainstream of Chinese Marxism.
+(Yes I know, the PRC's mainstream is already far more left than a lot of western countries, so that makes me a ultra leftist? But again, I have to remind you that all right wing looks the same, the leftists always have more diverse and conflicting ideas, and so we always dispise the other leftist more than right wing)
+
+The covid in Shanghai is certainly important for China and also the logistics in the wider internaional market.
+But I am not going to talk about that, I want to talk about something that is more important than the current failure, that is, important not just for Shanghai, for Jiang-Zhe-Hu, for China, but also for how the future of city should be.
+
+# now let us look at Shanghai
+
+## Why Shanghai failed, when Beijing, Shenzhen didn't, or even a lot of other (smaller) cities are not as bad as Shanghai
+
+# Community as a basic unit.
+
+The death and life of American cities is one of my most loved book. 
+
+(the other being Thomas Kuhn's Structure of Scientific Revolution, and Mao Zedong's on Protracted War)
+
+The reason I think these books is always about that, they like to start with basic things to explain bigger issues.
+
+Bigger things have small beginnings (Arab's Lawrance.)
+
+But it is not like that, any complex system is hard to explain, but you have to explain it anyway.
+
+## Now, what is the interface?
+
+The basic level autonomy.
+
+The residency committe and the district office.
+
+https://zh.wikipedia.org/wiki/基层群众自治制度
+
+it does not even has a wikipedia English version, yet this is the basic of PRC's system.
+
+By the way, in China there is a lot of such `interface` in almost every aspect of society,
+take an example, in universities we have an Assistant, it is like an assistant for like every 100 to 200 students, it is just like an assistant in any other universities.
+But the issue here is that, the assistant has much much more duties expected to fulfill.
+Much, much more work.
+
+Like in this case, and anywhere else, the Chinese people seem  to be overly overly rely a lot of things on the public service, which is not a bad expectation after all, as the Chinese people is also expected to do much more for the public, for the community and for the 
+
+## How does the residency committee in Shanghai failed yet other cities did not?
+
+## The Momentum
+
+The criteria problem.
+
+Why the Chinese army after Tang Dynasty are always bad? Song, Liao, Jin, Yuan, Ming, Qing, everyone of them as long as it has been found over 100 years, the quality of the army just deteriote.
+
+Why? because the army is never the good place a good person would choose.
+
+In today's Shanghai the problem is the same, in other cities the civil servant is a decent job, in Shanghai it is not.
+
+## Lack of intention to cooperate
+
+Shanghai has long regarded itself as the superior
+
+Yet when it comes the current situation, it does not even want to cooperate with the aid from other provinces.
+
+The medical staff from other province are here to help, such as support the hospitals and quanrantine center, yet the shanghai staff in the case of a quanrantine center, did not even give the basic building structure print to the medical team from Shandong.
+
+I mean what the hell can this happen?
+
+## Make a choice is not destructive, but hesitation and
+
+Shanghai is not making a choice in fact. It does not follow other Chinese cities' process (excluding HK as it is a relatively different policy implementation system), yet it also does not decide to refuse the dynamic zero-covid policy.
+
+Many cities has recovered and it will have minimal damage to people's health and economical right.
+
+I must do a disclaimer here that I am a strong advocate of the zero-covid policy, so I am biased to some extent.
+
+## the bad side "金玉其外，败絮其中"
+
+In all these years, Shanghai's seemingly highly-efficiency, care of details are the result of the public service delegates part of its duty to the economy, especially private sector, such private sector is not organized by a shared community but just a single tiny aspect of the commercial life, and we naturally should not expect such private sector to provide the service of a community.
+
+And in the meantime, the public service has been lazy, they did not fulfill their duty of maintaining a good network of information transmission and give/execute orders.
+The party leadership has been severely weakened, the government bodies' functions are bypassed (because others are providing it). And the technical officiers becomes more and more focused on economy (and especially fiance) but no regard for the communities.
+
+A simple example, if you rent a house in Shenzhen or Beijing, one year there should be a person from the street office or the residency committee who is going to knock on your door, gathering basic information, confirming the previous information and compare with the current ones, emergency contact, leave his/her ways of contact (not personal but where the officies are and what kind of offices you will have access to), listening to your personal concerns (which will be compiled, discussed and analyzed later).
+
+Beijing,  Tianjing, we suddenly find them to be so much better than Shanghai.
+These cities are all prosperous cities, yet they still have a industry that has an very active public service that monitors, regulates and adjusts the industry. This is one comparision
+
+You can say Beijing and Tianjin has a key-importance public service that is the main component of its economy.
+But Shenzhen, Guangzhou, even the near-by Suzhou, Hangzhou, they also do not have that public service to control the economy, yet why they can manage to perform welll?
+Because it is impossible to have both a strong public service governance body and a strong market-controlled economy.
+
+commercialization and strong public service is achievable!
+
+Then why, simple, Shanghai is de-industrialization gradually, more and more people serves in the finance sector.
+Shenzhen etc, are still industrializing, so the government need to care about the people, need to provide important services to them.
+But in Shanghai, the street office is almost non-functional, the residency committe (the basic unit automony) is none existent, occupied by people of high ages (in his/her 50s and 60s) and they just do not have to provide services to its community because everything is so nicely provided by the private commercial market.
+
+No. This is bad.
+
+There is no free lunch, you get something and you pay a price.
+
+Shanghai need to change before it is too late, if Shanghai still decides to rely on the finance sector, it is bound to die, just like Hong Kong.
+If it comes to that scenario, then nothing can save Shanghai anymore, just as in 2021 we cannot save Hong Kong anymore and we can only try to maintain the city as it is, and forever lost the ability to move forward, becoming a static society.
+We need to distract us from making Shanghai a pure finance center, the officials should not put their main focus on the finance service and say "we do finance because we need to do this for all people in China", no, Shanghai should not do that, especially consider how HKSAR, which once was a highly efficient and responsible governing body, turns into today's situation.
+
+## the extremely bad side:
+
+Where is the resources? 
+
+It is again that the logistic are banned, the delivery system is done. Until today, it is re-granted.
+
+This is the exact moment that a market.
+
+People starts to do the very simple "group buy"
+
+But it is not that Shanghai does not have all the food.
+
+Donations, as well as the support that the state has mobilized other provinces to do so.
+
+It is simple, there is a group of people who can make money, who wants to make money.
+
+This is the ghost of the old Shanghai, and it is the same reason why the people's republic is founded.
+Yet 70 years later, that ghost somehow is still haunting, alive.
+
+True, that old ghost only re-gained its life after the openning up and also contributes to the prosperity of this city, yet it still needs to be regulated.
+But this time the result will be no difference, 70 years ago the state could win this ecnomical warfare once, 70 years later the same warface will have the same result.
+
+## What should be a modern city
+
+IS a modern city about its infrastructure? About its commercial activity?
+
+No. It is about people, and the community which the people forms.
+
+Go back to Jane jacob's notion, the basic unit is still, the streets, the residency building.
+
+When I was doing my undergraduate at Zhejiang University, I would very often go to Shanghai for some post-rock band.
+(not that often as I have a limited budget of my living)
+
+Shanghai is, was, so great that I even envied my other friends.
+
+2019 Winter I first made my visit to Beijing, it is different, not something that I as someone who is born and raised in Zhejiang personally like, the roads in Beijing are so wide, it is like there are too many roads that has a at least 8-lane or even 16-, 32-lane width.
+
+insert an Tiananmen, left reads: "", right reads: "". If you are not aware of these two sentences, just remember what it says whenever you see any news regarding Beijing, these two sentences will likely make you capable of filtering a lot of misinformation and fake news, 
+
+But now I see more 
+
+### What beijing are doing.
+
+lot of policy difference, the policy is strict, but yes, strict policy can also be more humane.
+
+An cadre of certain seniority, will be required to "go down" to the locked-down communities, live there, work there (including the volunteer) and experience for himself everything.
+
+Beijing is special, the policitical unity and the everyday political participation of its citizens in their communities is so much higher
+
+But other cities also do well.
+
+### From 水木丁
+
+
+公号版戳这里：http://t.cn/A668k9KI
+
+水木丁
+3h
+聊聊上海的居委会和北京的居委会
+
+这么多天看下来，坦率的说，这波疫情爆发以来，上海的表现一直让我挺困惑的。
+
+虽然我也没有在上海生活过，但是当初在浙江，也没少跑到上海去玩，多少还是对上海有一些了解。
+
+
+
+总觉得以上海人的精明能干，头脑灵活，以及上海的文明程度，那都不是花架子。
+
+看到有些事情的发生，真的应该不至于吧，不会吧……
+
+特别是买不到菜，老百姓被关在家里饿肚子这件事，真的是大大的出乎我的意料之外。
+
+
+
+上海再大，人再多，能有多大，人能有多么多？全中国供它还能供不上吗？再加上它自己本来就摆在那里的经济实力。
+
+
+
+所以说上海人会饿死了，我是不相信的，这不是从情绪上拒绝，而是理性上觉得，这种事就不应该发生（杠精看这里。
+
+是说不应该发生）
+
+直到后来，我看到有一个上海的博主分析。
+
+大意是，其实现在这种状况，恰恰是只能在上海发生的。
+
+
+
+因为上海和北京不一样，北京是政治中心，是政治推动经济。
+
+所以北京政府的结构性管理体系运转得非常成熟和完整。
+
+基层的工作人员也是长期训练，一旦行政命令下达，反应也比较快。
+
+
+
+但是上海不一样，上海是一个金融中心，平时的城市运转，主要还是市场经济推动政治。
+
+上海人才济济，有很多的精英，但是都是在金融领域，商业领域。
+
+
+
+然而这次上海疫情，恰恰是把这些人都关起来了，然后由一群居委会的老阿姨和爷叔来管理。
+
+这群人平时都不用他们扛什么事，日子过得很悠闲的。
+
+不会三天两头政府就派任务给他们的。
+
+
+
+所以到了这种时候，怎么能指望得上。
+
+
+
+我是好几天前看到的这个说法，开始时候还有点将信将疑。
+
+所以当时也没有转。
+
+但是昨天，我转发了一个上海的小伙子讲怎么怎么当社区牛奶团的团长，怎么做表格，怎么统计等等细节，我开始能够get到那位博主的说法了。
+
+
+
+我在微博上说了几句，就有人跟我杠，说难道北京的居委会大妈难道能处理好这件事？
+
+别说我还真的认真回想了一下我们社区的居委会，突然意识到，我们小区居委会里年轻人居多，这两年疫情打交道比较多，不管是物业还是社区，印象中四十岁以上的都没见到过几个。
+
+
+
+我住的小区在北京的三四环中间，原来也是大农村。
+
+现在的居委会还叫XX乡，我估摸着其实就是当初的乡政府。
+
+我开始的时候对这一片区的居民管理并不包太大期望值，觉得不能跟高大上的商业小区相提并论。
+
+
+
+但住得久了才完全打开了新世界的大门，发现作为国家机构的最小权力单位，基层管理也不是我想象的那样。
+
+
+
+就拿这次疫情来说，在疫情初期，就有居委会上门挨家挨户登记常驻人口，摸排情况，谁家是租户，谁家是本地人，谁家有老人，谁家有孩子，都一一做登记，租户登记身份证。
+
+
+
+然后每隔一段时间，都会做一次电话回访，即使是疫情没那么严重的时候，也会问现在家里的居住情况，疫情期间就会来电话问，春节打不打算回老家，有没有外地亲朋过来等等。
+
+
+
+疫情刚开始时，居委会的社区工作人员在大门口设立了关卡，每天除了保安，还有社区人员值班，后来疫情缓解，我以为居委会的值班就可以撤了。
+
+
+
+没想到一天不落的一直值班到现在，整整两年。
+
+
+
+这波疫情刚刚开始的时候，楼下有一家住户貌似是从外地回来，居家隔离，门上贴了个比较长的封条，可以拉开门递东西。
+
+
+
+有一次一个小伙子和我一起进楼，在隔离的那家门口拿起门旁边挂的一个表格填时间。
+
+我这才反应过来，这是社区工作人员值班，可能是按小时检查居家隔离人员是否外出，封条是否完整。
+
+
+
+前几天社区组织打疫苗，保安骑着电瓶车，拿大喇叭广播一圈，社区工作人员打电话一圈，然后还要在大清早挨家挨户敲门通知一圈。
+
+
+
+我家隔壁住着一个八十多岁的老太太，有一天挨家挨户敲门的时候我正好上班，就听到工作人员说，大娘你们就在家等着就行，社区会给你们安排上门做核酸。
+
+
+
+然后因为现在上班嘛，公司单位所在的街道也打电话让做核酸，打疫苗。
+
+你告诉她做过了，他就帮你记录下来。
+
+
+
+像上海那种整幢公寓无人过问的情况在北京是不会发生的。
+
+因为在这种情况下，北京是不可能允许有人游离在监控视线范围之外的，就压根不太可能会存在漏网之鱼。
+
+
+
+因为疫情，我还关注过我们社区的公众号，还是个服务号，作为一个老媒体人，一眼就看出来这公众号是年轻人鼓捣出来的，还利用服务号做了社区服务大厅之类。
+
+
+
+这就像什么呢，北京是一个游戏规则，上海是一个游戏规则，北京的基层管理工作者天天都在做任务，对上面的意图，对下面百姓的需求，在这个游戏规则下，非常熟悉，也熟能生巧。
+
+
+
+但是上海的运作方式就不一样，管理的观念不一样，基层职能部门平时也缺少这方面的锻炼，所以突然把这么大的担子，给一群平时没有过积累那么多经验值的一群人，当然就彻底懵掉。
+
+
+
+顺便说一下，深圳现在招社区工作人员，都要求是硕士以上学历。
+
+北京是本科以上学历。
+
+
+
+我好奇去查了查上海社区和北京社区招聘的条件，查到了2020年的，要求45岁以下，理论上大专以上学历，但是以前做过社区工作，或者住在本街区的就可以条件适当放宽。
+
+
+
+北京的要求则是40岁以下，大专以上学历。
+
+但是它没有任何放宽的条件，还搞了一堆不许报考的条件。
+
+但有趣的是，他不要求必须居住在本街道。
+
+
+
+这个对比很有意思。
+
+我在长江三角区断断续续的工作过三个年头，感觉对于年轻人来说，市场提供给年轻人更广阔的发展空间。
+
+
+
+向上海这种地方，人才都向金融，商业，制造业等行业聚集。
+
+他之所以条件宽泛，就是因为年轻人不爱干这个，他招不上来人。
+
+
+
+而北京是政治中心，有不少本地的年轻人，会觉得这也是个发展机会，所以他们也愿意从基层干起，走从政这条路。
+
+
+
+所以，在北京可能行得通的法子，直接挪到上海去用，就乱了套了。
+
+大家也不要去抱怨上海人，谁碰到既有的成熟的生活规则被彻底颠覆和打破，谁都会懵。
+
+
+
+我再捋最后一点，这次听到大家说得最多的就是，上海不是优等生嘛，为啥这次表现这么差。
+
+
+
+作为一个当过老师的人，以我教过许多学生的经验负责的说一句，优等生其实是最不会听你的话，也是最难搞的。
+
+
+
+这几乎是所有老师都明白的道理。
+
+优等生他自己能学好，各方面都把自己照顾得明明白白的，不需要你的帮助，指挥，他不需要你来管他，他也一样好。
+
+
+
+所以许多优等生跟老师的感情是很淡的。
+
+也不会对老师有什么感谢之情，你说的话他其实也不怎么在乎，能瞧得起你就不错了。
+
+
+
+相反，中等以下的学生，因为需要老师比较多的介入和帮助，可能真有事发生的时候，反倒会比较容易配合和协调。
+
+
+
+但这也不是谁对谁错的问题，这就是个客观事实，任何一个人群，一个集体，一个国家，都是这样正态分布的。
+
+
+
+作为统筹规划的人，肯定是非常难，那也没办法，必须人情客观事实，进行调整。
+
+
+
+最后说一句，就是我一直认为上海是一座伟大的城市，上海人是非常优秀的，前两天看到上海的一些情况，我是有些疑惑的。
+
+
+
+但是我不相信它只是大家说的那样，上海，绝不是靠运气走到今天的，所以我愿意去理解它。
+
+
+
+现在我捋顺了这些因果以后，发现万事万物，还是有它的法则的。
+
+作为渺小的人类，我只能尽力的去理解，照顾好自己的情绪，然后理性的去接受。
+
+并且尽量地帮助他人，保护自己。
+
+
+
+所以我依然非常喜欢上海，依然认为它是中国最伟大的城市之一，希望它快点好起来。
+
+它当然也一定会好起来，我相信上海一定行的。
+
+
+

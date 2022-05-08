@@ -1,0 +1,60 @@
+---
+title: "A Compositional Generative Process for program synthesis"
+
+output:
+  tufte::tufte_html:
+    tufte_variant: "envisioned"
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+bibliography: paper.bib
+link-citations: yes
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+Jialin Lu [luxxxlucy.github.io](https://luxxxlucy.github.io/)
+
+
+
+`r sans_serif(
+" This is an on-going project. 
+")
+`
+
+
+<script>
+  // Move TOC to the Table of Contents heading (with id "table-of-contents")
+  $(function() {
+    $( "#TOC" ).insertAfter( $( "#table-of-contents" ) );
+  });
+</script>
+
+# Introduction
+
+Program synthesis. 
+
+Usually in a combinatorial search setting.
+
+Recent advance: Neural-guided search. Essentially, the generating of programs is viewed as a MDP.
+MDP is great and offers a sea of literature on how to make it work efficiently, which is neat.
+Yet, I wonder if there is another way.
+
+Also, Kevin Ellis explored a variety of approaches to tackle the problem of program synthesis. The most significant and important concept is, alike human programmers, to develop a reusable library of basic primitive operations. How to make it work is further generalized by a three-stage learning process, which is also very neat and novel!
+
+
+
+But despite the progress, I wonder the following:
+* what if there is no primitive, and despite that we can say we are given a set of primitive routine or we can get that from transfer learning, can we make a simplest case that we learn the primitive from the beginning?
+* what if there is a better (simpler, more efficient and elegant) way of generating programs other than MDP? (which of course needs us to use a whole new set of mathematical tools)
+
+I turned to category theories.
+

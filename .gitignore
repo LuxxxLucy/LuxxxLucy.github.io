@@ -16,3 +16,6 @@ package-lock.json
 *.Rhistory
 
 /projects/2021_explantory
+
+*/*/*/compiled
+*/compiled

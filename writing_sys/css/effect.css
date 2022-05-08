@@ -1,0 +1,20 @@
+div {
+    transition: all 1s
+}
+
+.show_control:hover ~ .show_item {
+    opacity: 1;
+    height: 120%;
+    visibility: visible;
+}
+
+.show_item
+{
+    opacity: 0.0;
+    visibility: hidden;
+}
+
+.show_item {
+    height: 0%;
+    visibility: hidden;
+}
