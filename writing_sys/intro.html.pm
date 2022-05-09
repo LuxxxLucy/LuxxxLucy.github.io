@@ -18,37 +18,28 @@ I write this page to be used as an introduction of myself about what I’ve done
 
 ◊summary["click to expand"]{
 
-◊hover_summary[
     ◊point_entry["2014 - 2018"]{Zhejiang University}
-    ]{
     ◊items{
         ◊item{BEng in Computer Science}
         ◊item{BEng in Industrial design}
     }
-}
 
-◊hover_summary[
     ◊point_entry["2018 - 2021"]{Simon Fraser University}
-    ]{
     ◊items{
         ◊item{MSc in Computing Science}
         ◊item{Supervised by Martin Ester◊note{◊link["https://scholar.google.ca/citations?user=ZYwC_CQAAAAJ&hl=en"]{Martin Ester - Google Scholar}}}
     }
-}
 
-◊hover_summary[
     ◊point_entry["2021 July - now"]{Huawei Vancouver Research Center}
-    ]{
     ◊items{
         ◊item{Promoted to Senior Engineer B in Dec 2021}
-        ◊item{Work with a small team working on a adaptive security engine, which in short try to provide firewall filtering service that is efficient as well as intelligent (AI/ML integrated)
+        ◊item{Work with a small team working on an adaptive security engine, which provides firewall filtering service that is efficient as well as intelligent (AI/ML integrated)
             ◊numbered-items{
                 ◊item{our work is used by other teams as core modules for developing a next-generation commercial product, I was specifically in charge of developing a high performance protocol stack and a module for load balancing}
                 ◊item{Also provide some side minor projects: such as an unified configuration management system, a profiler to performance/latency analysis}
             }
         }
     }
-}
 
 }
 
@@ -64,9 +55,8 @@ At first I do research on explaining blackbox machine learning models◊note{Pap
 ◊strong{An Interactive Visualization Tool for Understanding Active Learning} Z Wang, J Lu, O Snow, M Ester
 }
 
-However I found that precise and explainable ML is about the design of domain-specific languages
-Interpretability. 
--> learned that program, DSL are interpretable.
+However I found that precise and explainable ML might not be achieved by a purely blackbox network, certain knowledge still has to be incorporated by symbolic methods. So I start to think hybrid models
+
 }
 
 ◊h2{Approach one to neuro-symbolic}
@@ -77,7 +67,7 @@ Interpretability.
         ◊img[#:src "https://luxxxlucy.github.io/projects/2020_neural_dnf/assets/two_stage.png" #:width "70%"]
         }
     }
-    Essentially, we would specify a symbolic module, leaves the predicate unspecified and we say we want to use NN to output the predicates.
+    Essentially this is about a two stage model where the network produces certain high level output, which are then used by a symbolic module to produce the right output.
     We will use some kind of relaxation so to so to convert a non-differentiable computation into a differentiable one and then enable gradient based optimization.
 
     This will enable to solve some tasks that involves both the perception and some reasoning.
@@ -119,25 +109,35 @@ Interpretability.
 ◊summary["click to expand"]{
 Approach two (recent project)
 
-The target is about the synthesis of Fonts. 
+The target is about the synthesis of Fonts, which requires both explicit and implicit constraints.
 
-The existing deep learning approaches tries to treat it like another image or sequence generation problem. This fails to capture the nuances in typography design. I reviewed the failure in ◊link["https://luxxxlucy.github.io/projects/2020_glyph/index.html"]{this post}◊note{◊link["https://luxxxlucy.github.io/projects/2020_glyph/index.html"]{A Review of Failure - Deep Generative Model for Chinese Fonts}}.
+The existing deep learning approaches tries to treat it like another image or sequence generation problem. This fails to capture the nuances in typography design. I reviewed the failure of pure neural approach in ◊link["https://luxxxlucy.github.io/projects/2020_glyph/index.html"]{this post}◊note{◊link["https://luxxxlucy.github.io/projects/2020_glyph/index.html"]{A Review of Failure - Deep Generative Model for Chinese Fonts}}.
 
 The existing symbolic approaches try to give a rule-based generation process, yet there is not much learning here as all the specs and rules are given by human.
 
 So here we also need a hybrid neural-symbolic approach.
-I am working on an approach that is a mix of program synthesis, probabilistic inference, networks (Energy-based models, to be more specific).
-We will use an energy-based neural network to learning implicit constraints, and use program synthesis and pattern mining to discover explicit constraints.
+I am working on an approach that is a mix of program synthesis, probabilistic inference, networks (Energy-based models, to be more specific):
+
+◊numbered-items{
+    ◊item{Discover the ontology, relationships and constraints into a hierarchical relational graph, using program synthesis and pattern mining. This models the ◊strong{explicit constraints}}
+    ◊item{Compile into a differentiable computation graph}
+    ◊item{Learn a probabilistic model using Energy-based model, parameterizing the joint probability. This models the ◊strong{implicit constraints}}
+    ◊item{The actual generation is done by sampling, which generates samples that satisfy both ◊strong{explicit} and ◊strong{implicit} constraints}
+}
+
+Unfortunately this is not finished so I cannot show you the results now.
+
+◊raw{
+    ◊figure["https://luxxxlucy.github.io/projects/2022_glyph/assets/computation_graph.svg"]{Differentiable computation graph}
+}
 
 Besides for the generation, we can also use this approach to do kerning, which is a sub-task of font design.
 ◊raw{
-    ◊margin{
     ◊p[#:align "center" #:width="100%"]{
-        ◊img[#:src "https://luxxxlucy.github.io/projects/2022_glyph/assets/kern_demo.gif" #:style "background-color:black" #:width "40%"]{}
+        ◊img[#:src "https://luxxxlucy.github.io/projects/2022_glyph/assets/kern_demo.gif" #:style "background-color:black" #:width "20%"]{}
     }
     ◊p[#:align "center" #:width="100%"]{
-        Sampling process of the kerning demo
-    }
+        Sampling process of the kerning
     }
 }
 
@@ -147,18 +147,19 @@ Besides for the generation, we can also use this approach to do kerning, which i
 ◊h2{LTN demo}
 
 ◊summary["click to expand"]{
+    I also implemented a simple version of the LTN for the clustering mode.◊note{see ◊link["https://github.com/LuxxxLucy/ltn_demo"]{github}}
+
+    My feeling that is there is too many tricky cases to handle.
 ◊raw{
     ◊p[#:align "center" #:width="100%"]{
         ◊img[#:src "https://raw.githubusercontent.com/LuxxxLucy/ltn_demo/master/ltn_clustering_demo.gif" #:style "background-color:black" #:width "40%"]{}
     ◊p[#:align "center" #:width="100%"]{
-        optimization process for a simple clustering task using logic tensornetworks
+        optimization process for a simple clustering task using logic tensor networks
     }
+    }
+    ◊margin{
+        ◊link["https://github.com/LuxxxLucy/ltn_demo"]{my simple LTN clustering demo implemented in Julia, github}
     }
 }
 }
 
-
-From what I see, my main concern is that,
-
-when the variables becomes large, the product operation will smooth the computation too much. 
-And that might give more soft local minima to occur,
