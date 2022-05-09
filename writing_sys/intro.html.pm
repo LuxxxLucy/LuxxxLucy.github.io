@@ -33,10 +33,10 @@ I write this page to be used as an introduction of myself about what I’ve done
     ◊point_entry["2021 July - now"]{Huawei Vancouver Research Center}
     ◊items{
         ◊item{Promoted to Senior Engineer B in Dec 2021}
-        ◊item{Work with a small team working on an adaptive security engine, which provides firewall filtering service that is efficient as well as intelligent (AI/ML integrated)
+        ◊item{Work with a small team working on an adaptive security engine, which provides firewall filtering service that is efficient as well as intelligent (AI/ML integrated).
             ◊numbered-items{
                 ◊item{our work is used by other teams as core modules for developing a next-generation commercial product, I was specifically in charge of developing a high performance protocol stack and a module for load balancing}
-                ◊item{Also provide some side minor projects: such as an unified configuration management system, a profiler to performance/latency analysis}
+                ◊item{Also provide some side minor projects: such as an unified configuration management system, code generation according to a DSL, a profiler to critical performance/latency analysis}
             }
         }
     }
@@ -55,7 +55,7 @@ At first I do research on explaining blackbox machine learning models◊note{Pap
 ◊strong{An Interactive Visualization Tool for Understanding Active Learning} Z Wang, J Lu, O Snow, M Ester
 }
 
-However I found that precise and explainable ML might not be achieved by a purely blackbox network, certain knowledge still has to be incorporated by symbolic methods. So I start to think hybrid models
+However I found that precise and explainable ML might not be achieved by a purely blackbox network, certain knowledge still has to be incorporated by symbolic methods. So I start to think about hybrid models
 
 }
 
@@ -67,6 +67,8 @@ However I found that precise and explainable ML might not be achieved by a purel
         ◊img[#:src "https://luxxxlucy.github.io/projects/2020_neural_dnf/assets/two_stage.png" #:width "70%"]
         }
     }
+    This is the first try-out called Neural Disjunctive Normal Form.
+
     Essentially this is about a two stage model where the network produces certain high level output, which are then used by a symbolic module to produce the right output.
     We will use some kind of relaxation so to so to convert a non-differentiable computation into a differentiable one and then enable gradient based optimization.
 
@@ -75,7 +77,7 @@ However I found that precise and explainable ML might not be achieved by a purel
     ◊summary["click to expand: Example Result"]{
     ◊figure["https://luxxxlucy.github.io/projects/2020_neural_dnf/assets/mnist_sums_to_odd_result.png"]{Inspecting the learned model}}
 
-    I did some work on this direction, including the master thesis◊note{◊link["https://summit.sfu.ca/item/21305"]{Neural Disjunctive Normal Form}} and a blog dedicated on how to optimize discrete parameters.◊note{◊link["https://luxxxlucy.github.io/projects/2020_discrete/discrete.html"]{On more interesting blocks with discrete parameters in deep learning, July 2020}}
+    I did some work on this direction, including the master thesis◊note{◊link["https://summit.sfu.ca/item/21305"]{Neural Disjunctive Normal Form}, Master thesis} and a blog dedicated on how to optimize discrete parameters.◊note{◊link["https://luxxxlucy.github.io/projects/2020_discrete/discrete.html"]{On more interesting blocks with discrete parameters in deep learning, July 2020}}
 
     However it has two problems:
     ◊numbered-items{
@@ -104,12 +106,12 @@ However I found that precise and explainable ML might not be achieved by a purel
 
 
 
-◊h2{Approach 2, More recent}
+◊h2{Approach two, More recent}
 
 ◊summary["click to expand"]{
 Approach two (recent project)
 
-The target is about the synthesis of Fonts, which requires both explicit and implicit constraints.
+The target is about the synthesis of Fonts, which requires to learn both explicit and implicit constraints.
 
 The existing deep learning approaches tries to treat it like another image or sequence generation problem. This fails to capture the nuances in typography design. I reviewed the failure of pure neural approach in ◊link["https://luxxxlucy.github.io/projects/2020_glyph/index.html"]{this post}◊note{◊link["https://luxxxlucy.github.io/projects/2020_glyph/index.html"]{A Review of Failure - Deep Generative Model for Chinese Fonts}}.
 
