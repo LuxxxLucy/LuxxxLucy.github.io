@@ -22,25 +22,16 @@ It is a long way, and so I divided into smaller posts.
 ◊h2{Content}
 
 ◊numbered-items{
-    ◊item{ ◊link["./projects/glyph/0.html"]{◊strong{The problem: how we end up in reality}}}
+    ◊item{ ◊link["./0.html"]{◊strong{The problem: how we end up in reality}}}
     "Why we need computational aid for font design."
 
-    ◊item{ ◊link["./projects/glyph/1.html"]{◊strong{The difficulty for computation: the nuance of typographic design}}}
+    ◊item{ ◊link["./1.html"]{◊strong{The difficulty for computation: the nuance of typographic design}}}
     "here I also talked about why the problem is hard, and why existing approaches are not producing satisfactory result."
 
-    ◊item{ ◊link["./projects/glyph/2.html"]{◊strong{Approach: Overview}}}
-    "here I provide the general description of the approach. It is designed to be flexible and extensible.
-    And also solves some of the main methodological problem I saw in neuro-symbolic model.
-    1. Neural module often fails because of it lacks a simple meaning and intended function, and a lot of times is very blackbox.
-    -> So I decide to be simple, single-purpose, and make it to be interpretable as possible (as a assumed human designer).
-    2. it is difficult to extend a precise symbolic method to handle approximate inference, but it is easier to extend approximate inference to handle hard constraints and precise solutions. 
-    so here 
-
-    describe a general approach to handle implicit and explicit knowledge and intention.
-
+    ◊item{ ◊link["./2.html"]{◊strong{Approach: Overview}}}
     ◊item{ ◊link["./projects"]{◊strong{Simplest Demo: Kerning}}}
 
 
-    ◊item{ ◊link["./projects/glyph/3.html"]{◊strong{Approach Part 1: The implicit knowledge and how to get it}}}
-    ◊item{ ◊link["./projects/glyph/4.html"]{◊strong{Approach Part 2: The explicit knowledge and how to get it}}}
+    ◊item{ ◊link["./3.html"]{◊strong{Approach Part 1: The implicit knowledge and how to get it}}}
+    ◊item{ ◊link["./4.html"]{◊strong{Approach Part 2: The explicit knowledge and how to get it}}}
 }

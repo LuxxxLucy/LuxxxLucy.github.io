@@ -149,6 +149,7 @@ Rational consistency: the font is designed in a rational way, there are rules to
 
 Visual delusion: the dark art of designer, not always describable by language alone. While in theory when we want to make something be equal space, the designers deliberately design it inequally, so that visually it will be equal to human's eye.
 When we want to a shape to be centered in the midpoint, the designers deliberately design it not in the exact midpoint so to make it visually so.
+When we want to make a shape look smooth, we need to design the curve such that is actually not smooth
 
 This is about the art of consistency and delusion.
 

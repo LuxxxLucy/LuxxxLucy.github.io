@@ -5,8 +5,15 @@
 ◊(define-meta author           "Jialin Lu")
 ◊(define-meta summary          "")
 
+◊section{cosntraint induction}
 
-(DaType and Intelligent Layout for Information Display: An Approach Using Constraints and Case-based Reasoning). 
+BlinkFill.
+
+DaType 
+Intelligent Layout for Information Display: An Approach Using Constraints and Case-based Reasoning
+
+Learning Layouts for Single-Page Graphic Designs
+
 
 DaType is great, but the main problem is where the spec comes from.
 For the Latin alphabet the difficulty is in partially relief because it is relatively easy to write a spec for thirty letters.  
@@ -21,12 +28,13 @@ Yet it is just a nice theory on the forward pass. I tried to do some pattern min
 
 includnig analysis, autocomplete, version control/conflict handling.Steps
 ◊items{
-◊item{DaType generation tool}
-◊item{Commit single change}
-◊item{}}
+    ◊item{DaType generation tool}
+    ◊item{Commit single change}
+    ◊item{}
+}
 Good old things◊items{
-◊item{DaType}}
-New things◊items{
-◊item{Fonttool}
-◊item{Glyphs 3}}
-lalalaaldsdsa◊margin-note{this is a margin note}lalalaaldsdsa◊note{this is a numbered note}
+    ◊item{DaType}}
+    New things◊items{
+    ◊item{Fonttool}
+    ◊item{Glyphs 3}
+}

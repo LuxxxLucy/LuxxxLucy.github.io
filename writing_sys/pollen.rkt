@@ -83,6 +83,12 @@
 (define (ltx-escape-str str)
   (regexp-replace* #px"([$#%&])" str "\\\\\\1"))
 
+(define ($ . xs)
+  `(mathjax ,(apply string-append `("$" ,@xs "$"))))
+
+(define ($$ . xs)
+  `(mathjax ,(apply string-append `("$$" ,@xs "$$"))))
+
 (define horizontal
     (case (current-poly-target)
       [(ltx pdf)
