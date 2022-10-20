@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta charset="UTF-8"/>
+<link rel="stylesheet" href="https://luxxxlucy.github.io/projects/style_base/tufte_css_base/tufte.css">
+<link rel="stylesheet" href="https://luxxxlucy.github.io/projects/style_base/framer_style_base/framer.css">
+
+<meta name="description" content="A whole lot of issues regarding font">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {
+        background: ffffff;
+        margin-left: 0%;
+        margin-right: -10%;
+        width: 50%
+    }
+
+    /* main {
+        max-width: 50em;
+        /* max-width: 0em; */
+        padding: 3em;
+
+        /* border: medium double gray; */
+        margin: 2em auto;
+        /* background: lightyellow;
+    } */
+</style>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});
+</script>
+<link rel="stylesheet" href="./css/effect.css">
+<style type="text/css">
+   img { mix-blend-mode: multiply; }
+  </style>
+</head>
+
+<!-- <textarea> -->
+<body style="background: #f6f6f6">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+            mermaid.initialize({ startOnLoad: true });
+    </script>
+
+<div>
+    <h1>An short introduction to my glyph project</h1>
+    <p class="subtitle">Jialin Lu</p>
+
+    <root><h2>Overview</h2><p>Goal: Provide AI integration to the font design process.</p><hr/><p>My main point is that, the use of vector image, i.e. curves parameterized by control points, is not only necessary, but also beneficial (in the sense that it prunes a huge space of illegitimate shapes).</p><p>Say <mathjax>$x$</mathjax> is a glyph, and <mathjax>$P(x)$</mathjax> the likelihood of real world font glyphs. Each glyph <mathjax>$x_\theta$</mathjax> is parameterized by some inhererent parameters, i.e. the control points, <mathjax>$\theta$</mathjax>.</p><p>Assume we have a ranking/scoring function <mathjax>$f$</mathjax> such that <mathjax>$f(x)$</mathjax> indicates how good it is, basically:</p><p><mathjax>$$f(x) =
+  \begin{array}{ c l }
+    \textrm{high value} &amp; \quad \textrm{if } x \sim P(x) \\
+    \textrm{low value}  &amp; \quad \textrm{otherwise, for example, if x is just noise}
+  \end{array}$$</mathjax></p><p>Further assume a glyph is computed by applying a rendering function <mathjax>$R$</mathjax> to its inherent parameters <mathjax>$\theta$</mathjax>: <mathjax>$x = R(\theta)$</mathjax><br/>then the design process of a glyph, (getting the optimal control points) can be formulated as follows<br/><mathjax>$$ \theta^* = \mathop{argmax}_{\theta} f(R(\theta))  $$</mathjax></p><p>In particular, when we design both <mathjax>$f$</mathjax> and <mathjax>$R$</mathjax> to be differentiable functions, then <mathjax>$\theta$</mathjax> can de obtained by running cheap gradient-based optimization.</p><p>In some sense, kerning is also doable in this framework</p><div class="raw-html"><span class="marginnote">Optimization process of the kerning of L and V, assuming we have a learned scoring function. The only parameter <mathjax>$\theta $</mathjax> here that needs to be inferred is the horizontal distance of two glyphs. While randomly initialized, it converges into an ideal position.</span>
+<p align="center" width=="100%"><img src="https://luxxxlucy.github.io/projects/2022_glyph/assets/kern_demo.gif" style="background-color:black" width="20%"/></p></div><p>In this example, the score function is also a learned model, an energy-based model, which is an unsupervised (or self-supervised) learning model that approximates the unnormalized data likelihood.</p><h2>Beyond</h2><h3>What I am currently doing</h3><ul><li><p>An interpreter that can, given a existing font, take specification and generate a rare Hanzi glyph. In other words, it auto-completes the font.</p></li></ul><h3>Planning to do</h3><ul><li><p>A constraint-based parameterization of shapes, instead of the usual more conventional interpolation based methods.</p></li><li><p>Methods for enforcing a certain aesthetic feature consistently among all glyphs.</p></li></ul></root>
+</div>
+</body>
+</html>
