@@ -1,22 +1,45 @@
 <!DOCTYPE html>
 <script>window.texme = { style: 'plain' }</script>
 <script src="https://cdn.jsdelivr.net/npm/texme"></script>
-<link rel="stylesheet" href="../../style_base/framer_style_base/framer.css">
+<link rel="stylesheet" href="https://luxxxlucy.github.io/projects/style_base/tufte_css_base/tufte.css">
+<link rel="stylesheet" href="https://luxxxlucy.github.io/projects/style_base/framer_style_base/framer.css">
+
+<style>
+    body {
+        background: ffffff;
+        margin-left: 0%;
+        margin-right: -10%;
+        width: 50%
+    }
+
+    /* main {
+        max-width: 50em;
+        /* max-width: 0em; */
+        padding: 3em;
+
+        /* border: medium double gray; */
+        margin: 2em auto;
+        /* background: lightyellow;
+    } */
+</style>
+
 
 <textarea>
 
 
-
 # Mitigating The Failures Of Gradient-Based Program Induction
 
-> This is working in partial form: A preliminary manuscript can be found <a href="./draft.pdf">here</a>.
+Originally 2021-Jul, update in 2022-Nov
 
+2022-Nov: This is paused in current its partial form: an one year ago version manuscript can be found <a href="./draft.pdf">here</a>.
+Though I do not recommend reading it other than for getting an idea on what the GradSearch Algorithm is, because most except for the algorithm itself is obsolete now.
+As I will show later, the TerpreT induction problem is more like a combination of two different problems, and my previous solution only managed to solve the issue with parity chain problem, while the general circuit induction being a much more difficult problem.
 
 ## Motivation and a simple example
 
 Here I study the problem of gradient-based program induction, i.e., optimizing the parameters of a program given input-output pairs, using gradient-based optimization algorithm. 
 
-The starting point is extend the scope of the tasks traditional program synthesis can handle. By a wider range of application, I mean programs with not only discrete parameters, but with continuous parameters; or even there can be a neural network compoenent inside a program. By using gradient-based optimization, the simplest and most intuitive solution is just to optimize them jointly, while EM or wake-sleep style algorithms also remain possible.
+The starting point is extend the scope of the tasks traditional program synthesis can handle. By a wider range of application, I mean programs with not only discrete parameters, but with continuous parameters; or even there can be a neural network component inside a program. By using gradient-based optimization, the simplest and most intuitive solution is just to optimize them jointly, while EM or wake-sleep style algorithms also remain possible.
 
 For example, consider the following "sketch" of a program:
 
@@ -31,14 +54,14 @@ def a_drawing_program():
         draw_a_close_curve(points,color)
     return the_output_drawing
 ```
-The parametes that need to be inferred are a int *K*,  float *x*, *y*, *width*, *color*, etc.
+The parameters that need to be inferred are a int *K*,  float *x*, *y*, *width*, *color*, etc.
 
 And suppose we have a target image which we want to synthesize a drawing program to output.
-By traditional satistfiability-based synthesis methods, this is not easy to start with: there are many continuous parameters, the target image is essentially a pixel array.
+By traditional satisfiability-based synthesis methods, this is not easy to start with: there are many continuous parameters, the target image is essentially a pixel array.
 
 The image in the left is the target image, and the gif in the right is the result during the optimization by using the proposed algorithm. In this case, we use a [differentiable rasterizer](https://people.csail.mit.edu/tzumao/diffvg/) approach to make the overall program differentiable, 
 and use
-* a continous optimizer for the continuous parameters (*radius*, *color*, etc)
+* a continuous optimizer for the continuous parameters (*radius*, *color*, etc)
 * a **discrete** optimizer for the discrete parameter (*K*)
 
 We just use the simplest iterative gradient-based update. This is the simplest way I can think of.
@@ -68,11 +91,11 @@ In particular, the problem comes from the failures of gradient program induction
 
 Recent works on this direction choose a straightforward relaxation approach: the discrete space of programs is relaxed into a continuous space so that search over programs can be performed using gradient-based optimization in the continuous space. However, this approach is outperformed by the conventional discrete search algorithms, by a large margin.
 
-We investigate the diagnosize the problem of the straightforward way of gradient descent of relaxed programs and come to the observations that the relaxation creates the new **soft** local minima that causes all the problem.
+We investigate the diagnosis the problem of the straightforward way of gradient descent of relaxed programs and come to the observations that the relaxation creates the new **soft** local minima that causes all the problem.
 
 <p align="center" width="100%">
     <img width="100%" src="./assets/illustration.png">
-    <p>A relaxation approach can be stuck in soft local minima. And more interestingly, the straightforward solution of adding regularization terms to encourage the parameter to be more "discrete" does not work for the parity chain, the simple reason being the soft local minima happen to have equall distance away from the nearest discrete points!</p>
+    <p>A relaxation approach can be stuck in soft local minima. And more interestingly, the straightforward solution of adding regularization terms to encourage the parameter to be more "discrete" does not work for the parity chain, the simple reason being the soft local minima happen to have equal distance away from the nearest discrete points!</p>
 </p>
 
 
@@ -85,25 +108,35 @@ With the lessons we learned from existing approaches, and guided by the ideal pr
         <p>The optimization process of the proposed algorithm, there seem to be a kind of propagation effect.</p>
 </p>
 
-We show that we can effectively solve the synthesis of parity chain, while relaxation based methods all fail by stucking at the soft local minima.
-I also tested with a wider range of other methods but they do not work. The only notable exception here is the Bop ([Helwegen et al 2019](https://arxiv.org/abs/1906.02107)) algorithm. But it works more like an abnormaly here as it is highly sensitive to hyperparameters. Meanwhile, Bop can only handle binary parameters, our proposed algorithm can also be generalized to categorical variables and others. And we also show that Straight-through estimator (STE, [Bengio et al 2013](https://arxiv.org/abs/1308.3432)) and Bop are special cases of our GradSearch algorithm.
-
+We show that we can effectively solve the synthesis of parity chain, while relaxation based methods all fail by being stuck at the soft local minima.
+I also tested with a wider range of other methods but they do not work. The only notable exception here is the Bop ([Helwegen et al 2019](https://arxiv.org/abs/1906.02107)) algorithm. But it works more like an anomaly here as it is highly sensitive to hyperparameters. Meanwhile, Bop can only handle binary parameters, our proposed algorithm can also be generalized to categorical variables and others. And we also show that Straight-through estimator (STE, [Bengio et al 2013](https://arxiv.org/abs/1308.3432)) and Bop are special cases of our GradSearch algorithm.
 
 <p align="center" width="100%">
     <img width="120%" src="./assets/parity_chain_table.png" style="background-color:black">
     <!-- <source src="./assets/output.mp4" type="video/mp4"> -->
 </p>
 
-However, when we tried to extend this method to more challenging program synthesis tasks, the resuls are not so good. It turns out that there remain two problem:
+However, when we tried to extend this method to more challenging program synthesis tasks, the results are not so good. It turns out that there remain two problem:
 
 First, as GradSearch is essentially a local search, it is then vulnerable to the problem of local minima. One easy way out is of course to employ certain tricks to escape from local search. But this in turn becomes a highly tedious job.
 
-Second, the gradient w.r.t the parameters is not always there, becauses of many structures like conditional ("IF-ELSE") and loops, there is a lot of place where there is no informative gradient to use as learning signal.
+Second, the gradient w.r.t the parameters is not always there, because of many structures like conditional ("IF-ELSE") and loops, there is a lot of place where there is no informative gradient to use as learning signal.
 
 My general idea for now is that perhaps we need to somehow rethink the gradient-based approach. In particular, as the history has proved, some branching and search seem to be very important, especially when an exact solution is required or the problem is combinatorial in nature.
 
 Several possible way out:
-1. Finding clever use of the continous relaxation and GradSearch. One hypothesis is that we can use the continuous relaxation as a warm-starting, and then let GradSearch to search efficiently (till a local minima). This way we alternative from two ways of optimization. But this is also not working.
+1. Finding clever use of the continuous relaxation and GradSearch. One hypothesis is that we can use the continuous relaxation as a warm-starting, and then let GradSearch to search efficiently (till a local minima). This way we alternative from two ways of optimization. But this is also not working.
 2. Investigate different ways of converting to differentiable program. However this is like a no-end trial-and-error process. A first starting point perhaps is to investigate the triangular norms for logic operators first.
-3. The major problem is that we are moving from parity chain to circuits, a multi-layered structure. There is possibel ways to better understand the credit assignment. For example, we can start with a simplest scenario of a If-Else conditional program first, and then move to multi-layered structured programs. For this, perhaps we can take a look at multi-armed bandits.
-2. Abandon the idea of gradient-based optimization for discrete parameters. What we want is essentially a algorithm that optimize continuous parameters (like neural networks) and discrete parameters together. There can be other possiblities other than gradient descent.
+3. The major problem is that we are moving from parity chain to circuits, a multi-layered structure. There is possible ways to better understand the credit assignment. For example, we can start with a simplest scenario of a If-Else conditional program first, and then move to multi-layered structured programs. For this, perhaps we can take a look at multi-armed bandits.
+2. Abandon the idea of gradient-based optimization for discrete parameters. What we want is essentially a algorithm that optimize continuous parameters (like neural networks) and discrete parameters together. There can be other possibilities other than gradient descent.
+
+## Some new thoughts in Nov 2022
+
+I hate to admit, but the problems regarding parity chain and the general circuit induction are really two different problems, in two different levels.
+
+For the parity chain, the cause of failure (in its original relaxation case) is that the actual learning (starting from the observed variable to the need-to-be-inferred) is always slower than the speed to go into a local minima, where the number of local minima grows exponentially with the size K. The relaxation-and-then-SGD approach also lacks the ability to jump back away from the local minima, making it essentially breaks the symmetry.
+It is actually easy to validate what I am saying here: a simple solution is to not initialize variables randomly, but initialize the Bernoulli to 0.5, then in this case even the relaxation approach can converge to the optimal solution.
+
+The general circuit induction task however, is a different story, which is because the routing&assembly of sub-circuits is always changing, the gradient becomes extremely noisy and thus is hard even converge to a local minima. It is even more reasonable to optimize one-layer at a time rather than updating the entire circuits in a deep neural network-like manner.
+
+Perhaps a more sense-making approach is to conditionally sample the parameters according to some order, for example, starting from the blanket of the observed variable, and then one by one till covering all parameters.
