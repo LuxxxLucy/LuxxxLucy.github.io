@@ -1547,12 +1547,11 @@ Description Sequence (IDS)</span>
 <a href="https://github.com/3type/EOD">Explosive Ordnance Disposal’ aka
 EOD or 拆字小组</a></span></span> , which can be used to retrieve CJK
 (China-Japan-Korea) ideographic glyphs. This embedding offers several
-advantages over rigid approaches, such as tedious structure comparison
-or edit distances.</p>
+advantages over rigid approaches like tedious structure comparison or
+edit distances.</p>
 <ul>
 <li>Quick &amp; scalable</li>
-<li>Considerably more flexible/sense-making or those based on edit
-distances.</li>
+<li>Considerably more flexible/sense-making</li>
 </ul>
 <p><span class="newthought">Here’s a quick preview of example
 applications:</span> Suppose you have the character “亨” (with IDS
@@ -1646,8 +1645,8 @@ that has ordered children/sibling nodes.</p>
 embeddings for IDS. But before that, let us first look at a normal
 sequence,</p>
 <div class="figure">
-<div id="htmlwidget-81d8df82c77a0511d6e5" style="width:672px;height:100px;" class="grViz html-widget "></div>
-<script type="application/json" data-for="htmlwidget-81d8df82c77a0511d6e5">{"x":{"diagram":"\n  digraph graph2 {\n  \n  graph [layout = dot, rankdir = LR]\n  \n  # node definitions with substituted label text\n  node [shape = oval]\n  a [label = \"a\"]\n  b [label = \"b\"]\n  c [label = \"c\"]\n  \n  a -> b -> c\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b029da1f93d27560c3be" style="width:672px;height:100px;" class="grViz html-widget "></div>
+<script type="application/json" data-for="htmlwidget-b029da1f93d27560c3be">{"x":{"diagram":"\n  digraph graph2 {\n  \n  graph [layout = dot, rankdir = LR]\n  \n  # node definitions with substituted label text\n  node [shape = oval]\n  a [label = \"a\"]\n  b [label = \"b\"]\n  c [label = \"c\"]\n  \n  a -> b -> c\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p class="caption marginnote shownote">
 Figure 1: A example sequence
 </p>
@@ -1678,8 +1677,8 @@ Here let us assume that while <code>a</code> and <code>b</code> are both
 the children of <code>c</code>, there is an order that <code>a</code>
 precedates <code>b</code>.</p>
 <div class="figure">
-<div id="htmlwidget-4039feb8e152a9caf239" style="width:672px;height:100px;" class="grViz html-widget "></div>
-<script type="application/json" data-for="htmlwidget-4039feb8e152a9caf239">{"x":{"diagram":"\n  digraph graph2 {\n  \n  graph [layout = dot, rankdir = LR]\n  \n  # node definitions with substituted label text\n  node [shape = oval]\n  a [label = \"a\"]\n  b [label = \"b\"]\n  c [label = \"c\"]\n  d [label = \"d\"]\n  \n  a -> c -> d\n  \n  b -> c\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b64f0d9123bff0b7d031" style="width:672px;height:100px;" class="grViz html-widget "></div>
+<script type="application/json" data-for="htmlwidget-b64f0d9123bff0b7d031">{"x":{"diagram":"\n  digraph graph2 {\n  \n  graph [layout = dot, rankdir = LR]\n  \n  # node definitions with substituted label text\n  node [shape = oval]\n  a [label = \"a\"]\n  b [label = \"b\"]\n  c [label = \"c\"]\n  d [label = \"d\"]\n  \n  a -> c -> d\n  \n  b -> c\n  }\n  ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p class="caption marginnote shownote">
 Figure 1: A example tree
 </p>

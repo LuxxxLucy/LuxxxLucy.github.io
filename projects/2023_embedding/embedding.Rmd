@@ -43,11 +43,10 @@ Github repo [LuxxxLucy/ids_embedding](https://github.com/LuxxxLucy/ids_embedding
 ```{marginfigure}
 Say, [Explosive Ordnance Disposal' aka EOD or 拆字小组](https://github.com/3type/EOD)
 ```
-, which can be used to retrieve CJK (China-Japan-Korea) ideographic glyphs. This embedding offers several advantages over rigid approaches, such as tedious structure comparison or edit distances.
+, which can be used to retrieve CJK (China-Japan-Korea) ideographic glyphs. This embedding offers several advantages over rigid approaches like tedious structure comparison or edit distances.
 
 -   Quick & scalable
 -   Considerably more flexible/sense-making
-or those based on edit distances.
 
 `r newthought("Here's a quick preview of example applications:")` 
 Suppose you have the character "亨" (with IDS "⿱亠⿱口了"). Based on the embedding, we can find similar characters:
