@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400.09765625 500">
+    <text x="2" y="496" font-size="36" fill="gray">
+        A
+    </text>
+    <path d="M 910 602 L 687 1251 L 450 602 L 910 602 Z M 583 1469 L 808 1469 L 1341 0 L 1123 0 L 974 440 L 393 440 L 234 0 L 30 0 L 583 1469 Z" transform="matrix(0.146484375 0 0 -0.146484375 100 331.005859375)"/>
+    <rect x="100" y="100" width="200.09765625" height="300" fill="none" stroke="green"/>
+    <path fill="none" stroke="black" stroke-width="1" d="M 100 331.005859375 L 300.09765625 331.005859375"/>
+    <text x="50" y="336.005859375" font-size="12" fill="gray">
+        baseline
+    </text>
+    <path fill="none" stroke="black" stroke-width="1" d="M 100 115.8203125 L 300.09765625 115.8203125"/>
+    <text x="50" y="120.8203125" font-size="12" fill="gray">
+        cap height
+    </text>
+    <path fill="none" stroke="black" stroke-width="1" d="M 100 174.12109375 L 300.09765625 174.12109375"/>
+    <text x="50" y="179.12109375" font-size="12" fill="gray">
+        x height
+    </text>
+    <path fill="none" stroke="black" stroke-width="1" d="M 100 100 L 300.09765625 100"/>
+    <text x="50" y="105" font-size="12" fill="gray">
+        ascender
+    </text>
+    <path fill="none" stroke="black" stroke-width="1" d="M 100 400 L 300.09765625 400"/>
+    <text x="50" y="405" font-size="12" fill="gray">
+        descender
+    </text>
+    <path fill="none" stroke="black" stroke-width="1" d="M 104.39453125 400 L 104.39453125 100"/>
+    <text x="50" y="331.611328125" font-size="12" fill="gray">
+        
+    </text>
+    <path fill="none" stroke="black" stroke-width="1" d="M 295.703125 400 L 295.703125 100"/>
+    <text x="50" y="140.302734375" font-size="12" fill="gray">
+        
+    </text>
+    <path fill="none" stroke="blue" stroke-width="1" marker-end="url(#head)" marker-start="url(#head)" d="M 100 338.330078125 L 104.39453125 338.330078125"/>
+    <text x="90.197265625" y="343.330078125" font-size="5" fill="blue">
+        left bearing
+    </text>
+    <path fill="none" stroke="blue" stroke-width="1" marker-end="url(#head)" marker-start="url(#head)" d="M 295.703125 338.330078125 L 300.09765625 338.330078125"/>
+    <text x="285.900390625" y="343.330078125" font-size="5" fill="blue">
+        right bearing
+    </text>
+    <path fill="none" stroke="blue" stroke-width="1" marker-end="url(#head)" marker-start="url(#head)" d="M 100 345.654296875 L 300.09765625 345.654296875"/>
+    <text x="188.048828125" y="350.654296875" font-size="5" fill="blue">
+        advance width
+    </text>
+</svg>

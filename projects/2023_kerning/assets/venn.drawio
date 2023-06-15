@@ -1,0 +1,40 @@
+<mxfile host="Electron" modified="2023-06-15T14:44:37.265Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.8 Chrome/112.0.5615.165 Electron/24.2.0 Safari/537.36" etag="nqxszgXy_JsSiONEcM8b" version="21.2.8" type="device">
+  <diagram name="第 1 页" id="kzM4Sd87N1CcjHORukVz">
+    <mxGraphModel dx="4738" dy="1818" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JbFGEDYey82dg0FfeBYf-1" value="" style="whiteSpace=wrap;html=1;textOpacity=10;fontColor=#d8caca;fontSize=23;fontFamily=Berkerly Mono;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-80" y="170" width="2396.74" height="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="dZHMOJvwKf1R_8RvWzH4-2" value="" style="ellipse;whiteSpace=wrap;html=1;fontSize=23;strokeWidth=5;fontFamily=Berkerly Mono;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="210" y="205" width="1850" height="985" as="geometry" />
+        </mxCell>
+        <mxCell id="dZHMOJvwKf1R_8RvWzH4-3" value="" style="ellipse;whiteSpace=wrap;html=1;fontSize=23;strokeWidth=5;fontFamily=Berkerly Mono;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="770.17" y="233.74" width="999.83" height="856.26" as="geometry" />
+        </mxCell>
+        <mxCell id="dZHMOJvwKf1R_8RvWzH4-4" value="" style="ellipse;whiteSpace=wrap;html=1;fontSize=23;strokeWidth=5;fontFamily=Berkerly Mono;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1200" y="373" width="491.67" height="453.83" as="geometry" />
+        </mxCell>
+        <mxCell id="dZHMOJvwKf1R_8RvWzH4-7" value="spacing that can be expressed by using both advance width and the kern table" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=40;fontFamily=Berkerly Mono;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="280" y="700" width="480" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dZHMOJvwKf1R_8RvWzH4-10" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-size: 40px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;spacing that can be expressed by using only the advance width&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;fontSize=40;fontFamily=Berkerly Mono;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1285.84" y="450" width="350" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="dZHMOJvwKf1R_8RvWzH4-11" value="e.g. movable type*" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontFamily=Berkerly Mono;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="1255.84" y="680" width="380" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="dZHMOJvwKf1R_8RvWzH4-12" value="e.g. BubbleKern" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontFamily=Berkerly Mono;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="930" y="826.83" width="290" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="it_AL7rIImUbwutMtMyr-1" value="e.g. modern digital fonttype" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontFamily=Berkerly Mono;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="370" y="930" width="420" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="it_AL7rIImUbwutMtMyr-2" value="spacing that can be expressed BubbleKern, and other collision based methods" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=40;fontFamily=Berkerly Mono;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="810" y="600" width="390" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

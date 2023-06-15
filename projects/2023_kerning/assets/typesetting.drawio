@@ -1,0 +1,40 @@
+<mxfile host="Electron" modified="2023-06-11T12:18:15.476Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.8 Chrome/112.0.5615.165 Electron/24.2.0 Safari/537.36" etag="nihAje6VtymMcRGQaeGJ" version="21.2.8" type="device">
+  <diagram name="第 1 页" id="kzM4Sd87N1CcjHORukVz">
+    <mxGraphModel dx="1673" dy="1167" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JbFGEDYey82dg0FfeBYf-1" value="" style="whiteSpace=wrap;html=1;textOpacity=10;fontColor=#d8caca;" parent="1" vertex="1">
+          <mxGeometry y="190" width="930" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="0wOf_IkoGB9dvSHc_Itc-20" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTYxLjIzMDQ2ODc1IDUwMCI+JiN4YTsgICAgPHBhdGggdHJhbnNmb3JtPSJtYXRyaXgoMC4xNDY0ODQzNzUgMCAwIC0wLjE0NjQ4NDM3NSAxMDAgMzMxLjAwNTg1OTM3NSkiIGQ9Ik0gOTEwIDYwMiBMIDY4NyAxMjUxIEwgNDUwIDYwMiBMIDkxMCA2MDIgWiBNIDU4MyAxNDY5IEwgODA4IDE0NjkgTCAxMzQxIDAgTCAxMTIzIDAgTCA5NzQgNDQwIEwgMzkzIDQ0MCBMIDIzNCAwIEwgMzAgMCBMIDU4MyAxNDY5IFoiLz4mI3hhOyAgICA8cmVjdCBzdHJva2U9ImdyZWVuIiBmaWxsPSJub25lIiBoZWlnaHQ9IjMwMCIgd2lkdGg9IjIwMC4wOTc2NTYyNSIgeT0iMTAwIiB4PSIxMDAiLz4mI3hhOyAgICA8cGF0aCB0cmFuc2Zvcm09Im1hdHJpeCgwLjE0NjQ4NDM3NSAwIDAgLTAuMTQ2NDg0Mzc1IDI3Ny45Nzg1MTU2MjUgMzMxLjAwNTg1OTM3NSkiIGQ9Ik0gMTIyNSAxNDY5IEwgMTIyNSAxMjk0IEwgNzMwIDEyOTQgTCA3MzAgMCBMIDUyOCAwIEwgNTI4IDEyOTQgTCAzMyAxMjk0IEwgMzMgMTQ2OSBMIDEyMjUgMTQ2OSBaIi8+JiN4YTsgICAgPHJlY3Qgc3Ryb2tlPSJncmVlbiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIzMDAiIHdpZHRoPSIxODMuMjUxOTUzMTI1IiB5PSIxMDAiIHg9IjI3Ny45Nzg1MTU2MjUiLz4mI3hhOzwvc3ZnPg==;" parent="1" vertex="1">
+          <mxGeometry x="442.8" y="200" width="269.28" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="0wOf_IkoGB9dvSHc_Itc-21" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTgzLjM0OTYwOTM3NSA1MDAiPiYjeGE7ICAgIDxwYXRoIHRyYW5zZm9ybT0ibWF0cml4KDAuMTQ2NDg0Mzc1IDAgMCAtMC4xNDY0ODQzNzUgMTAwIDMzMS4wMDU4NTkzNzUpIiBkPSJNIDkxMCA2MDIgTCA2ODcgMTI1MSBMIDQ1MCA2MDIgTCA5MTAgNjAyIFogTSA1ODMgMTQ2OSBMIDgwOCAxNDY5IEwgMTM0MSAwIEwgMTEyMyAwIEwgOTc0IDQ0MCBMIDM5MyA0NDAgTCAyMzQgMCBMIDMwIDAgTCA1ODMgMTQ2OSBaIi8+JiN4YTsgICAgPHJlY3Qgc3Ryb2tlPSJncmVlbiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIzMDAiIHdpZHRoPSIyMDAuMDk3NjU2MjUiIHk9IjEwMCIgeD0iMTAwIi8+JiN4YTsgICAgPHBhdGggdHJhbnNmb3JtPSJtYXRyaXgoMC4xNDY0ODQzNzUgMCAwIC0wLjE0NjQ4NDM3NSAzMDAuMDk3NjU2MjUgMzMxLjAwNTg1OTM3NSkiIGQ9Ik0gMTIyNSAxNDY5IEwgMTIyNSAxMjk0IEwgNzMwIDEyOTQgTCA3MzAgMCBMIDUyOCAwIEwgNTI4IDEyOTQgTCAzMyAxMjk0IEwgMzMgMTQ2OSBMIDEyMjUgMTQ2OSBaIi8+JiN4YTsgICAgPHJlY3Qgc3Ryb2tlPSJncmVlbiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIzMDAiIHdpZHRoPSIxODMuMjUxOTUzMTI1IiB5PSIxMDAiIHg9IjMwMC4wOTc2NTYyNSIvPiYjeGE7PC9zdmc+;" parent="1" vertex="1">
+          <mxGeometry x="180" y="200" width="279.84" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="0wOf_IkoGB9dvSHc_Itc-1" value="naively pakcing the two letters&#39; box side by side" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="245" y="423.62" width="149.26" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0wOf_IkoGB9dvSHc_Itc-18" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.lightbulb;" parent="1" vertex="1">
+          <mxGeometry x="210" y="200.60000000000002" width="22.8" height="29.7" as="geometry" />
+        </mxCell>
+        <mxCell id="0wOf_IkoGB9dvSHc_Itc-19" value="Trying to typeset two letter &quot;AT&quot; (while making the box visible)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="213" y="199.24" width="380" height="31.06" as="geometry" />
+        </mxCell>
+        <mxCell id="0wOf_IkoGB9dvSHc_Itc-23" value="Move the second letter T&#39;s box leftward to make the pair &quot;closer&quot; and compact&amp;nbsp;" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="484.26" y="423.62" width="211.2" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0wOf_IkoGB9dvSHc_Itc-25" value="With kerning" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="414.01" y="285" width="70.66" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0wOf_IkoGB9dvSHc_Itc-26" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="422.59000000000003" y="324.63" as="sourcePoint" />
+            <mxPoint x="476.08" y="324.63" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
