@@ -1,0 +1,57 @@
+---
+title: "Explain *Explain* algorithm for K-step proof generating"
+
+output:
+  tufte::tufte_html:
+    css: "../projects/style_base/framer_style_base/framer.css"
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+bibliography: paper.bib
+link-citations: yes
+author: "Lu Jialin [luxxxlucy.github.io](https://luxxxlucy.github.io/)"
+date: "Nov 2023"
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+```{=html}
+<script>
+  // Move TOC to the Table of Contents heading (with id "table-of-contents")
+  $(function() {
+    $( "#TOC" ).insertAfter( $( "#table-of-contents" ) );
+  });
+</script>
+```
+
+
+
+
+```{marginfigure}
+See 
+https://luxxxlucy.github.io/ufviz/
+```
+tldr: a visualization  of the *Explain* algorithm from (@nieuwenhuis2005proof).
+
+I stumbled upon this paper while 
+I was reading the [`egg`](https://egraphs-good.github.io) library
+which mentioned that the process of generating rationales for term rewriting is implemented by the *Explain* algorithm. 
+Here's a quick gist of it: suppose a set of symbols indexed as $1,2,3, \dots$
+and a sequence of paired inputs (arriving online) defining some equivalence relations, such as
+$(1 == 2), (3 == 5), (2 == 4), (4 == 8)$.
+Now, if we need to understand why $1$ and $4$ are equivalent, or in other words, a proof, we could point out a 2-step sequence that connects $1$ and $4$ which is $(1==2), (2==4)$.
+
+This equivalence relation is managed by a union-find structure, and a $O(k \log n)$ algorithm for extracting the $k$-step proof is proposed in the paper. Later a clever trick is shown such that (surprise!) we can actually have an $O(k)$ algorithm.
+This is done by substituting the classic union-find routine with a tweaked one. It trades more overhead during construction for maintaining the invariant of the union find but yields a simpler process when retrieving the $k$-step proof, essentially transforming it into a linear algorithm for finding a path between two nodes through a common ancestor in a tree.
+
+Both versions are implemented and accessible at https://luxxxlucy.github.io/ufviz/. You can enter a sequence of merge operations and select whether to use the classical union-find or the modified version. This choice affects not only the construction of the union-find disjoint set but also the subsequent proof-finding algorithm.
+
+Source code is available at [ufviz](https://github.com/LuxxxLucy/ufviz/tree/master)^[I discovered that including path compression as an optimization complicates the animation and visualization, making it challenging to depict transitions clearly. Hence, I have omitted path compression in the union-find implementation]. Friendly Reminder: the code is brutal, I myself won't look at it second time.
