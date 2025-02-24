@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gibbs in the Shader</title>
+  
+  <!-- Use local Tufte CSS with light mode only -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Load React -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+  <article>
+    <h1>Gibbs in the Shader</h1>
+    
+    <section>
+      <span class="newthought">I've got to confess</span> that the name is a knock-off reference<label for="mn-ghost-shell" class="margin-toggle"></label><input type="checkbox" id="mn-ghost-shell" class="margin-toggle"/><span class="marginnote">
+        <em>G</em>host <em>i</em>n the <em>S</em>hell (<em>攻殻機動隊</em> [Kōkaku Kidōtai], 1995)
+        <br><br>
+
+        <img src="https://upload.wikimedia.org/wikipedia/en/c/ca/Ghostintheshellposter.jpg" alt="Ghost in the Shell (1995) movie poster" style="width: 100%; max-width: 300px;">
+      </span>. During a particularly strange moment, the term crossed my mind and I thought, hey, why not. And so here we are.
+
+      <h2>Probabilistic Inference, Gibbs and the task of denoising</h2>
+      <p>
+        <span class="newthought">Probabilistic inference</span> is about making educated guesses with incomplete 
+        information. Gibbs sampling is one such thing; it incrementally updates the guess based on available information, making small changes based on context while fixing other variables. 
+        <br>
+      </p>
+
+      <p>
+        Now let's consider image denoising: when an image contains noise, missing values, or other imperfections, our goal is to infer the original clean image.
+        <br>
+        We begin with a fundamental assumption: each pixel's true value depends on both its noisy observation and its neighboring pixels. We can treat each pixel as a random variable whose value is a function of its noisy observation and its surrounding context. By fixing the neighboring pixels, we can estimate the true value of the target pixel.
+        <br>
+        <br>
+        Applying this process iteratively to all pixels in the image constitutes Gibbs sampling.
+        <br>
+        After multiple iterations, we gradually converge toward a denoised image. The final result represents our estimate—a probable approximation of the true underlying image.
+      </p>
+
+      <figure class="fullwidth">
+        <div id="gibbs-demo-root"></div>
+        <label for="mn-demo-note" class="margin-toggle">&#8853;</label>
+        <input type="checkbox" id="mn-demo-note" class="margin-toggle"/>
+      </figure>
+      <br><br>
+
+      <h2>From Sequential to Parallel Updates</h2>
+      <p>
+        Gibbs sampling, in its vanilla form, processes pixels sequentially, which makes it inefficient, especially for images where the complexity is determined by the image size (col×row) which can quickly become prohibitive.
+      </p>
+
+      <pre><code>// Sequential update
+for (let i = 0; i < totalPixels; i++) {
+  updatePixel(i); // Depends on previous state
+}</code></pre>
+
+      <p>
+        For parallel processing, we need a strategy where multiple pixels can be updated simultaneously without breaking the Markov property that underpins Gibbs sampling. The key insight is that non-adjacent pixels not present in each other's Markov blanket can be updated in parallel because each update only depends on its immediate neighbors.
+      </p>
+
+      <p>
+        Our implementation divides the image into 3×3 blocks and processes all pixels at the same relative position within these blocks in parallel. For each iteration, we:
+      </p>
+
+      <ol>
+        <li>Select one of the nine positions in the 3×3 pattern</li>
+        <li>Update all pixels at this position across the image simultaneously</li>
+        <li>Repeat for all nine positions to complete one full iteration</li>
+      </ol>
+
+      <pre><code>// Parallel pattern selection
+const gridStep = step % 9;  // Cycle through 9 positions (0-8) in 3×3 grid
+const gridX = gridStep % 3; // X position within 3×3 grid (0, 1, or 2)
+const gridY = Math.floor(gridStep / 3); // Y position within 3×3 grid (0, 1, or 2)
+
+// Process all pixels at position (gridX, gridY) in their respective 3×3 blocks
+for (let blockY = 0; blockY < rows; blockY += 3) {
+    for (let blockX = 0; blockX < cols; blockX += 3) {
+        const x = blockX + gridX;
+        const y = blockY + gridY;
+        
+        // Skip if outside image bounds
+        if (x >= cols || y >= rows) continue;
+        
+        // Update this pixel based on its neighbors
+        updatePixel(x, y); // All these positions can be updated in parallel
+    }
+}</code></pre>
+
+      <span class="marginnote">
+        <figure>
+          <svg width="325" height="325" viewBox="0 0 200 200" style="margin: 2rem auto; display: block;">
+            <!-- Grid -->
+            <rect x="40" y="40" width="120" height="120" fill="none" stroke="#666" stroke-width="1"/>
+            <line x1="80" y1="40" x2="80" y2="160" stroke="#666" stroke-width="1"/>
+            <line x1="120" y1="40" x2="120" y2="160" stroke="#666" stroke-width="1"/>
+            <line x1="40" y1="80" x2="160" y2="80" stroke="#666" stroke-width="1"/>
+            <line x1="40" y1="120" x2="160" y2="120" stroke="#666" stroke-width="1"/>
+          
+            <!-- Center pixel highlight -->
+            <rect x="80" y="80" width="40" height="40" fill="rgba(0,0,255,0.1)" stroke="blue" stroke-width="2"/>
+          
+            <!-- Labels -->
+            <text x="60" y="65" font-size="12" fill="#444">N₁</text>
+            <text x="100" y="65" font-size="12" fill="#444">N₂</text>
+            <text x="140" y="65" font-size="12" fill="#444">N₃</text>
+            <text x="60" y="105" font-size="12" fill="#444">N₄</text>
+            <text x="100" y="105" font-size="12" fill="blue">P</text>
+            <text x="140" y="105" font-size="12" fill="#444">N₅</text>
+            <text x="60" y="145" font-size="12" fill="#444">N₆</text>
+            <text x="100" y="145" font-size="12" fill="#444">N₇</text>
+            <text x="140" y="145" font-size="12" fill="#444">N₈</text>
+          
+            <!-- Legend -->
+            <text x="40" y="185" font-size="10" fill="#666">P: Current pixel being sampled</text>
+            <text x="40" y="195" font-size="10" fill="#666">N₁-N₈: Neighboring pixels influencing P</text>
+          </svg>
+        </figure>
+        The Gibbs sampling neighborhood pattern. Each pixel (P) is updated based on the values of its eight neighboring pixels (N₁-N₈), maintaining spatial correlation in the image.
+      </span>
+
+      <span class="marginnote">
+        <figure>
+          <svg width="325" height="325" viewBox="0 0 200 200" style="margin: 2rem auto; display: block;">
+            <!-- 9x9 Grid -->
+            <defs>
+              <!-- Pattern for highlighting -->
+              <pattern id="highlight" patternUnits="userSpaceOnUse" width="180" height="180">
+                <rect width="60" height="60" fill="rgba(255,0,0,0.1)"/>
+                <rect x="120" y="0" width="60" height="60" fill="rgba(255,0,0,0.1)"/>
+                <rect x="60" y="120" width="60" height="60" fill="rgba(255,0,0,0.1)"/>
+              </pattern>
+            </defs>
+
+            <!-- Background grid -->
+            <rect x="10" y="10" width="180" height="180" fill="none" stroke="#666" stroke-width="1"/>
+            
+            <!-- Vertical lines for inner 3x3 grids -->
+            <line x1="30" y1="10" x2="30" y2="190" stroke="#666" stroke-width="1"/>
+            <line x1="50" y1="10" x2="50" y2="190" stroke="#666" stroke-width="1"/>
+            <line x1="90" y1="10" x2="90" y2="190" stroke="#666" stroke-width="1"/>
+            <line x1="110" y1="10" x2="110" y2="190" stroke="#666" stroke-width="1"/>
+            <line x1="150" y1="10" x2="150" y2="190" stroke="#666" stroke-width="1"/>
+            <line x1="170" y1="10" x2="170" y2="190" stroke="#666" stroke-width="1"/>
+            
+            <!-- Horizontal lines for inner 3x3 grids -->
+            <line x1="10" y1="30" x2="190" y2="30" stroke="#666" stroke-width="1"/>
+            <line x1="10" y1="50" x2="190" y2="50" stroke="#666" stroke-width="1"/>
+            <line x1="10" y1="90" x2="190" y2="90" stroke="#666" stroke-width="1"/>
+            <line x1="10" y1="110" x2="190" y2="110" stroke="#666" stroke-width="1"/>
+            <line x1="10" y1="150" x2="190" y2="150" stroke="#666" stroke-width="1"/>
+            <line x1="10" y1="170" x2="190" y2="170" stroke="#666" stroke-width="1"/>
+            
+            <!-- Cell fills for each position 0-8 -->
+            <!-- Position 0 cells -->
+            <rect x="10" y="10" width="20" height="20" fill="rgba(255,240,240,1)"/>
+            <rect x="70" y="10" width="20" height="20" fill="rgba(255,240,240,1)"/>
+            <rect x="130" y="10" width="20" height="20" fill="rgba(255,240,240,1)"/>
+            <rect x="10" y="70" width="20" height="20" fill="rgba(255,240,240,1)"/>
+            <rect x="70" y="70" width="20" height="20" fill="rgba(255,240,240,1)"/>
+            <rect x="130" y="70" width="20" height="20" fill="rgba(255,240,240,1)"/>
+            <rect x="10" y="130" width="20" height="20" fill="rgba(255,240,240,1)"/>
+            <rect x="70" y="130" width="20" height="20" fill="rgba(255,240,240,1)"/>
+            <rect x="130" y="130" width="20" height="20" fill="rgba(255,240,240,1)"/>
+
+            <!-- Position 1 cells -->
+            <rect x="30" y="10" width="20" height="20" fill="rgba(255,220,220,1)"/>
+            <rect x="90" y="10" width="20" height="20" fill="rgba(255,220,220,1)"/>
+            <rect x="150" y="10" width="20" height="20" fill="rgba(255,220,220,1)"/>
+            <rect x="30" y="70" width="20" height="20" fill="rgba(255,220,220,1)"/>
+            <rect x="90" y="70" width="20" height="20" fill="rgba(255,220,220,1)"/>
+            <rect x="150" y="70" width="20" height="20" fill="rgba(255,220,220,1)"/>
+            <rect x="30" y="130" width="20" height="20" fill="rgba(255,220,220,1)"/>
+            <rect x="90" y="130" width="20" height="20" fill="rgba(255,220,220,1)"/>
+            <rect x="150" y="130" width="20" height="20" fill="rgba(255,220,220,1)"/>
+
+            <!-- Position 2 cells -->
+            <rect x="50" y="10" width="20" height="20" fill="rgba(255,200,200,1)"/>
+            <rect x="110" y="10" width="20" height="20" fill="rgba(255,200,200,1)"/>
+            <rect x="170" y="10" width="20" height="20" fill="rgba(255,200,200,1)"/>
+            <rect x="50" y="70" width="20" height="20" fill="rgba(255,200,200,1)"/>
+            <rect x="110" y="70" width="20" height="20" fill="rgba(255,200,200,1)"/>
+            <rect x="170" y="70" width="20" height="20" fill="rgba(255,200,200,1)"/>
+            <rect x="50" y="130" width="20" height="20" fill="rgba(255,200,200,1)"/>
+            <rect x="110" y="130" width="20" height="20" fill="rgba(255,200,200,1)"/>
+            <rect x="170" y="130" width="20" height="20" fill="rgba(255,200,200,1)"/>
+
+            <!-- Position 3 cells -->
+            <rect x="10" y="30" width="20" height="20" fill="rgba(255,180,180,1)"/>
+            <rect x="70" y="30" width="20" height="20" fill="rgba(255,180,180,1)"/>
+            <rect x="130" y="30" width="20" height="20" fill="rgba(255,180,180,1)"/>
+            <rect x="10" y="90" width="20" height="20" fill="rgba(255,180,180,1)"/>
+            <rect x="70" y="90" width="20" height="20" fill="rgba(255,180,180,1)"/>
+            <rect x="130" y="90" width="20" height="20" fill="rgba(255,180,180,1)"/>
+            <rect x="10" y="150" width="20" height="20" fill="rgba(255,180,180,1)"/>
+            <rect x="70" y="150" width="20" height="20" fill="rgba(255,180,180,1)"/>
+            <rect x="130" y="150" width="20" height="20" fill="rgba(255,180,180,1)"/>
+
+            <!-- Position 4 cells -->
+            <rect x="30" y="30" width="20" height="20" fill="rgba(255,160,160,1)"/>
+            <rect x="90" y="30" width="20" height="20" fill="rgba(255,160,160,1)"/>
+            <rect x="150" y="30" width="20" height="20" fill="rgba(255,160,160,1)"/>
+            <rect x="30" y="90" width="20" height="20" fill="rgba(255,160,160,1)"/>
+            <rect x="90" y="90" width="20" height="20" fill="rgba(255,160,160,1)"/>
+            <rect x="150" y="90" width="20" height="20" fill="rgba(255,160,160,1)"/>
+            <rect x="30" y="150" width="20" height="20" fill="rgba(255,160,160,1)"/>
+            <rect x="90" y="150" width="20" height="20" fill="rgba(255,160,160,1)"/>
+            <rect x="150" y="150" width="20" height="20" fill="rgba(255,160,160,1)"/>
+
+            <!-- Position 5 cells -->
+            <rect x="50" y="30" width="20" height="20" fill="rgba(255,140,140,1)"/>
+            <rect x="110" y="30" width="20" height="20" fill="rgba(255,140,140,1)"/>
+            <rect x="170" y="30" width="20" height="20" fill="rgba(255,140,140,1)"/>
+            <rect x="50" y="90" width="20" height="20" fill="rgba(255,140,140,1)"/>
+            <rect x="110" y="90" width="20" height="20" fill="rgba(255,140,140,1)"/>
+            <rect x="170" y="90" width="20" height="20" fill="rgba(255,140,140,1)"/>
+            <rect x="50" y="150" width="20" height="20" fill="rgba(255,140,140,1)"/>
+            <rect x="110" y="150" width="20" height="20" fill="rgba(255,140,140,1)"/>
+            <rect x="170" y="150" width="20" height="20" fill="rgba(255,140,140,1)"/>
+
+            <!-- Position 6 cells -->
+            <rect x="10" y="50" width="20" height="20" fill="rgba(255,120,120,1)"/>
+            <rect x="70" y="50" width="20" height="20" fill="rgba(255,120,120,1)"/>
+            <rect x="130" y="50" width="20" height="20" fill="rgba(255,120,120,1)"/>
+            <rect x="10" y="110" width="20" height="20" fill="rgba(255,120,120,1)"/>
+            <rect x="70" y="110" width="20" height="20" fill="rgba(255,120,120,1)"/>
+            <rect x="130" y="110" width="20" height="20" fill="rgba(255,120,120,1)"/>
+            <rect x="10" y="170" width="20" height="20" fill="rgba(255,120,120,1)"/>
+            <rect x="70" y="170" width="20" height="20" fill="rgba(255,120,120,1)"/>
+            <rect x="130" y="170" width="20" height="20" fill="rgba(255,120,120,1)"/>
+
+            <!-- Position 7 cells -->
+            <rect x="30" y="50" width="20" height="20" fill="rgba(255,100,100,1)"/>
+            <rect x="90" y="50" width="20" height="20" fill="rgba(255,100,100,1)"/>
+            <rect x="150" y="50" width="20" height="20" fill="rgba(255,100,100,1)"/>
+            <rect x="30" y="110" width="20" height="20" fill="rgba(255,100,100,1)"/>
+            <rect x="90" y="110" width="20" height="20" fill="rgba(255,100,100,1)"/>
+            <rect x="150" y="110" width="20" height="20" fill="rgba(255,100,100,1)"/>
+            <rect x="30" y="170" width="20" height="20" fill="rgba(255,100,100,1)"/>
+            <rect x="90" y="170" width="20" height="20" fill="rgba(255,100,100,1)"/>
+            <rect x="150" y="170" width="20" height="20" fill="rgba(255,100,100,1)"/>
+
+            <!-- Position 8 cells -->
+            <rect x="50" y="50" width="20" height="20" fill="rgba(255,80,80,1)"/>
+            <rect x="110" y="50" width="20" height="20" fill="rgba(255,80,80,1)"/>
+            <rect x="170" y="50" width="20" height="20" fill="rgba(255,80,80,1)"/>
+            <rect x="50" y="110" width="20" height="20" fill="rgba(255,80,80,1)"/>
+            <rect x="110" y="110" width="20" height="20" fill="rgba(255,80,80,1)"/>
+            <rect x="170" y="110" width="20" height="20" fill="rgba(255,80,80,1)"/>
+            <rect x="50" y="170" width="20" height="20" fill="rgba(255,80,80,1)"/>
+            <rect x="110" y="170" width="20" height="20" fill="rgba(255,80,80,1)"/>
+            <rect x="170" y="170" width="20" height="20" fill="rgba(255,80,80,1)"/>
+            <!-- Vertical lines for 3x3 sections -->
+            <line x1="70" y1="10" x2="70" y2="190" stroke="#666" stroke-width="4"/>
+            <line x1="130" y1="10" x2="130" y2="190" stroke="#666" stroke-width="4"/>
+            
+            <!-- Horizontal lines for 3x3 sections -->
+            <line x1="10" y1="70" x2="190" y2="70" stroke="#666" stroke-width="4"/>
+            <line x1="10" y1="130" x2="190" y2="130" stroke="#666" stroke-width="4"/>
+            
+          </svg>
+        </figure>
+        Parallel update pattern: In each step, all pixels with the same position in their respective 3×3 blocks are updated simultaneously. Different shades represent the nine update positions processed in sequence.
+      </span>
+
+      <h2>GPU Implementation</h2>
+      <p>
+        WebGL's parallel processing capabilities make it ideal for implementing this algorithm:
+      </p>
+
+      <ul>
+        <li>The vertex shader creates a full-screen quad for processing</li>
+        <li>The fragment shader executes in parallel for each pixel:
+          <ul>
+            <li>Each shader instance determines if the current pixel matches the update position</li>
+            <li>If matched, it samples neighboring pixels from the current state texture</li>
+            <li>It then computes the weighted average of neighbors and original signal</li>
+            <li>Finally, it adds a small random component to simulate the stochastic nature of Gibbs sampling</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p>
+        The fragment shader code handles the core computation:
+      </p>
+
+      <pre><code>// Fragment shader (simplified)
+void main() {
+    // Determine if this pixel should be updated
+    vec2 gridPos = mod(gl_FragCoord.xy, 3.0);
+    int currentPos = int(gridPos.y) * 3 + int(gridPos.x);
+    if (currentPos != u_step) {
+        gl_FragColor = texture2D(u_state, uv);
+        return;
+    }
+    
+    // Sample neighbors and compute new value
+    float meanNeighbors = calculateNeighborAverage();
+    float original = texture2D(u_original, uv).r;
+    
+    float estimate = 0.7 * meanNeighbors + 0.3 * original;
+    float noise = (rand(gl_FragCoord.xy) * 2.0 - 1.0) * 0.05;
+    
+    gl_FragColor = vec4(vec3(clamp(estimate + noise, 0.0, 1.0)), 1.0);
+}</code></pre>
+
+      <p>
+        This implementation demonstrates how probabilistic algorithms can be efficiently parallelized on GPUs, making real-time Bayesian inference possible for image processing applications.
+      </p>
+
+      <h2>Conclusion</h2>
+      <p>
+        We've shown how to convert sequential Gibbs sampling to a parallel implementation. By identifying which pixels can be updated simultaneously without affecting statistical correctness, we transformed a sequential algorithm into one that works efficiently on parallel hardware. 
+      </p>
+      
+      <p>
+        This is probably a more general note not limited to just Gibbs sampling, and indeed we saw these kinds of tricks applied in a lot of things.
+      </p>
+
+    </section>
+  </article>
+  
+  <!-- Gibbs Sampling Demo -->
+  <script>
+    const GibbsSamplingDemo = () => {
+      // Increase canvas dimensions
+      const canvasWidth = 400;  // Increased from 280
+      const canvasHeight = 300; // Increased from 200
+      const pixelSize = 4;
+      const cols = canvasWidth / pixelSize;
+      const rows = canvasHeight / pixelSize;
+      
+      // References to canvases
+      const originalCanvasRef = React.useRef(null);
+      const noisyCanvasRef = React.useRef(null);
+      const processCanvasRef = React.useRef(null);
+      
+      // Add new ref for GPU canvas
+      const gpuCanvasRef = React.useRef(null);
+      // State variables
+      const [isRunning, setIsRunning] = React.useState(false);
+      const [step, setStep] = React.useState(0);
+      const [iteration, setIteration] = React.useState(0);
+      const [noiseLevel, setNoiseLevel] = React.useState(0.3);
+      const [imageData, setImageData] = React.useState({
+        original: null,
+        noisy: null,
+        cpuProcessing: null,
+        gpuProcessing: null,
+        cpuIteration: 0,
+        gpuIteration: 0
+      });
+      const animationRef = React.useRef(null);
+      
+      // Initialize the demo and auto-start
+      React.useEffect(() => {
+        resetDemo();
+        setIsRunning(true);  // Auto-start the sampling
+      }, []);
+      
+      // Compute new value for a given pixel position
+      const computeNewValue = (x, y, currentData, originalData) => {
+        const neighbors = [];
+        
+        // Get values of neighboring pixels (handling edges)
+        if (x > 0) neighbors.push(currentData[(y * cols) + (x - 1)]);
+        if (x < cols - 1) neighbors.push(currentData[(y * cols) + (x + 1)]);
+        if (y > 0) neighbors.push(currentData[((y - 1) * cols) + x]);
+        if (y < rows - 1) neighbors.push(currentData[((y + 1) * cols) + x]);
+        
+        // Diagonal neighbors
+        if (x > 0 && y > 0) neighbors.push(currentData[((y - 1) * cols) + (x - 1)]);
+        if (x < cols - 1 && y > 0) neighbors.push(currentData[((y - 1) * cols) + (x + 1)]);
+        if (x > 0 && y < rows - 1) neighbors.push(currentData[((y + 1) * cols) + (x - 1)]);
+        if (x < cols - 1 && y < rows - 1) neighbors.push(currentData[((y + 1) * cols) + (x + 1)]);
+        
+        const idx = y * cols + x;
+        const originalSignal = originalData[idx];
+        
+        // Calculate mean of neighbors
+        const meanOfNeighbors = neighbors.reduce((sum, val) => sum + val, 0) / neighbors.length;
+        
+        // Weight between neighborhood consistency and original observation
+        const consistencyWeight = 0.7;
+        const observationWeight = 0.3;
+        
+        // Combine information to produce an estimate
+        const estimate = consistencyWeight * meanOfNeighbors + observationWeight * originalSignal;
+        
+        // Add small random noise (represents the stochastic nature of Gibbs sampling)
+        const randomNoise = (Math.random() * 0.1) - 0.05;
+        return Math.max(0, Math.min(1, estimate + randomNoise));
+      };
+
+      const CPU_performGibbsStep = (step, cols, rows, imageData, originalData) => {
+        // Calculate current position from step count
+        const x = step % cols;
+        const y = Math.floor((step % (cols * rows)) / cols);
+        const idx = y * cols + x;
+        imageData[idx] = computeNewValue(x, y, imageData, originalData);
+      }
+
+      const GPU_performGibbsStep = (step, cols, rows, imageData, originalData) => {
+        const gridStep = step % 9;  // Current position in 3x3 grid (0-8)
+        const gridX = gridStep % 3; // X position within 3x3 grid (0-2)
+        const gridY = Math.floor(gridStep / 3); // Y position within 3x3 grid (0-2)
+        
+        // Process all pixels that match the current grid position
+        for (let blockY = 0; blockY < rows; blockY += 3) {
+            for (let blockX = 0; blockX < cols; blockX += 3) {
+                // Calculate actual pixel position
+                const x = blockX + gridX;
+                const y = blockY + gridY;
+                
+                // Skip if outside image bounds
+                if (x >= cols || y >= rows) continue;
+                
+                // Calculate pixel index
+                const idx = y * cols + x;
+                
+                // Update pixel using same computation as CPU version
+                imageData[idx] = computeNewValue(x, y, imageData, originalData);
+            }
+        }
+      };
+      
+      // Animated Gibbs sampling
+      const runGibbsSampling = () => {
+        if (!imageData.cpuProcessing || !imageData.gpuProcessing) return;
+        
+        const cpuData = [...imageData.cpuProcessing];
+        const gpuData = [...imageData.gpuProcessing];
+        const originalData = [...imageData.original];
+
+        CPU_performGibbsStep(step, cols, rows, cpuData, originalData);
+        GPU_performGibbsStep(step, cols, rows, gpuData, originalData);
+        
+        // Calculate new iterations
+        const nextStep = step + 1;
+        const newCpuIteration = Math.floor(nextStep / (cols * rows));
+        const newGpuIteration = Math.floor(nextStep / 9);
+
+        // Update state with new processing data and iterations
+        setImageData(prev => ({
+            ...prev, 
+            cpuProcessing: cpuData,
+            gpuProcessing: gpuData,
+            cpuIteration: newCpuIteration,
+            gpuIteration: newGpuIteration
+        }));
+        
+        // Update step counter
+        setStep(nextStep);
+        
+        renderToCanvas(processCanvasRef, cpuData);
+        renderToCanvas(gpuCanvasRef, gpuData);
+        
+        // Continue animation if running
+        if (isRunning) {
+            animationRef.current = requestAnimationFrame(runGibbsSampling);
+        }
+      };
+      
+      // Effect to handle animation
+      React.useEffect(() => {
+        if (isRunning) {
+          animationRef.current = requestAnimationFrame(runGibbsSampling);
+        } else if (animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+        }
+        
+        return () => {
+          if (animationRef.current) {
+            cancelAnimationFrame(animationRef.current);
+          }
+        };
+      }, [isRunning, imageData.cpuProcessing]);
+      
+      // Replace the createImage function with this new version
+      const createImage = () => {
+        const originalData = new Array(cols * rows).fill(0);
+        
+        // Draw three circles with different sizes and positions
+        const circles = [
+          { x: cols * 0.3, y: rows * 0.4, radius: Math.min(cols, rows) * 0.2, value: 0.9 },
+          { x: cols * 0.7, y: rows * 0.4, radius: Math.min(cols, rows) * 0.15, value: 0.8 },
+          { x: cols * 0.5, y: rows * 0.7, radius: Math.min(cols, rows) * 0.25, value: 0.95 }
+        ];
+        
+        // Draw gradient background
+        for (let y = 0; y < rows; y++) {
+          for (let x = 0; x < cols; x++) {
+            const idx = y * cols + x;
+            // Subtle gradient
+            originalData[idx] = 0.15 + (0.1 * Math.sin(x / cols * Math.PI));
+            
+            // Draw circles
+            circles.forEach(circle => {
+              const distance = Math.sqrt(Math.pow(x - circle.x, 2) + Math.pow(y - circle.y, 2));
+              if (distance < circle.radius) {
+                originalData[idx] = circle.value - (distance / circle.radius) * 0.2;
+              }
+            });
+            
+            // Add horizontal bars
+            if ((y + 5) % 40 < 3) {
+              originalData[idx] *= 0.3;
+            }
+          }
+        }
+        
+        return originalData;
+      };
+      
+      // Add noise to image
+      const addNoise = (originalData, level) => {
+        return originalData.map(pixel => {
+          const noise = (Math.random() * 2 - 1) * level;
+          return Math.max(0, Math.min(1, pixel + noise));
+        });
+      };
+      
+      // Render specific image data to a canvas
+      const renderToCanvas = (canvasRef, pixelData) => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        
+        const ctx = canvas.getContext('2d');
+        const imageData = ctx.createImageData(canvasWidth, canvasHeight);
+        
+        for (let y = 0; y < rows; y++) {
+          for (let x = 0; x < cols; x++) {
+            const value = pixelData[y * cols + x];
+            const color = Math.floor(value * 255);
+            
+            for (let py = 0; py < pixelSize; py++) {
+              for (let px = 0; px < pixelSize; px++) {
+                const pixelIndex = ((y * pixelSize + py) * canvasWidth + (x * pixelSize + px)) * 4;
+                imageData.data[pixelIndex] = color;
+                imageData.data[pixelIndex + 1] = color;
+                imageData.data[pixelIndex + 2] = color;
+                imageData.data[pixelIndex + 3] = 255;
+              }
+            }
+          }
+        }
+        
+        ctx.putImageData(imageData, 0, 0);
+      };
+      
+      // Update resetDemo to handle WebGL reset
+      const resetDemo = () => {
+        setStep(0);
+        
+        const originalData = createImage();
+        const noisyData = addNoise(originalData, noiseLevel);
+        
+        setImageData({
+            original: originalData,
+            noisy: noisyData,
+            cpuProcessing: [...noisyData],
+            gpuProcessing: [...noisyData],
+            cpuIteration: 0,
+            gpuIteration: 0
+        });
+        
+        // Render to all canvases
+        setTimeout(() => {
+          renderToCanvas(originalCanvasRef, originalData);
+          renderToCanvas(noisyCanvasRef, noisyData);
+          renderToCanvas(processCanvasRef, noisyData);
+          renderToCanvas(gpuCanvasRef, noisyData);
+        }, 100);
+      };
+      
+      // Handle noise level change and auto-reset
+      const handleNoiseChange = (e) => {
+        const level = parseFloat(e.target.value);
+        setNoiseLevel(level);
+        resetDemo();  // Automatically reset when noise level changes
+      };
+      
+      const handlePlayPause = () => {
+        setIsRunning(prev => !prev);
+      };
+      
+      return React.createElement('div', { 
+        style: { 
+          width: '100%',
+          marginLeft: 0,
+          padding: 0
+        } 
+      },
+        React.createElement('div', {
+          style: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            marginBottom: '1.5rem'
+          }
+        },
+          React.createElement('div', {
+            style: {
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '1.5rem',
+              width: '100%',
+              marginBottom: '2rem',
+              flexWrap: 'wrap' // Allow wrapping for smaller screens
+            }
+          },
+            // Original canvas
+            React.createElement('div', {
+              style: {
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
+              }
+            },
+              React.createElement('h3', {
+                style: {
+                  marginBottom: '0.5rem',
+                  fontSize: '1.2rem',
+                  fontStyle: 'italic'
+                }
+              }, 'Original'),
+              React.createElement('canvas', {
+                ref: originalCanvasRef,
+                width: canvasWidth,
+                height: canvasHeight,
+                style: { border: '1px solid #ddd' }
+              })
+            ),
+            // Noisy canvas
+            React.createElement('div', {
+              style: {
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
+              }
+            },
+              React.createElement('h3', {
+                style: {
+                  marginBottom: '0.5rem',
+                  fontSize: '1.2rem',
+                  fontStyle: 'italic'
+                }
+              }, 'Noisy'),
+              React.createElement('canvas', {
+                ref: noisyCanvasRef,
+                width: canvasWidth,
+                height: canvasHeight,
+                style: { border: '1px solid #ddd' }
+              })
+            ),
+            // CPU Denoising canvas
+            React.createElement('div', {
+              style: {
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
+              }
+            },
+              React.createElement('h3', {
+                style: {
+                  marginBottom: '0.5rem',
+                  fontSize: '1.2rem',
+                  fontStyle: 'italic'
+                }
+              }, `Plain Sequential Algorithm (Iteration ${imageData.cpuIteration}, Step ${step % (cols * rows)})`),
+              React.createElement('canvas', {
+                ref: processCanvasRef,
+                width: canvasWidth,
+                height: canvasHeight,
+                style: { border: '1px solid #ddd' }
+              })
+            ),
+            // GPU Denoising canvas
+            React.createElement('div', {
+              style: {
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
+              }
+            },
+              React.createElement('h3', {
+                style: {
+                  marginBottom: '0.5rem',
+                  fontSize: '1.2rem',
+                  fontStyle: 'italic'
+                }
+              }, `Using Shader (Iteration ${imageData.gpuIteration}, Step ${step % 9})`),
+              React.createElement('canvas', {
+                ref: gpuCanvasRef,
+                width: canvasWidth,
+                height: canvasHeight,
+                style: { border: '1px solid #ddd' }
+              })
+            )
+          ),
+          React.createElement('div', {
+            style: {
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop: '0.5rem',
+              width: '100%',
+              gap: '1.5rem',
+              flexWrap: 'wrap'
+            }
+          },
+            React.createElement('button', {
+              onClick: handlePlayPause,
+              className: 'demo-button'
+            }, isRunning ? 'Pause' : 'Start'),
+            React.createElement('button', {
+              onClick: resetDemo,
+              className: 'demo-button'
+            }, 'Reset'),
+            React.createElement('div', {
+              style: {
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1rem'
+              }
+            },
+              React.createElement('label', {
+                style: {
+                  fontSize: '0.9rem',
+                  fontWeight: '500'
+                }
+              }, 'Noise:'),
+              React.createElement('input', {
+                type: 'range',
+                min: '0.1',
+                max: '0.5',
+                step: '0.1',
+                value: noiseLevel,
+                onChange: handleNoiseChange
+              }),
+              React.createElement('span', {
+                style: { 
+                  fontSize: '0.9rem',
+                  fontWeight: '500',
+                  minWidth: '2rem'
+                }
+              }, noiseLevel.toFixed(1))
+            )
+          )
+        )
+      );
+    };
+
+    // Render the demo
+    const root = ReactDOM.createRoot(document.getElementById('gibbs-demo-root'));
+    root.render(React.createElement(GibbsSamplingDemo));
+  </script>
+
+  <script id="vertexShader" type="x-shader/x-vertex">
+    attribute vec4 a_position;
+    attribute vec2 a_texCoord;
+    varying vec2 v_texCoord;
+    void main() {
+        gl_Position = a_position;
+        v_texCoord = a_texCoord;
+    }
+  </script>
+
+  <script id="fragmentShader" type="x-shader/x-fragment">
+    precision mediump float;
+    uniform sampler2D u_state;
+    uniform sampler2D u_original;
+    uniform int u_step;
+    uniform float u_noise_level;
+    uniform vec2 u_resolution;
+
+    float rand(vec2 co) {
+        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+    }
+
+    void main() {
+        vec2 uv = gl_FragCoord.xy / u_resolution;
+        
+        // Calculate grid position (0-8)
+        vec2 gridPos = mod(gl_FragCoord.xy, 3.0);
+        int currentPos = int(gridPos.y) * 3 + int(gridPos.x);
+        
+        // Only update pixels matching current step pattern
+        if (currentPos != u_step) {
+            gl_FragColor = texture2D(u_state, uv);
+            return;
+        }
+        
+        // Sample 8 neighbors
+        float neighborSum = 0.0;
+        int count = 0;
+        vec2 pixelSize = 1.0 / u_resolution;
+        
+        for (int dy = -1; dy <= 1; dy++) {
+            for (int dx = -1; dx <= 1; dx++) {
+                if (dx == 0 && dy == 0) continue;
+                
+                vec2 neighborUV = uv + vec2(float(dx), float(dy)) * pixelSize;
+                if (neighborUV.x >= 0.0 && neighborUV.y >= 0.0 && 
+                    neighborUV.x < 1.0 && neighborUV.y < 1.0) {
+                    neighborSum += texture2D(u_state, neighborUV).r;
+                    count++;
+                }
+            }
+        }
+        
+        float meanNeighbors = neighborSum / float(count);
+        float original = texture2D(u_original, uv).r;
+        
+        // Combine neighborhood and original signal
+        float w_neighbors = 0.7;
+        float w_original = 0.3;
+        float estimate = w_neighbors * meanNeighbors + w_original * original;
+        
+        // Add controlled random noise
+        float noise = (rand(gl_FragCoord.xy) * 2.0 - 1.0) * u_noise_level;
+        
+        gl_FragColor = vec4(vec3(clamp(estimate + noise, 0.0, 1.0)), 1.0);
+    }
+  </script>
+
+  <script>
+  class GibbsSamplerGPU {
+    constructor() {
+        this.canvas = document.createElement('canvas');
+        this.gl = this.canvas.getContext('webgl', { preserveDrawingBuffer: true });
+        
+        if (!this.gl) {
+            throw new Error('WebGL not supported');
+        }
+        
+        this.initShaderProgram();
+        this.initBuffers();
+    }
+    
+    // ... (keep initShaderProgram, createShader, and initBuffers from reference code) ...
+    
+    processGibbsStep(currentState, originalImage, step) {
+        // Set canvas size
+        this.canvas.width = currentState.width;
+        this.canvas.height = currentState.height;
+        
+        // Create and bind textures
+        const stateTexture = this.createTexture(currentState);
+        const originalTexture = this.createTexture(originalImage);
+        
+        // Set up GL state
+        this.gl.viewport(0, 0, this.canvas.width, this.canvas.height);
+        this.gl.useProgram(this.program);
+        
+        // Set uniforms
+        const stepLocation = this.gl.getUniformLocation(this.program, "u_step");
+        const noiseLevelLocation = this.gl.getUniformLocation(this.program, "u_noise_level");
+        const resolutionLocation = this.gl.getUniformLocation(this.program, "u_resolution");
+        
+        this.gl.uniform1i(stepLocation, step % 9);
+        this.gl.uniform1f(noiseLevelLocation, 0.05);
+        this.gl.uniform2f(resolutionLocation, this.canvas.width, this.canvas.height);
+        
+        // Draw
+        this.gl.drawArrays(this.gl.TRIANGLE_STRIP, 0, 4);
+        
+        // Read back the result
+        const pixels = new Uint8Array(this.canvas.width * this.canvas.height * 4);
+        this.gl.readPixels(0, 0, this.canvas.width, this.canvas.height, 
+            this.gl.RGBA, this.gl.UNSIGNED_BYTE, pixels);
+        
+        return new ImageData(
+            new Uint8ClampedArray(pixels), 
+            this.canvas.width, 
+            this.canvas.height
+        );
+    }
+    
+    createTexture(imageData) {
+        const texture = this.gl.createTexture();
+        this.gl.bindTexture(this.gl.TEXTURE_2D, texture);
+        
+        this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.CLAMP_TO_EDGE);
+        this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.CLAMP_TO_EDGE);
+        this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.NEAREST);
+        this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.NEAREST);
+        
+        this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, this.gl.RGBA, 
+            this.gl.UNSIGNED_BYTE, imageData);
+            
+        return texture;
+    }
+  }
+
+  // Example usage:
+  const gibbsSampler = new GibbsSamplerGPU();
+
+  function performGibbsStep(currentState, originalImage, step) {
+    return gibbsSampler.processGibbsStep(currentState, originalImage, step);
+  }
+  </script>
+</body>
+</html>

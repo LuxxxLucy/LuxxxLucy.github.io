@@ -1,0 +1,97 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css';
+
+/* Override any potential dark mode styles */
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: #fffff8;
+  color: #111;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+article {
+  padding: 1rem;      /* Reduced padding */
+  padding-left: 5%;   /* Minimal left padding */
+  max-width: 1400px;
+  margin: 0;          /* Remove auto margins */
+  margin-left: 1rem;  /* Small left margin for readability */
+}
+
+h1, h2, h3 {
+  color: #111;
+}
+
+.sidenote, .marginnote {
+  color: #666;
+}
+
+/* Demo container styles */
+.demo-container {
+  margin: 3rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.demo-wrapper {
+  width: 100%;
+  margin: 2rem 0 3rem 0;  /* Simplified margins */
+  padding: 0;
+}
+
+/* Modern, minimalist button styles */
+.demo-button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.7rem 1.2rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.demo-button:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(-1px);
+}
+
+.demo-button:active {
+  transform: translateY(1px);
+}
+
+.demo-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Slider styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 2px;
+  width: 120px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.9);
+} 
