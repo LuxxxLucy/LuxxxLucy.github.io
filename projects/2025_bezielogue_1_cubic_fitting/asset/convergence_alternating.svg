@@ -1,0 +1,77 @@
+<svg height="250" viewBox="0 0 300 250" width="300" xmlns="http://www.w3.org/2000/svg">
+<path d="M51.261623,203.01604 C57.853737,72.51704,242.76161,64.56915,249.76099,202.03313" fill="none" stroke="#FF0000" stroke-dasharray="2,2" stroke-width="1"/>
+<path d="M51.160023,202.45071 C63.97117,70.336136,235.77132,61.6391,249.61092,201.67609" fill="none" stroke="#FF3300" stroke-dasharray="2,2" stroke-width="1"/>
+<path d="M51.05269,202.06126 C69.02164,68.272934,229.8235,59.358707,249.60898,201.40085" fill="none" stroke="#FF6600" stroke-dasharray="2,2" stroke-width="1"/>
+<path d="M50.95414,201.75018 C73.03567,66.59722,225.08083,57.468502,249.63275,201.177" fill="none" stroke="#FF9900" stroke-dasharray="2,2" stroke-width="1"/>
+<path d="M50.865044,201.50307 C76.31521,65.169586,221.20743,55.910027,249.6758,201.00406" fill="none" stroke="#FFCC00" stroke-dasharray="2,2" stroke-width="1"/>
+<path d="M50.789402,201.28114 C79.00654,63.989452,218.11444,54.606697,249.70047,200.84697" fill="none" stroke="#FFFF00" stroke-dasharray="2,2" stroke-width="1"/>
+<path d="M50.724785,201.10002 C81.27891,62.95566,215.45013,53.491405,249.74637,200.73616" fill="none" stroke="#CCFF00" stroke-dasharray="2,2" stroke-width="1"/>
+<path d="M50.66627,200.92952 C83.20048,62.176037,213.18408,52.40981,249.76944,200.62364" fill="none" stroke="#99FF00" stroke-dasharray="2,2" stroke-width="1"/>
+<path d="M50.592567,200.83163 C84.86951,61.448124,211.30113,51.522133,249.79314,200.53914" fill="none" stroke="#66FF00" stroke-dasharray="2,2" stroke-width="1"/>
+<path d="M50.54411,200.70972 C86.30332,60.861443,209.60559,50.67926,249.81914,200.46614" fill="none" stroke="#33FF00" stroke-dasharray="2,2" stroke-width="1"/>
+<path d="M50.47837,200.64207 C87.51116,60.40237,208.25269,49.944897,249.83443,200.41348" fill="none" stroke="#00FF00" stroke-dasharray="2,2" stroke-width="1"/>
+<path d="M50,200 C100,50,200,50,250,200" fill="none" stroke="blue" stroke-width="2"/>
+<g fill="black">
+<circle cx="50" cy="200" r="2"/>
+<circle cx="66.4" cy="159.5" r="2"/>
+<circle cx="75.5375" cy="142.625" r="2"/>
+<circle cx="105.79999999999998" cy="105.49999999999999" r="2"/>
+<circle cx="194.2" cy="105.49999999999999" r="2"/>
+<circle cx="224.46249999999998" cy="142.625" r="2"/>
+<circle cx="250" cy="200" r="2"/>
+</g>
+<g>
+<path d="M10,10 L30,10" stroke="blue" stroke-width="2"/>
+<text font-size="10" x="35" y="14">
+Original Curve
+</text>
+<path d="M10,25 L30,25" stroke="#FF0000" stroke-dasharray="2,2" stroke-width="1"/>
+<text font-size="10" x="35" y="29">
+0 iterations
+</text>
+<path d="M10,40 L30,40" stroke="#FF3300" stroke-dasharray="2,2" stroke-width="1"/>
+<text font-size="10" x="35" y="44">
+1 iterations
+</text>
+<path d="M10,55 L30,55" stroke="#FF6600" stroke-dasharray="2,2" stroke-width="1"/>
+<text font-size="10" x="35" y="59">
+2 iterations
+</text>
+<path d="M10,70 L30,70" stroke="#FF9900" stroke-dasharray="2,2" stroke-width="1"/>
+<text font-size="10" x="35" y="74">
+3 iterations
+</text>
+<path d="M10,85 L30,85" stroke="#FFCC00" stroke-dasharray="2,2" stroke-width="1"/>
+<text font-size="10" x="35" y="89">
+4 iterations
+</text>
+<path d="M10,100 L30,100" stroke="#FFFF00" stroke-dasharray="2,2" stroke-width="1"/>
+<text font-size="10" x="35" y="104">
+5 iterations
+</text>
+<path d="M10,115 L30,115" stroke="#CCFF00" stroke-dasharray="2,2" stroke-width="1"/>
+<text font-size="10" x="35" y="119">
+6 iterations
+</text>
+<path d="M10,130 L30,130" stroke="#99FF00" stroke-dasharray="2,2" stroke-width="1"/>
+<text font-size="10" x="35" y="134">
+7 iterations
+</text>
+<path d="M10,145 L30,145" stroke="#66FF00" stroke-dasharray="2,2" stroke-width="1"/>
+<text font-size="10" x="35" y="149">
+8 iterations
+</text>
+<path d="M10,160 L30,160" stroke="#33FF00" stroke-dasharray="2,2" stroke-width="1"/>
+<text font-size="10" x="35" y="164">
+9 iterations
+</text>
+<path d="M10,175 L30,175" stroke="#00FF00" stroke-dasharray="2,2" stroke-width="1"/>
+<text font-size="10" x="35" y="179">
+10 iterations
+</text>
+<circle cx="20" cy="200" fill="black" r="2"/>
+<text font-size="10" x="35" y="204">
+Sample Points
+</text>
+</g>
+</svg>

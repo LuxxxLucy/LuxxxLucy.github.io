@@ -1,0 +1,47 @@
+<svg height="250" viewBox="0 0 300 250" width="300" xmlns="http://www.w3.org/2000/svg">
+<path d="M50,200 C100,50,200,50,250,200" fill="none" stroke="blue" stroke-width="2"/>
+<path d="M51.261623,203.01604 C57.853737,72.51704,242.76161,64.56915,249.76099,202.03313" fill="none" stroke="grey" stroke-dasharray="5,5" stroke-width="1"/>
+<g fill="red">
+<circle cx="50" cy="200" r="2"/>
+<circle cx="66.4" cy="159.5" r="2"/>
+<circle cx="75.5375" cy="142.625" r="2"/>
+<circle cx="105.79999999999998" cy="105.49999999999999" r="2"/>
+<circle cx="194.2" cy="105.49999999999999" r="2"/>
+<circle cx="224.46249999999998" cy="142.625" r="2"/>
+<circle cx="250" cy="200" r="2"/>
+</g>
+<g>
+<circle cx="51.43732177856765" cy="200.136235301554" fill="none" r="2" stroke="green" stroke-width="1"/>
+<line stroke="green" stroke-dasharray="2,2" stroke-width="1" x1="50" x2="51.43732177856765" y1="200" y2="200.136235301554"/>
+<circle cx="62.45822997249966" cy="157.62336030389622" fill="none" r="2" stroke="green" stroke-width="1"/>
+<line stroke="green" stroke-dasharray="2,2" stroke-width="1" x1="66.4" x2="62.45822997249966" y1="159.5" y2="157.62336030389622"/>
+<circle cx="72.99216210380402" cy="140.59665604115492" fill="none" r="2" stroke="green" stroke-width="1"/>
+<line stroke="green" stroke-dasharray="2,2" stroke-width="1" x1="75.5375" x2="72.99216210380402" y1="142.625" y2="140.59665604115492"/>
+<circle cx="108.79916953713973" cy="111.83974322834317" fill="none" r="2" stroke="green" stroke-width="1"/>
+<line stroke="green" stroke-dasharray="2,2" stroke-width="1" x1="105.79999999999998" x2="108.79916953713973" y1="105.49999999999999" y2="111.83974322834317"/>
+<circle cx="192.2056965329616" cy="110.1119636409797" fill="none" r="2" stroke="green" stroke-width="1"/>
+<line stroke="green" stroke-dasharray="2,2" stroke-width="1" x1="194.2" x2="192.2056965329616" y1="105.49999999999999" y2="110.1119636409797"/>
+<circle cx="228.9471930581758" cy="139.26996300637543" fill="none" r="2" stroke="green" stroke-width="1"/>
+<line stroke="green" stroke-dasharray="2,2" stroke-width="1" x1="224.46249999999998" x2="228.9471930581758" y1="142.625" y2="139.26996300637543"/>
+<circle cx="249.6475516054649" cy="200.05764189038723" fill="none" r="2" stroke="green" stroke-width="1"/>
+<line stroke="green" stroke-dasharray="2,2" stroke-width="1" x1="250" x2="249.6475516054649" y1="200" y2="200.05764189038723"/>
+</g>
+<g>
+<path d="M10,10 L30,10" stroke="blue" stroke-width="2"/>
+<text font-size="10" x="35" y="14">
+Original Curve
+</text>
+<path d="M10,25 L30,25" stroke="grey" stroke-dasharray="5,5" stroke-width="1"/>
+<text font-size="10" x="35" y="29">
+Fitted Curve
+</text>
+<circle cx="20" cy="40" fill="red" r="2"/>
+<text font-size="10" x="35" y="44">
+Sample Points
+</text>
+<circle cx="20" cy="55" fill="none" r="2" stroke="green" stroke-width="1"/>
+<text font-size="10" x="35" y="59">
+Nearest Points
+</text>
+</g>
+</svg>
