@@ -66,9 +66,14 @@
                 <div class="narrow">
                     <p class="h2">News</p>
                 </div>
-                <div class="h6" style="display: grid; grid-template-columns: 80px 1fr; gap: 12px; align-items: start;">
+                <style>
+                    .news-item a.pic-link { position: relative; }
+                    .news-item a.pic-link img { position: absolute; top: 100%; left: 0; max-width: 200px; border-radius: 4px; margin-top: 8px; display: none; z-index: 10; }
+                    .news-item a.pic-link:hover img { display: block !important; }
+                </style>
+                <div class="h6 news-item" style="display: grid; grid-template-columns: 80px 1fr; gap: 12px; align-items: start;">
                     <div style="color: #383c43;">Dec 2025</div>
-                    <div>I received the Outstanding Individual Award of the Year at Huawei Vancouver Research Center (2 out of 150+ R&D).</div>
+                    <div>I received the Outstanding Individual Award of the Year at Huawei Vancouver Research Center (2 out of 150+ R&D). <a href="./assets/headers/lujialin_photo_2025.png" class="pic-link">Picture here<img src="./assets/headers/lujialin_photo_2025.png" /></a></div>
 
                     <div style="color: #383c43;">Dec 2024</div>
                     <div>Our team won the Gold Team Award at Huawei Vancouver Research Center (1 out of 10+ teams).</div>
