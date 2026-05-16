@@ -22,3 +22,6 @@ package-lock.json
 
 */*/*/compiled
 */compiled
+
+AGENTS.md
+CLAUDE.md
