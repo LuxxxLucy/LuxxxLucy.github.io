@@ -11,7 +11,7 @@ morphingBody {
 }
 
 
-@import url(https://rsms.me/inter/inter-ui.css);*{box-sizing:border-box}body{margin:0;padding:0;box-sizing:border-box}body,input,label{font-family:'Inter UI',sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:14px}
+@import url(https://rsms.me/inter/inter-ui.css);*{box-sizing:border-box}html{background:#fbfcfb}body{margin:0;padding:0;box-sizing:border-box}body,input,label{font-family:'Inter UI',sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:14px}
 /* .logo{margin-bottom:25px;top:-120px;left: 5px;position: relative;;z-index: 1} */
 .logo{margin-bottom:25px;top:80px;left: 8px;position: relative;;z-index: 1}
 
@@ -22,7 +22,8 @@ body {
     , BlinkMacSystemFont, sans-serif;
 }
 
-.main{min-width:250px;max-width:900px;margin:200 auto;padding:100px 28px 28px 28px}
+.sky-scroll-bg{position:fixed;inset:0;width:100vw;height:100vh;display:block;pointer-events:none;z-index:0;background:radial-gradient(circle at 72% 24%,rgba(255,255,255,.96),rgba(255,255,255,0) 26vw),linear-gradient(180deg,#fbffff 0%,#f7fbfd 48%,#fff6ec 100%)}
+.main{min-width:250px;max-width:900px;margin:200 auto;padding:100px 28px 28px 28px;position:relative;z-index:1}
 .narrow{max-width:570px;margin:0 auto}
 .extranarrow{max-width:450px;margin:0 auto}
 .left,.right{flex:1;width:510px;flex-shrink:0;display:flex}
@@ -35,6 +36,9 @@ body {
 .h4{font-size:14px;color:#383c43;font-weight:600;line-height:18px;}
 .h5{font-size:12px;color:#6b737b;margin:-15px 0}
 .h6{font-size:12px;color:#6b737b;margin:0px 0;line-height:16px}
+body.sky-scroll-contrast .h2,body.sky-scroll-contrast .h3,body.sky-scroll-contrast .h4{color:rgba(245,248,255,.88);text-shadow:0 1px 12px rgba(0,0,0,.32)}
+body.sky-scroll-contrast .h5,body.sky-scroll-contrast .h6,body.sky-scroll-contrast .imprint,body.sky-scroll-contrast .imprint a{color:rgba(220,229,242,.76);text-shadow:0 1px 10px rgba(0,0,0,.30)}
+body.sky-scroll-contrast a:not(.card):not(.small_card):not(.middle_card):not(.tiny_card){color:#b7d3ff}
 
 
 #header {
