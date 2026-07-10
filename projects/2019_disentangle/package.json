@@ -2,7 +2,7 @@
   "name": "wann",
   "version": "0.0.1",
   "dependencies": {
-    "markdown-it": "*",
+    "markdown-it": "^14.2.0",
     "markdown-it-katex": "*",
     "markdown-it-center-text": "*"
   },
